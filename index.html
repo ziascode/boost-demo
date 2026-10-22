@@ -1,0 +1,932 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Boost Painting · Residential Painters in Guelph, Kitchener, Milton &amp; the GTA</title>
+<meta name="description" content="Trusted and reliable residential painting specialists. Interior, exterior and cabinet painting with a Standard 5-Year Warranty. Rated 5.0 on Google. Free, detailed quotes.">
+<meta name="theme-color" content="#0d223f">
+<link rel="icon" href="https://images.squarespace-cdn.com/content/v1/60e0f3f0846c2f5189185c51/678bb698-d0ff-4b40-bca4-98bee032133a/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Instrument+Serif:ital@1&family=JetBrains+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&display=swap">
+<style>
+/* Concept: "Clean lines". Navy ink, painter's-tape blue, primer white.
+   The hero is rolled on stroke by stroke; blue tape is the recurring motif. */
+:root{
+  --navy:#0d223f; --navy-2:#142d50; --tape:#5d8fb2; --tape-2:#8fb6d3; --sky:#dce8f1;
+  --primer:#f3f2ee; --primer-2:#e9e7e0; --white:#fbfaf7;
+  --ink:#0d1a2b; --muted:#5b6574; --line:#d9d6cd; --navy-line:rgba(243,242,238,.14);
+  --star:#f5b83d;
+  --display:"Barlow Condensed","Arial Narrow",Arial,sans-serif;
+  --serif:"Instrument Serif",Georgia,serif;
+  --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+  --body:"Manrope",system-ui,sans-serif;
+  --ease:cubic-bezier(.16,1,.3,1);
+  --gl:max(16px, env(safe-area-inset-left, 0px)); --gr:max(16px, env(safe-area-inset-right, 0px));
+  --pad:clamp(16px,4vw,56px);
+}
+*,*::before,*::after{box-sizing:border-box}
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+.lenis.lenis-stopped{overflow:hidden}
+html,body{overflow-x:clip;margin:0}
+body{background:var(--primer);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+img{max-width:100%;display:block}
+a{color:inherit}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer;background:none;border:0;padding:0}
+:focus-visible{outline:2px solid var(--tape);outline-offset:3px;border-radius:6px}
+.wrap{padding-left:calc(var(--gl) + var(--pad) - 16px);padding-right:calc(var(--gr) + var(--pad) - 16px);max-width:1520px;margin-inline:auto}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* painter's tape eyebrow */
+.tape{position:relative;display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--navy);padding:7px 16px 6px;isolation:isolate;transform:rotate(-1.2deg)}
+.tape::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--tape-2);opacity:.85;
+  clip-path:polygon(0 8%,3% 0,6% 10%,9% 2%,12% 6%,88% 4%,91% 0,94% 8%,97% 1%,100% 6%,100% 92%,97% 100%,94% 91%,91% 99%,88% 95%,12% 97%,9% 100%,6% 90%,3% 98%,0 92%)}
+.tape--dark{color:var(--white)}
+.tape--dark::before{background:var(--tape);opacity:.9}
+
+.display{font-family:var(--display);font-weight:800;text-transform:uppercase;letter-spacing:-.005em;line-height:.88;margin:0;text-wrap:balance}
+.display em{font-family:var(--serif);font-style:italic;font-weight:400;text-transform:none;letter-spacing:-.01em;color:var(--tape)}
+.h2{font-size:clamp(46px,min(7.6vw,12vh),124px)}
+.lede{font-size:clamp(17px,1.35vw,20px);color:var(--muted);max-width:52ch;margin:0}
+
+.lm{display:block;overflow:clip;padding-bottom:.06em;margin-bottom:-.06em}
+.ln{display:block}
+
+/* ---------- buttons ---------- */
+.btn{position:relative;display:inline-flex;align-items:center;gap:12px;height:56px;padding:0 26px;border-radius:999px;font-weight:700;font-size:16px;text-decoration:none;white-space:nowrap;isolation:isolate;overflow:hidden;transition:transform .6s var(--ease)}
+.btn--tape{background:var(--tape);color:#fff}
+.btn--tape::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--navy);transform:translateY(101%);border-radius:inherit;transition:transform .6s var(--ease)}
+.btn--tape:hover::before{transform:none}
+.btn--navy{background:var(--navy);color:#fff}
+.btn--navy::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--tape);transform:translateY(101%);transition:transform .6s var(--ease)}
+.btn--navy:hover::before{transform:none}
+.btn--ghost{color:inherit;box-shadow:inset 0 0 0 1.5px currentColor}
+.btn--ghost:hover{background:rgba(255,255,255,.1)}
+.btn--light{background:var(--white);color:var(--navy)}
+.roll{display:inline-grid;overflow:hidden;line-height:1.3}
+.roll>span{grid-area:1/1;transition:transform .6s var(--ease)}
+.roll>span:last-child{transform:translateY(110%)}
+.btn:hover .roll>span:first-child{transform:translateY(-110%)}
+.btn:hover .roll>span:last-child{transform:none}
+.btn svg{width:18px;height:18px;flex:none;transition:transform .6s var(--ease)}
+.btn:hover svg{transform:translateX(3px)}
+
+/* ---------- header ---------- */
+.header{position:fixed;z-index:50;left:0;right:0;top:0;padding-top:calc(14px + env(safe-area-inset-top,0px));pointer-events:none;transition:transform .6s var(--ease)}
+.header.is-hidden{transform:translateY(-130%)}
+.header__bar{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.header__bar>*{pointer-events:auto}
+.brand{display:flex;align-items:center;height:56px;padding:0 22px;border-radius:999px;background:rgba(251,250,247,.95);box-shadow:0 10px 30px -14px rgba(13,34,63,.5);backdrop-filter:blur(14px) saturate(1.3);-webkit-backdrop-filter:blur(14px) saturate(1.3);transition:transform .6s var(--ease)}
+.brand:hover{transform:scale(1.03)}
+.brand img{height:30px;width:auto}
+.nav{display:none;gap:2px;height:56px;padding:0 8px;align-items:center;border-radius:999px;background:rgba(13,34,63,.55);backdrop-filter:blur(18px) saturate(1.4);-webkit-backdrop-filter:blur(18px) saturate(1.4);transition:background .5s}
+.header.is-light .nav{background:rgba(13,34,63,.82)}
+.nav a{color:#fff;text-decoration:none;font-size:15px;font-weight:600;padding:8px 14px;border-radius:999px;transition:background .3s}
+.nav a:hover{background:rgba(255,255,255,.14)}
+.header__actions{display:flex;gap:8px;align-items:center}
+.pill{display:inline-flex;align-items:center;gap:8px;height:48px;padding:0 18px;border-radius:999px;background:rgba(13,34,63,.6);color:#fff;backdrop-filter:blur(14px) saturate(1.3);-webkit-backdrop-filter:blur(14px) saturate(1.3);text-decoration:none;font-weight:600;font-size:15px;white-space:nowrap;box-shadow:inset 0 0 0 1px rgba(255,255,255,.22)}
+.pill svg{width:16px;height:16px}
+.pill--tape{background:var(--tape);box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.4)}
+.menu-btn{width:48px;height:48px;border-radius:50%;background:var(--white);color:var(--navy);display:grid;place-items:center;box-shadow:0 10px 30px -14px rgba(13,34,63,.5)}
+.menu-btn .bars{width:18px;height:10px;position:relative}
+.menu-btn .bars i{position:absolute;left:0;right:0;height:2px;background:currentColor;border-radius:2px;transition:transform .5s var(--ease),top .5s var(--ease)}
+.menu-btn .bars i:first-child{top:0}.menu-btn .bars i:last-child{top:8px}
+.is-menu .menu-btn .bars i:first-child{top:4px;transform:rotate(45deg)}
+.is-menu .menu-btn .bars i:last-child{top:4px;transform:rotate(-45deg)}
+
+.menu{position:fixed;inset:0;z-index:45;background:var(--navy);color:var(--primer);display:grid;align-content:end;padding:calc(110px + env(safe-area-inset-top,0px)) 0 calc(36px + env(safe-area-inset-bottom,0px));clip-path:inset(0 0 100% 0);visibility:hidden;transition:clip-path .9s var(--ease),visibility 0s .9s}
+.is-menu .menu{clip-path:inset(0 0 0 0);visibility:visible;transition:clip-path .9s var(--ease)}
+.menu ol{list-style:none;margin:0;padding:0;counter-reset:m}
+.menu li{border-top:1px solid var(--navy-line);counter-increment:m}
+.menu li a{display:flex;align-items:baseline;justify-content:space-between;padding:10px 0;text-decoration:none;font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:clamp(42px,9vw,88px);line-height:.95;transition:color .4s,padding .6s var(--ease)}
+.menu li a::after{content:"0" counter(m);font-family:var(--mono);font-size:12px;font-weight:400;color:var(--tape-2)}
+.menu li a:hover{color:var(--tape-2);padding-left:12px}
+.menu__foot{display:flex;flex-wrap:wrap;gap:10px 28px;margin-top:28px;font-family:var(--mono);font-size:13px;color:rgba(243,242,238,.7)}
+.menu__foot a{text-decoration:none}
+
+/* ---------- hero ---------- */
+.hero{position:relative;height:175vh;background:var(--navy)}
+.hero__stage{position:sticky;top:0;height:100vh;height:100svh;overflow:clip;color:#fff}
+.hero__media{position:absolute;inset:0;will-change:clip-path;background:var(--navy)}
+.hero__media canvas{position:absolute;inset:0;width:100%;height:100%}
+.hero__media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,34,63,.6) 0%,rgba(13,34,63,.05) 26%,rgba(13,34,63,.35) 50%,rgba(13,34,63,.92) 100%);pointer-events:none}
+.hero__copy{position:absolute;left:0;right:0;bottom:calc(34px + env(safe-area-inset-bottom,0px));z-index:2;display:grid;gap:20px}
+.hero h1{font-size:clamp(44px,min(8.4vw,12.6vh),150px);max-width:min(100%,7.6em)}
+.hero h1 em{color:var(--tape-2)}
+.hero__row{display:flex;flex-wrap:wrap;gap:18px 28px;align-items:end;justify-content:space-between}
+.hero__row p{margin:0;max-width:42ch;color:rgba(255,255,255,.88);font-size:clamp(16px,1.3vw,19px)}
+.hero__row p b{color:#fff}
+.hero__ctas{display:flex;flex-wrap:wrap;gap:10px}
+.promo{justify-self:start;display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:14px;text-decoration:none;background:rgba(251,250,247,.12);border:1px solid rgba(255,255,255,.25);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);padding:8px 14px 8px 8px;border-radius:999px;color:#fff;transition:background .4s}
+.promo:hover{background:rgba(251,250,247,.22)}
+.promo b{background:var(--tape);border-radius:999px;padding:3px 10px;font-family:var(--mono);font-size:11px;letter-spacing:.1em;font-weight:500}
+.hud{position:absolute;right:calc(var(--gr) + var(--pad) - 16px);top:calc(96px + env(safe-area-inset-top,0px));z-index:2;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.8);font-variant-numeric:tabular-nums;text-align:right;line-height:1.8;transition:opacity .8s}
+
+/* ---------- proof strip ---------- */
+.proof{background:var(--navy);color:var(--primer);padding-block:clamp(52px,8vh,90px)}
+.proof__grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
+.fact{padding:4px clamp(14px,2vw,28px) 0;border-left:1px solid var(--navy-line);display:grid;gap:8px;align-content:start}
+.fact:first-child{border-left:0;padding-left:0}
+.fact__num{font-family:var(--display);font-weight:800;font-size:clamp(56px,6.6vw,100px);line-height:.85;color:var(--tape-2);font-variant-numeric:tabular-nums;display:flex;align-items:baseline;gap:8px}
+.fact__num small{font-size:.3em;font-weight:600;color:var(--primer);letter-spacing:.02em}
+.fact h3{margin:0;font-size:17px;font-weight:700}
+.fact p{margin:0;color:rgba(243,242,238,.68);font-size:15px;line-height:1.5;max-width:30ch}
+.fact .stars{margin-top:2px}
+.stars{display:flex;gap:3px;color:var(--star)}
+.stars svg{width:16px;height:16px}
+
+/* ---------- why: paint chips ---------- */
+.why{padding-block:clamp(84px,13vh,150px)}
+.why__head{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:24px 48px;align-items:end;margin-bottom:clamp(36px,6vh,72px)}
+.why__head .display{margin-top:16px}
+.chips{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(12px,1.4vw,22px)}
+.chip{background:var(--white);border-radius:14px;overflow:hidden;box-shadow:0 1px 0 var(--line),0 30px 60px -40px rgba(13,34,63,.45);display:grid;grid-template-rows:auto 1fr;transform-origin:50% 100%;transition:transform .7s var(--ease),box-shadow .7s var(--ease)}
+.chip:hover{transform:translateY(-8px) rotate(-.6deg);box-shadow:0 1px 0 var(--line),0 40px 70px -36px rgba(13,34,63,.55)}
+.chip__swatch{aspect-ratio:4/3;position:relative;padding:16px;display:flex;flex-direction:column;justify-content:space-between;color:#fff}
+.chip__swatch .code{font-family:var(--mono);font-size:11px;letter-spacing:.14em;opacity:.85}
+.chip__swatch .big{font-family:var(--display);font-weight:800;font-size:clamp(56px,5.4vw,88px);line-height:.8}
+.chip:nth-child(1) .chip__swatch{background:var(--navy)}
+.chip:nth-child(2) .chip__swatch{background:var(--tape)}
+.chip:nth-child(3) .chip__swatch{background:var(--tape-2);color:var(--navy)}
+.chip:nth-child(4) .chip__swatch{background:var(--sky);color:var(--navy)}
+.chip__body{padding:18px 18px 22px;display:grid;gap:8px;align-content:start}
+.chip__body .name{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.chip h3{margin:0;font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:clamp(26px,2.2vw,34px);line-height:.95;color:var(--navy)}
+.chip p{margin:0;color:var(--muted);font-size:15px;line-height:1.55}
+
+/* ---------- services: horizontal track ---------- */
+.services{position:relative;background:var(--navy);color:var(--primer)}
+.services__pin>*{min-width:0}
+.services__pin{position:sticky;top:0;height:100vh;height:100svh;display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:auto 1fr;align-content:center;gap:clamp(22px,4vh,44px);overflow:clip;padding-block:clamp(84px,11vh,120px) clamp(28px,5vh,56px)}
+.services__head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:18px}
+.services__head .display{margin-top:16px}
+.services__head .display em{color:var(--tape-2)}
+.services__count{font-family:var(--mono);font-size:13px;color:rgba(243,242,238,.6);font-variant-numeric:tabular-nums}
+.track{display:flex;gap:clamp(14px,1.6vw,24px);will-change:transform;padding-left:calc(var(--gl) + var(--pad) - 16px);padding-right:calc(var(--gr) + var(--pad) - 16px);min-height:0}
+.svc{flex:0 0 clamp(270px,26vw,400px);display:grid;grid-template-rows:minmax(0,1fr) auto;gap:16px;text-decoration:none;min-height:0}
+.svc__img{position:relative;border-radius:16px;overflow:hidden;min-height:220px}
+.svc__img img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
+.svc:hover .svc__img img{transform:scale(1.07)}
+.svc__tag{position:absolute;left:12px;top:12px;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;padding:6px 10px;border-radius:999px;background:rgba(13,34,63,.6);backdrop-filter:blur(6px);color:#fff}
+.svc h3{margin:0;font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:clamp(28px,2.5vw,38px);line-height:.95;display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.svc h3 span{font-family:var(--mono);font-size:14px;font-weight:400;color:var(--tape-2);transition:transform .6s var(--ease)}
+.svc:hover h3 span{transform:translate(4px,-4px)}
+.svc p{margin:6px 0 0;color:rgba(243,242,238,.7);font-size:15px;max-width:36ch}
+.services__bar{height:3px;background:var(--navy-line);position:relative;border-radius:3px;overflow:hidden}
+.services__bar i{position:absolute;inset:0;background:var(--tape);transform-origin:left;transform:scaleX(0)}
+
+/* ---------- portfolio ---------- */
+.work{padding-block:clamp(84px,13vh,150px)}
+.work__head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:20px;margin-bottom:28px}
+.work__head .display{margin-top:16px}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:clamp(24px,4vh,40px)}
+.filters button{height:42px;padding:0 16px;border-radius:999px;font-size:14px;font-weight:600;box-shadow:inset 0 0 0 1.5px var(--line);background:var(--white);transition:background .4s,color .4s,box-shadow .4s}
+.filters button:hover{box-shadow:inset 0 0 0 1.5px var(--tape)}
+.filters button[aria-pressed="true"]{background:var(--navy);color:#fff;box-shadow:none}
+.filters button sup{font-family:var(--mono);font-size:10px;margin-left:4px;opacity:.6}
+.masonry{columns:4 260px;column-gap:clamp(10px,1.2vw,16px)}
+.tile{position:relative;break-inside:avoid;margin:0 0 clamp(10px,1.2vw,16px);border-radius:14px;overflow:hidden;background:var(--primer-2)}
+.tile img{width:100%;height:auto;transition:transform 1.2s var(--ease)}
+.tile:hover img{transform:scale(1.05)}
+.tile button{position:absolute;inset:0;z-index:1}
+.tile figcaption{position:absolute;left:10px;bottom:10px;right:10px;display:flex;justify-content:space-between;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;background:rgba(13,34,63,.6);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);color:#fff;font-size:13px;font-weight:600;transform:translateY(10px);opacity:0;transition:.6s var(--ease)}
+.tile:hover figcaption,.tile:focus-within figcaption{transform:none;opacity:1}
+.tile figcaption span{font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:var(--tape-2)}
+.tile.is-hidden{display:none}
+.work__more{display:flex;justify-content:center;margin-top:clamp(20px,4vh,40px)}
+
+/* ---------- about ---------- */
+.about{background:var(--white);padding-block:clamp(84px,13vh,150px);overflow:clip}
+.about__grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,6vw,96px);align-items:center}
+.about__photo{position:relative;border-radius:20px;overflow:hidden;aspect-ratio:4/5}
+.about__photo img{width:100%;height:118%;object-fit:cover;object-position:30% 50%;will-change:transform}
+.about__photo .tape{position:absolute;left:18px;bottom:22px;z-index:2}
+.about__copy{display:grid;gap:22px;align-content:start}
+.statement{font-family:var(--display);font-weight:700;text-transform:uppercase;font-size:clamp(32px,3.4vw,54px);line-height:.98;margin:0;color:var(--navy)}
+.statement .w{opacity:.16;transition:none}
+.about__copy p{margin:0;color:var(--muted);max-width:56ch}
+.timeline{list-style:none;margin:8px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--line)}
+.timeline li{padding:16px 14px 0 0;display:grid;gap:4px}
+.timeline b{font-family:var(--display);font-weight:800;font-size:clamp(40px,4vw,60px);line-height:.9;color:var(--tape)}
+.timeline span{font-size:14px;color:var(--muted);line-height:1.4}
+.sig{font-family:var(--serif);font-style:italic;font-size:26px;color:var(--navy)}
+.sig small{display:block;font-family:var(--mono);font-style:normal;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+
+/* ---------- method ---------- */
+.method{padding-block:clamp(84px,13vh,150px)}
+.method__grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(28px,6vw,96px)}
+.method__side{position:sticky;top:clamp(100px,15vh,150px);align-self:start;display:grid;gap:20px}
+.method__side .display{margin-top:2px}
+.steps{list-style:none;margin:0;padding:0 0 0 clamp(36px,4vw,56px);position:relative;display:grid;gap:clamp(40px,8vh,80px)}
+.steps::before{content:"";position:absolute;left:10px;top:6px;bottom:6px;width:4px;border-radius:4px;background:var(--line)}
+.paintline{position:absolute;left:10px;top:6px;bottom:6px;width:4px;border-radius:4px;background:var(--tape);transform-origin:top;transform:scaleY(0)}
+.step{position:relative;display:grid;gap:10px;opacity:.42;transition:opacity .6s var(--ease)}
+.step.is-on{opacity:1}
+.step::before{content:"";position:absolute;left:calc(-1 * clamp(36px,4vw,56px) + 4px);top:8px;width:16px;height:16px;border-radius:50%;background:var(--primer);box-shadow:inset 0 0 0 3px var(--line);transition:.6s var(--ease)}
+.step.is-on::before{background:var(--tape);box-shadow:inset 0 0 0 3px var(--tape),0 0 0 6px rgba(93,143,178,.2)}
+.step__num{font-family:var(--mono);font-size:12px;letter-spacing:.14em;color:var(--tape)}
+.step h3{margin:0;font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:clamp(34px,3.6vw,56px);line-height:.92;color:var(--navy)}
+.step p{margin:0;color:var(--muted);max-width:48ch}
+.step .meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.step .meta span{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;padding:6px 10px;border-radius:999px;background:var(--sky);color:var(--navy)}
+
+/* ---------- reviews ---------- */
+.reviews{background:var(--tape);color:#fff;padding-block:clamp(84px,13vh,150px);overflow:clip}
+.reviews__head{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:28px 48px;align-items:end}
+.reviews__head .display em{color:var(--navy)}
+.reviews__head .display{margin-top:16px}
+.gcard{display:grid;grid-template-columns:auto 1fr;gap:6px 18px;align-items:center;background:var(--white);color:var(--navy);border-radius:20px;padding:20px 24px;text-decoration:none;box-shadow:0 30px 60px -30px rgba(13,34,63,.6);transition:transform .6s var(--ease)}
+.gcard:hover{transform:translateY(-4px)}
+.gcard__score{grid-row:span 3;font-family:var(--display);font-weight:800;font-size:76px;line-height:.8}
+.gcard__g{display:flex;align-items:center;gap:8px;font-weight:700;font-size:15px}
+.gcard__g svg{width:20px;height:20px}
+.gcard small{font-size:13px;color:var(--muted)}
+.marquee{margin-top:clamp(40px,7vh,72px);display:grid;gap:16px}
+.marquee__row{display:flex;width:max-content;gap:16px;animation:mq var(--dur,60s) linear infinite}
+.marquee__row--rev{animation-direction:reverse}
+.marquee:hover .marquee__row{animation-play-state:paused}
+@keyframes mq{to{transform:translateX(calc(-50% - 8px))}}
+.rv{width:min(420px,82vw);flex:none;background:rgba(251,250,247,.97);color:var(--ink);border-radius:18px;padding:22px 22px 20px;display:grid;gap:14px;align-content:start}
+.rv blockquote{margin:0;font-family:var(--serif);font-style:italic;font-size:22px;line-height:1.25;color:var(--navy)}
+.rv footer{display:flex;align-items:center;gap:12px;font-size:14px}
+.rv footer i{width:38px;height:38px;border-radius:50%;background:var(--navy);color:#fff;display:grid;place-items:center;font-style:normal;font-weight:700;flex:none}
+.rv footer span{display:grid;line-height:1.3}
+.rv footer small{color:var(--muted);font-size:12px}
+.rv .src{margin-left:auto;font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:6px}
+.rv .src svg{width:14px;height:14px}
+
+/* ---------- contact ---------- */
+.contact{background:var(--navy);color:var(--primer);padding-block:clamp(84px,13vh,150px) 0;position:relative;overflow:clip}
+.contact__grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,6vw,96px);align-items:start}
+.contact .display{margin-top:16px}
+.contact .display em{color:var(--tape-2)}
+.offer{margin-top:26px;display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:center;padding:18px;border-radius:16px;background:var(--navy-2);border:1px dashed rgba(143,182,211,.45)}
+.offer b{font-family:var(--display);font-weight:800;font-size:54px;line-height:.85;color:var(--tape-2)}
+.offer p{margin:0;font-size:15px;color:rgba(243,242,238,.8)}
+.offer strong{color:#fff}
+.contact__list{list-style:none;margin:26px 0 0;padding:0;display:grid}
+.contact__list li{display:grid;grid-template-columns:110px minmax(0,1fr);gap:14px;padding:15px 0;border-top:1px solid var(--navy-line)}
+.contact__list span{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:rgba(243,242,238,.55);padding-top:3px}
+.contact__list a{text-decoration:none;background:linear-gradient(var(--tape-2),var(--tape-2)) 0 100%/0 1px no-repeat;transition:background-size .5s var(--ease)}
+.contact__list a:hover{background-size:100% 1px}
+.form{display:grid;gap:14px;background:var(--navy-2);border-radius:24px;padding:clamp(20px,3vw,36px)}
+.form h3{margin:0 0 2px;font-size:22px;font-weight:700}
+.form>p{margin:0 0 4px;font-size:14px;color:rgba(243,242,238,.65)}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.field{display:grid;gap:6px}
+.field label{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(243,242,238,.6)}
+.field input,.field select,.field textarea{width:100%;background:rgba(243,242,238,.06);border:1px solid var(--navy-line);border-radius:12px;padding:13px 14px;color:var(--primer);font-size:16px;outline:none;transition:border-color .3s,background .3s}
+.field textarea{min-height:110px;resize:vertical}
+.field select option{color:#111}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--tape-2);background:rgba(243,242,238,.1)}
+.form__note{font-size:13px;color:rgba(243,242,238,.55);margin:0}
+.form .btn{justify-self:start;margin-top:4px}
+.giant{margin-top:clamp(64px,10vh,120px);display:flex;justify-content:space-between;font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:clamp(120px,37vw,640px);line-height:.78;letter-spacing:-.01em;color:var(--primer);user-select:none;overflow:hidden;padding-bottom:.03em}
+.giant span{display:inline-block;will-change:transform}
+.giant span:nth-child(n+2):nth-child(-n+3){color:var(--tape-2)}
+.legal{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 24px;padding-block:22px calc(22px + env(safe-area-inset-bottom,0px));border-top:1px solid var(--navy-line);font-size:13px;color:rgba(243,242,238,.6)}
+.legal a{text-decoration:none}
+.legal a:hover{color:#fff}
+
+/* paint progress stripe (desktop) */
+.stripe{position:fixed;z-index:30;right:10px;top:50%;height:min(40vh,320px);width:4px;margin-top:calc(min(40vh,320px) / -2);border-radius:4px;background:rgba(93,143,178,.22);overflow:hidden;pointer-events:none}
+.stripe i{position:absolute;inset:0;background:var(--tape);transform-origin:top;transform:scaleY(0)}
+
+/* ---------- mobile call bar ---------- */
+.callbar{position:fixed;z-index:40;left:var(--gl);right:var(--gr);bottom:calc(12px + env(safe-area-inset-bottom,0px));display:none;gap:8px;transform:translateY(160%);transition:transform .7s var(--ease)}
+.callbar.is-in{transform:none}
+.callbar a{flex:1;justify-content:center;height:52px;padding:0 14px;box-shadow:0 14px 30px -12px rgba(0,0,0,.5)}
+
+/* ---------- lightbox ---------- */
+.lightbox{border:0;padding:0;max-width:100vw;max-height:100vh;width:100vw;height:100vh;background:rgba(9,22,41,.95);color:#fff}
+.lightbox::backdrop{background:transparent}
+.lightbox[open]{display:grid;place-items:center}
+.lightbox img{max-width:min(1200px,92vw);max-height:80vh;border-radius:12px;object-fit:contain}
+.lb-btn{position:absolute;width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,.12);display:grid;place-items:center;color:#fff}
+.lb-btn:hover{background:rgba(255,255,255,.22)}
+.lb-close{top:calc(18px + env(safe-area-inset-top,0px));right:var(--gr)}
+.lb-prev{left:var(--gl);top:50%;margin-top:-26px}.lb-next{right:var(--gr);top:50%;margin-top:-26px}
+.lb-count{position:absolute;bottom:calc(22px + env(safe-area-inset-bottom,0px));left:0;right:0;text-align:center;font-family:var(--mono);font-size:12px;letter-spacing:.14em;padding-inline:16px}
+
+/* ---------- responsive ---------- */
+@media (min-width:1180px){ .nav{display:flex} }
+@media (max-width:1100px){
+  .chips{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .chip__swatch{aspect-ratio:2/1}
+}
+@media (max-width:980px){
+  .proof__grid{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:36px}
+  .fact:nth-child(3){border-left:0;padding-left:0}
+  .why__head,.about__grid,.method__grid,.contact__grid,.reviews__head{grid-template-columns:minmax(0,1fr)}
+  .about__photo{aspect-ratio:4/3.4;max-height:70vh}
+  .method__side{position:static}
+  .gcard{justify-self:start}
+  .stripe{display:none}
+}
+@media (max-width:760px){
+  body{font-size:16px}
+  .brand{height:48px;padding:0 16px}
+  .brand img{height:24px}
+  .header .pill--tape,.pill--call-text{display:none}
+  .header .pill{width:48px;padding:0;justify-content:center}
+  .callbar{display:flex}
+  .hero{height:150vh}
+  .hero h1{font-size:clamp(40px,12.4vw,62px)}
+  .hero__ctas{width:100%;display:grid;grid-template-columns:minmax(0,1fr)}
+  .hero__ctas .btn{justify-content:center}
+  .hud{display:none}
+  .promo{font-size:13px}
+  .chips{grid-template-columns:minmax(0,1fr)}
+  .chip{grid-template-columns:38% minmax(0,1fr);grid-template-rows:auto}
+  .chip__swatch{aspect-ratio:auto;min-height:150px}
+  .chip__swatch .big{font-size:58px}
+  /* services become a native swipe rail */
+  .services{height:auto!important}
+  .services__pin{position:relative;height:auto;padding-block:84px 64px}
+  .track{overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:var(--gl);transform:none!important;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .track::-webkit-scrollbar{display:none}
+  .svc{flex-basis:80vw;scroll-snap-align:start;grid-template-rows:auto auto}
+  .svc__img{aspect-ratio:4/5}
+  .services__bar{display:none}
+  .filters{flex-wrap:nowrap;overflow-x:auto;margin-inline:calc(-1 * var(--gl));padding-inline:var(--gl);scrollbar-width:none}
+  .filters::-webkit-scrollbar{display:none}
+  .filters button{flex:none}
+  .masonry{columns:2;column-gap:8px}
+  .tile{margin-bottom:8px;border-radius:10px}
+  .tile figcaption{display:none}
+  .timeline{grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(0,1fr)}
+  .timeline b{font-size:40px}
+  .timeline span{font-size:13px}
+  .rv blockquote{font-size:20px}
+  .gcard__score{font-size:64px}
+  .row2{grid-template-columns:minmax(0,1fr)}
+  .contact__list li{grid-template-columns:minmax(0,1fr);gap:2px}
+  .offer b{font-size:44px}
+  .legal{padding-bottom:calc(84px + env(safe-area-inset-bottom,0px))}
+}
+@media (prefers-reduced-motion:reduce){
+  *{scroll-behavior:auto}
+  .marquee__row{animation:none}
+  .marquee{overflow-x:auto}
+}
+</style>
+</head>
+<body>
+
+<header class="header" id="header">
+  <div class="header__bar wrap">
+    <a class="brand" href="#top" data-nav aria-label="Boost Painting, back to top"><img src="assets/boost-painting-horizontal-logo.png" alt="Boost Painting" width="960" height="210"></a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#why" data-nav>Why us</a><a href="#services" data-nav>Services</a><a href="#work" data-nav>Portfolio</a><a href="#about" data-nav>About</a><a href="#reviews" data-nav>Reviews</a>
+    </nav>
+    <div class="header__actions">
+      <a class="pill" href="tel:+15193624422" aria-label="Call (519) 362-4422"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg><span class="pill--call-text">(519) 362-4422</span></a>
+      <a class="pill pill--tape" href="#contact" data-nav>Free quote</a>
+      <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="menu"><span class="bars" aria-hidden="true"><i></i><i></i></span><span class="sr">Menu</span></button>
+    </div>
+  </div>
+</header>
+
+<nav class="menu" id="menu" aria-label="Main">
+  <div class="wrap">
+    <ol>
+      <li><a href="#why" data-nav>Why Boost</a></li>
+      <li><a href="#services" data-nav>Services</a></li>
+      <li><a href="#work" data-nav>Portfolio</a></li>
+      <li><a href="#about" data-nav>About Phil</a></li>
+      <li><a href="#reviews" data-nav>Reviews</a></li>
+      <li><a href="#contact" data-nav>Free quote</a></li>
+    </ol>
+    <div class="menu__foot"><a href="tel:+15193624422">(519) 362-4422</a><a href="mailto:phil@boostpainting.ca">phil@boostpainting.ca</a><span>Guelph · Kitchener · GTA · Milton · Halton · Erin</span></div>
+  </div>
+</nav>
+
+<main id="top">
+  <!-- HERO: the photo is rolled on, one stroke at a time -->
+  <section class="hero" id="hero" aria-label="Introduction">
+    <div class="hero__stage">
+      <div class="hero__media" id="heroMedia"><canvas id="roller" role="img" aria-label="Freshly painted white kitchen with cabinets by Boost Painting"></canvas></div>
+      <div class="hud" id="hud" aria-hidden="true">Coat <span id="coat">01</span> / 02<br>Coverage <span id="cov">000</span>%</div>
+      <div class="hero__copy wrap">
+        <a class="promo reveal-fade" href="#contact" data-nav><b>OFFER</b>Book by December 12: 20% off + 1 free accent wall</a>
+        <h1 class="display" id="heroTitle" data-lines>Trusted &amp; reliable residential painting <em>specialists</em></h1>
+        <div class="hero__row">
+          <p class="reveal-fade"><b>5-Year Warranty on all interior and exterior projects.</b> Locally owned, no high-pressure sales, and a detailed quote with no surprise fees.</p>
+          <div class="hero__ctas reveal-fade">
+            <a class="btn btn--tape" href="#contact" data-nav><span class="roll"><span>Get my free quote</span><span aria-hidden="true">Get my free quote</span></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <a class="btn btn--ghost" href="#work" data-nav><span class="roll"><span>See our work</span><span aria-hidden="true">See our work</span></span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROOF -->
+  <section class="proof" aria-labelledby="proofTitle">
+    <h2 class="sr" id="proofTitle">At a glance</h2>
+    <div class="proof__grid wrap">
+      <div class="fact"><div class="fact__num"><span data-count="5.0" data-dec="1">5.0</span><small>on Google</small></div><div class="stars" aria-label="5 out of 5 stars"></div><p>From 31 Google reviews by homeowners across Guelph and the GTA.</p></div>
+      <div class="fact"><div class="fact__num"><span data-count="5">5</span><small>year warranty</small></div><h3>Standard on every project</h3><p>Interior and exterior, written into every quote.</p></div>
+      <div class="fact"><div class="fact__num"><span>$<span data-count="2">2</span>M</span><small>liability</small></div><h3>Fully insured</h3><p>$2M general liability insurance on every job.</p></div>
+      <div class="fact"><div class="fact__num">WSIB</div><h3>Certified</h3><p>A properly covered crew working in your home.</p></div>
+    </div>
+  </section>
+
+  <!-- WHY: paint chips -->
+  <section class="why" id="why" aria-labelledby="whyTitle">
+    <div class="wrap">
+      <div class="why__head">
+        <div><span class="tape" data-tape>Why choose Boost Painting</span><h2 class="display h2" id="whyTitle" data-lines>Four promises, <em>every coat</em></h2></div>
+        <p class="lede">We are not haphazard painters and we don’t rush. Here is what you can count on from the first visit to the final walk-through.</p>
+      </div>
+      <div class="chips" id="chips">
+        <article class="chip"><div class="chip__swatch"><span class="code">BP-01 · NAVY</span><span class="big">01</span></div><div class="chip__body"><span class="name">Top-tier results</span><h3>Results that last</h3><p>Paint goes exactly where you want it: thorough, precise and with no drips or splatters on trim, floors or furniture.</p></div></article>
+        <article class="chip"><div class="chip__swatch"><span class="code">BP-02 · TAPE BLUE</span><span class="big">5 YR</span></div><div class="chip__body"><span class="name">Peace of mind</span><h3>5-Year Warranty</h3><p>Our Standard 5-Year Warranty covers every residential painting project, so the finish has to hold up.</p></div></article>
+        <article class="chip"><div class="chip__swatch"><span class="code">BP-03 · SKY</span><span class="big">$0</span></div><div class="chip__body"><span class="name">Honest quoting</span><h3>No surprise fees</h3><p>Surprises are for sweet 16 parties, not painting quotes. Prep, paint type and number of coats are spelled out up front.</p></div></article>
+        <article class="chip"><div class="chip__swatch"><span class="code">BP-04 · MIST</span><span class="big">0%</span></div><div class="chip__body"><span class="name">Clean-up included</span><h3>No mess left behind</h3><p>The job isn’t finished until the clean-up is. Fresh paint is the only sign we were ever there.</p></div></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services" id="services" aria-labelledby="svcTitle">
+    <div class="services__pin">
+      <div class="services__head wrap">
+        <div><span class="tape tape--dark">Interior &amp; exterior services</span><h2 class="display h2" id="svcTitle">Inside, outside, <em>top to bottom</em></h2></div>
+        <span class="services__count" id="svcCount" aria-hidden="true">01 / 07</span>
+      </div>
+      <div>
+        <div class="track" id="track">
+          <a class="svc" href="#contact" data-nav><div class="svc__img"><img src="assets/painting-interior-white.jpg" alt="Bright interior repainted in white" loading="lazy"><span class="svc__tag">Interior</span></div><div><h3>Interior repainting <span>↗</span></h3><p>Bedrooms, bathrooms, kitchens and family rooms, prepped properly and finished clean.</p></div></a>
+          <a class="svc" href="#contact" data-nav><div class="svc__img"><img src="assets/kitchen-cabinet-refinishing-guelph.jpg" alt="Painted kitchen cabinets in Guelph" loading="lazy"><span class="svc__tag">Interior</span></div><div><h3>Cabinet painting &amp; staining <span>↗</span></h3><p>A new kitchen look without the cost of new cabinets.</p></div></a>
+          <a class="svc" href="#contact" data-nav><div class="svc__img"><img src="assets/interior-painting-project-two-guelph.jpg" alt="Smooth freshly painted ceiling and walls" loading="lazy"><span class="svc__tag">Interior</span></div><div><h3>Popcorn removal <span>↗</span></h3><p>Dated stipple ceilings taken down to a smooth, modern finish.</p></div></a>
+          <a class="svc" href="#contact" data-nav><div class="svc__img"><img src="assets/painting-company-guelph-interior-project.jpg" alt="Freshly painted open-concept home ready for sale" loading="lazy"><span class="svc__tag">Interior · Exterior</span></div><div><h3>New home &amp; presale <span>↗</span></h3><p>Move in to fresh walls, or list with rooms that photograph well.</p></div></a>
+          <a class="svc" href="#contact" data-nav><div class="svc__img"><img src="assets/exterior-residential-painting-kitchener.jpeg" alt="Repainted house exterior in Kitchener" loading="lazy"><span class="svc__tag">Exterior</span></div><div><h3>Exterior repainting <span>↗</span></h3><p>Faded or flaking siding and trim brought back to life, with real curb appeal.</p></div></a>
+          <a class="svc" href="#contact" data-nav><div class="svc__img"><img src="assets/deck-painting-boost-painting.jpg" alt="Freshly painted backyard deck" loading="lazy"><span class="svc__tag">Exterior</span></div><div><h3>Deck painting <span>↗</span></h3><p>Protect the wood and bring the colour back to your deck.</p></div></a>
+          <a class="svc" href="#contact" data-nav><div class="svc__img"><img src="assets/house-painting-exterior.jpg" alt="Clean house exterior after pressure washing and paint" loading="lazy"><span class="svc__tag">Exterior</span></div><div><h3>Pressure washing <span>↗</span></h3><p>A clean surface before the paint goes on, or a refresh on its own.</p></div></a>
+        </div>
+        <div class="wrap" style="margin-top:28px"><div class="services__bar" aria-hidden="true"><i id="svcBar"></i></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO -->
+  <section class="work" id="work" aria-labelledby="workTitle">
+    <div class="wrap">
+      <div class="work__head">
+        <div><span class="tape" data-tape>Portfolio</span><h2 class="display h2" id="workTitle" data-lines>See it for <em>yourself</em></h2></div>
+        <p class="lede">Superior workmanship and exceptional attention to detail, in real homes across Guelph, Kitchener, Milton and the GTA. Tap any photo to see it full size.</p>
+      </div>
+      <div class="filters" id="filters" role="group" aria-label="Filter projects"></div>
+      <div class="masonry" id="gallery"></div>
+      <div class="work__more"><button class="btn btn--navy" type="button" id="moreBtn"><span class="roll"><span>Show all projects</span><span aria-hidden="true">Show all projects</span></span></button></div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about" aria-labelledby="aboutTitle">
+    <div class="about__grid wrap">
+      <div class="about__photo"><img src="assets/Phil-interior-painting.jpg" alt="Phil Conlin, owner of Boost Painting, rolling paint on an interior wall" id="philImg" loading="lazy"><span class="tape tape--dark">Phil Conlin · Owner</span></div>
+      <div class="about__copy">
+        <span class="tape" data-tape>True beginnings</span>
+        <h2 class="sr" id="aboutTitle">About Boost Painting</h2>
+        <p class="statement" id="statement">Phil started Boost Painting to prove a painter can be honest, careful and on time, every time.</p>
+        <p>Phil found painting while working for a high-end renovation company in Halton Hills. Of all the trades on a job, he always gravitated to the paint: a steady hand and patience came naturally. He went on to master his craft with a well-established painting company in Guelph, then set out to work directly with homeowners under his own name. Boost Painting (formerly P.A.C. Painting) was born in 2019.</p>
+        <p>Today the company offers a full range of interior and exterior painting, still built on honesty, transparency, good communication and an unwavering attention to detail.</p>
+        <ul class="timeline">
+          <li><b>11</b><span>years in the trades</span></li>
+          <li><b>8</b><span>years as a professional painter</span></li>
+          <li><b>2019</b><span>Boost Painting founded</span></li>
+        </ul>
+        <div class="sig">Phil Conlin<small>Founder · Guelph, ON</small></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- METHOD -->
+  <section class="method" id="method" aria-labelledby="methodTitle">
+    <div class="method__grid wrap">
+      <div class="method__side">
+        <span class="tape" data-tape>A better method</span>
+        <h2 class="display h2" id="methodTitle" data-lines>Superior work needs a <em>better method</em></h2>
+        <p class="lede">More than great results that last: a process that keeps painting your home exciting, not stressful.</p>
+        <a class="btn btn--tape" href="#contact" data-nav style="justify-self:start;margin-top:6px"><span class="roll"><span>Book an on-site consult</span><span aria-hidden="true">Book an on-site consult</span></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+      <ol class="steps" id="steps">
+        <i class="paintline" id="paintline" aria-hidden="true"></i>
+        <li class="step"><span class="step__num">STEP 01</span><h3>On-site consult</h3><p>We visit your home and answer every question about timeline, paint types and methods. No high-pressure sales, just open and honest conversation.</p><div class="meta"><span>15–30 minutes</span><span>Free</span></div></li>
+        <li class="step"><span class="step__num">STEP 02</span><h3>Fast, detailed quote</h3><p>A transparent, itemized quote lands in your inbox covering every cost of the project, with our 5-Year Warranty included.</p><div class="meta"><span>Within 24 hours</span><span>No surprise fees</span></div></li>
+        <li class="step"><span class="step__num">STEP 03</span><h3>Flexible scheduling</h3><p>We work Monday to Friday, 8am to 5pm, and happily accommodate special situations so the job finishes on time.</p><div class="meta"><span>Mon–Fri · 8–5</span><span>On schedule</span></div></li>
+        <li class="step"><span class="step__num">STEP 04</span><h3>Satisfaction guaranteed</h3><p>If anything isn’t right, we fix it immediately or at a time that suits you. The Standard 5-Year Warranty keeps us accountable.</p><div class="meta"><span>5-Year Warranty</span><span>Clean-up included</span></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="reviews" id="reviews" aria-labelledby="revTitle">
+    <div class="wrap reviews__head">
+      <div><span class="tape" data-tape style="--x:0">Don’t just take our word for it</span><h2 class="display h2" id="revTitle" data-lines>Homeowners <em>say it best</em></h2></div>
+      <a class="gcard" href="https://maps.google.com/?cid=4880038636021249025" target="_blank" rel="noopener">
+        <span class="gcard__score">5.0</span>
+        <span class="gcard__g"><svg viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9.1 3.6l6.8-6.8C35.8 2.4 30.3 0 24 0 14.6 0 6.6 5.4 2.7 13.3l7.9 6.1C12.5 13.6 17.8 9.5 24 9.5z"/><path fill="#4285F4" d="M46.5 24.5c0-1.6-.1-3.1-.4-4.5H24v9h12.7c-.6 3-2.3 5.5-4.8 7.2l7.7 6c4.4-4.1 6.9-10.1 6.9-17.7z"/><path fill="#FBBC05" d="M10.5 28.6c-.5-1.4-.8-3-.8-4.6s.3-3.2.8-4.6l-7.9-6.1C1 16.6 0 20.2 0 24s1 7.4 2.7 10.7l7.8-6.1z"/><path fill="#34A853" d="M24 48c6.5 0 11.9-2.1 15.9-5.8l-7.7-6c-2.2 1.5-5 2.3-8.2 2.3-6.2 0-11.5-4.1-13.4-9.8l-7.9 6.1C6.6 42.6 14.6 48 24 48z"/></svg>Google reviews</span>
+        <span class="stars" aria-label="5 out of 5 stars"></span>
+        <small>31 reviews · Read them on Google ↗</small>
+      </a>
+    </div>
+    <div class="marquee" id="marquee"></div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact" aria-labelledby="ctTitle">
+    <div class="wrap">
+      <div class="contact__grid">
+        <div>
+          <span class="tape tape--dark">Free, detailed quote</span>
+          <h2 class="display h2" id="ctTitle" data-lines>Let’s get your home <em>painted</em></h2>
+          <div class="offer"><b>20%</b><p><strong>Book by December 12 and get 20% off + 1 free accent wall.</strong> Valid for projects completed in December and January.</p></div>
+          <ul class="contact__list">
+            <li><span>Call</span><a href="tel:+15193624422">(519) 362-4422</a></li>
+            <li><span>Email</span><a href="mailto:phil@boostpainting.ca">phil@boostpainting.ca</a></li>
+            <li><span>Office</span><address style="font-style:normal">211 Christie Street<br>Rockwood, ON N0B 2K0</address></li>
+            <li><span>Hours</span><p style="margin:0">Monday to Friday, 8am – 5pm</p></li>
+            <li><span>Areas</span><p style="margin:0">Guelph · Kitchener · the GTA · Milton · Halton · Erin</p></li>
+          </ul>
+        </div>
+        <form class="form" id="form" novalidate>
+          <h3>Tell us about your project</h3>
+          <p>Fast response, often within 1 hour.</p>
+          <div class="row2">
+            <div class="field"><label for="fName">Name</label><input id="fName" name="name" autocomplete="name" required></div>
+            <div class="field"><label for="fPhone">Phone</label><input id="fPhone" name="phone" type="tel" autocomplete="tel" inputmode="tel"></div>
+          </div>
+          <div class="row2">
+            <div class="field"><label for="fEmail">Email</label><input id="fEmail" name="email" type="email" autocomplete="email" inputmode="email"></div>
+            <div class="field"><label for="fCity">City</label><input id="fCity" name="city" autocomplete="address-level2" placeholder="e.g. Guelph"></div>
+          </div>
+          <div class="field"><label for="fService">Service</label>
+            <select id="fService" name="service"><option>Interior repainting</option><option>Cabinet painting &amp; staining</option><option>Popcorn removal</option><option>New home &amp; presale painting</option><option>Exterior repainting</option><option>Deck painting</option><option>Pressure washing</option><option>Not sure yet</option></select></div>
+          <div class="field"><label for="fMsg">What would you like painted?</label><textarea id="fMsg" name="message" placeholder="e.g. Main floor walls and ceilings, about 1,200 sq ft, plus the kitchen cabinets"></textarea></div>
+          <button class="btn btn--tape" type="submit"><span class="roll"><span>Send &amp; claim 20% off</span><span aria-hidden="true">Send &amp; claim 20% off</span></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+          <p class="form__note" id="formNote" aria-live="polite">Opens your email app with the details filled in. Prefer to talk? Call (519) 362-4422.</p>
+        </form>
+      </div>
+      <div class="giant" id="giant" aria-hidden="true"><span>B</span><span>o</span><span>o</span><span>s</span><span>t</span></div>
+      <div class="legal">
+        <span>© 2026 Boost Painting. All rights reserved.</span>
+        <span>WSIB Certified · $2M General Liability Insurance</span>
+        <a href="https://www.instagram.com/boostpainting/" target="_blank" rel="noopener">Instagram ↗</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div class="stripe" aria-hidden="true"><i id="stripe"></i></div>
+
+<div class="callbar" id="callbar">
+  <a class="btn btn--light" href="tel:+15193624422">Call now</a>
+  <a class="btn btn--tape" href="#contact" data-nav>Free quote</a>
+</div>
+
+<dialog class="lightbox" id="lightbox" aria-label="Project photo">
+  <img id="lbImg" alt="">
+  <button class="lb-btn lb-close" type="button" id="lbClose" aria-label="Close"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+  <button class="lb-btn lb-prev" type="button" id="lbPrev" aria-label="Previous photo"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15 6l-6 6 6 6"/></svg></button>
+  <button class="lb-btn lb-next" type="button" id="lbNext" aria-label="Next photo"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></button>
+  <span class="lb-count" id="lbCount"></span>
+</dialog>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script>
+(() => {
+'use strict';
+gsap.registerPlugin(ScrollTrigger);
+const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const isPhone = () => innerWidth <= 760;
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const A = f => 'assets/' + f;
+const STAR = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>';
+$$('.stars').forEach(s => s.innerHTML = STAR.repeat(5));
+
+const lenis = new Lenis({ duration: 1.15, easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)), smoothWheel: !reduced });
+lenis.on('scroll', ScrollTrigger.update);
+gsap.ticker.add(t => lenis.raf(t * 1000)); gsap.ticker.lagSmoothing(0);
+
+/* =========================================================
+   1. Hero: the photo is rolled on in vertical strokes (W pattern)
+   ========================================================= */
+const R = { cv: $('#roller'), img: new Image(), t0: 0, done: false };
+R.img.src = A('kitchen-cabinet-painting-project-guelph.jpg');
+const ease = t => t < .5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
+function layoutRoller() {
+  const c = R.cv, r = c.getBoundingClientRect(), dpr = Math.min(devicePixelRatio, 2);
+  c.width = Math.round(r.width * dpr); c.height = Math.round(r.height * dpr);
+  R.W = c.width; R.H = c.height; R.dpr = dpr; R.ctx = c.getContext('2d');
+  R.n = isPhone() ? 4 : 7; R.cw = R.W / R.n;
+  R.wob = Array.from({ length: R.n }, () => Array.from({ length: 9 }, () => Math.random()));
+  const iw = R.img.naturalWidth, ih = R.img.naturalHeight; if (!iw) return;
+  const ir = iw / ih, cr = R.W / R.H; let sx, sy, sw, sh;
+  if (ir > cr) { sh = ih; sw = sh * cr; sx = (iw - sw) / 2; sy = 0; } else { sw = iw; sh = sw / cr; sx = 0; sy = (ih - sh) / 2; }
+  const mk = () => { const o = document.createElement('canvas'); o.width = R.W; o.height = R.H; const g = o.getContext('2d'); g.imageSmoothingQuality = 'high'; g.drawImage(R.img, sx, sy, sw, sh, 0, 0, R.W, R.H); return [o, g]; };
+  [R.col] = mk();
+  // the "before": the same room, grey and dim, like a primed wall waiting for colour
+  const [gr, g] = mk();
+  g.globalCompositeOperation = 'saturation'; g.fillStyle = '#808080'; g.fillRect(0, 0, R.W, R.H);
+  g.globalCompositeOperation = 'source-over'; g.fillStyle = 'rgba(13,34,63,.5)'; g.fillRect(0, 0, R.W, R.H);
+  R.gray = gr;
+}
+const STROKE = .62, GAP = .5, START = .35;
+function edgePath(ctx, x0, x1, yEdge, down, wob) {
+  // painted area of one column with a soft, uneven leading edge
+  const amp = 9 * R.dpr, steps = wob.length - 1;
+  ctx.beginPath();
+  if (down) { ctx.moveTo(x0, 0); ctx.lineTo(x1, 0); } else { ctx.moveTo(x0, R.H); ctx.lineTo(x1, R.H); }
+  for (let k = steps; k >= 0; k--) { const x = x0 + (x1 - x0) * (k / steps); ctx.lineTo(x, yEdge + (wob[k] - .5) * amp * 2 * (down ? 1 : -1)); }
+  ctx.closePath();
+}
+function drawRoller(ctx, cx, y, w, down) {
+  const d = R.dpr, h = 30 * d, dir = down ? -1 : 1;   // handle trails behind the stroke
+  ctx.save();
+  // frame + handle
+  ctx.strokeStyle = '#d9dde2'; ctx.lineWidth = 4 * d; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+  ctx.beginPath(); ctx.moveTo(cx + w / 2, y); ctx.lineTo(cx + w / 2 + 12 * d, y); ctx.lineTo(cx + w / 2 + 12 * d, y + dir * 46 * d); ctx.lineTo(cx, y + dir * 70 * d); ctx.lineTo(cx, y + dir * 96 * d); ctx.stroke();
+  ctx.fillStyle = '#0d223f'; ctx.beginPath(); ctx.roundRect(cx - 9 * d, y + dir * (down ? 170 : 96) * d, 18 * d, 74 * d, 9 * d); ctx.fill();
+  // sleeve
+  ctx.fillStyle = '#5d8fb2'; ctx.beginPath(); ctx.roundRect(cx - w / 2, y - h / 2, w, h, h / 2.4); ctx.fill();
+  ctx.fillStyle = 'rgba(255,255,255,.22)'; ctx.fillRect(cx - w / 2 + 6 * d, y - h / 2 + 5 * d, w - 12 * d, 4 * d);
+  ctx.fillStyle = 'rgba(0,0,0,.12)';
+  for (let i = 0; i < w; i += 7 * d) ctx.fillRect(cx - w / 2 + i, y - h / 2 + 2 * d, 1.4 * d, h - 4 * d);
+  ctx.restore();
+}
+function drawHero(now) {
+  const { ctx, W, H, col, gray } = R; if (!ctx || !col) return true;
+  const t = reduced ? 99 : (now - R.t0) / 1000;
+  ctx.drawImage(gray, 0, 0);
+  let covered = 0, active = null;
+  for (let i = 0; i < R.n; i++) {
+    const p = Math.max(0, Math.min(1, (t - START - i * GAP) / STROKE)); if (p <= 0) continue;
+    const e = ease(p), down = i % 2 === 0, pad = R.cw * .1;
+    const x0 = i * R.cw - (i ? pad : 0), x1 = (i + 1) * R.cw + (i < R.n - 1 ? pad : 0);
+    const yEdge = down ? e * (H + 30 * R.dpr) : H - e * (H + 30 * R.dpr);
+    ctx.save(); edgePath(ctx, x0, x1, yEdge, down, R.wob[i]); ctx.clip();
+    ctx.drawImage(col, 0, 0);
+    // wet sheen that dries off after the stroke
+    const wet = Math.max(0, 1 - (t - START - i * GAP - STROKE) / 1.4);
+    if (wet > 0) { ctx.fillStyle = `rgba(255,255,255,${.1 * wet})`; ctx.fillRect(x0, 0, x1 - x0, H); }
+    ctx.restore();
+    covered += e;
+    if (p < 1) active = { cx: (i + .5) * R.cw, y: Math.max(0, Math.min(H, yEdge)), down };
+  }
+  if (active) drawRoller(ctx, active.cx, active.y, R.cw * .86, active.down);
+  const pct = Math.round(covered / R.n * 100);
+  $('#cov').textContent = String(pct).padStart(3, '0');
+  $('#coat').textContent = pct >= 100 ? '02' : '01';
+  return t > START + (R.n - 1) * GAP + STROKE + 1.5;
+}
+function heroLoop(now) { if (!drawHero(now)) requestAnimationFrame(heroLoop); else { R.done = true; gsap.to('#hud', { opacity: 0, duration: .8, delay: .4 }); } }
+function startHero() { layoutRoller(); R.t0 = performance.now(); requestAnimationFrame(heroLoop); }
+R.img.onload = startHero;
+
+/* =========================================================
+   2. Line-split headings with blur, tape laid on eyebrows
+   ========================================================= */
+function splitLines(el) {
+  if (!el._html) el._html = el.innerHTML;
+  el.innerHTML = el._html;
+  el.setAttribute('aria-label', el.textContent.replace(/\s+/g, ' ').trim());
+  const words = [];
+  const walk = node => [...node.childNodes].forEach(n => {
+    if (n.nodeType === 3) {
+      const f = document.createDocumentFragment();
+      n.textContent.split(/(\s+)/).forEach(tok => { if (!tok) return; if (/^\s+$/.test(tok)) { f.appendChild(document.createTextNode(' ')); return; } const w = document.createElement('span'); w.textContent = tok; w.style.display = 'inline-block'; f.appendChild(w); words.push(w); });
+      n.replaceWith(f);
+    } else if (n.nodeType === 1) walk(n);
+  });
+  walk(el);
+  const lines = []; let top = null;
+  words.forEach(w => { const t = w.offsetTop; if (top === null || Math.abs(t - top) > 4) { lines.push([]); top = t; } lines[lines.length - 1].push(w); });
+  el.innerHTML = lines.map(ws => `<span class="lm" aria-hidden="true"><span class="ln">${ws.map(w => w.parentElement !== el ? `<${w.parentElement.tagName.toLowerCase()}>${w.textContent}</${w.parentElement.tagName.toLowerCase()}>` : w.textContent).join(' ')}</span></span>`).join('');
+  return $$('.ln', el);
+}
+function reveal(el, delay = 0) {
+  const lines = splitLines(el);
+  if (reduced) return;
+  gsap.fromTo(lines, { yPercent: 105, filter: 'blur(10px)', opacity: 0 }, { yPercent: 0, filter: 'blur(0px)', opacity: 1, duration: 1.25, stagger: .09, ease: 'expo.out', delay });
+}
+function layTape(el) {
+  if (reduced) return;
+  gsap.fromTo(el, { clipPath: 'inset(0 100% 0 0)', x: -8 }, { clipPath: 'inset(0 0% 0 0)', x: 0, duration: .9, ease: 'power3.inOut' });
+}
+
+/* =========================================================
+   3. Portfolio: filters, masonry, lightbox
+   ========================================================= */
+const CATS = { kitchen: 'Kitchens & cabinets', room: 'Rooms', bath: 'Bathrooms', stair: 'Stairs & details', ext: 'Exterior' };
+const WORK = [
+  ['boost-painting-kitchen.jpeg', 'kitchen', 'Kitchen repaint'], ['house-painting-exterior.jpg', 'ext', 'Exterior repaint'], ['bedroom-painting.jpg', 'room', 'Bedroom'],
+  ['boost-painting-staircase-painting-project-guelph.jpeg', 'stair', 'Staircase · Guelph'], ['cabinet-refinishing-kitchener.jpeg', 'kitchen', 'Cabinet refinishing · Kitchener'], ['bathroom-painting-blue.jpg', 'bath', 'Blue bathroom'],
+  ['exterior-residential-painting-kitchener.jpeg', 'ext', 'Exterior · Kitchener'], ['interior-painting-company-guelph.jpg', 'room', 'Living space · Guelph'], ['kitchen-cabinet-painting-project-two-guelph.jpg', 'kitchen', 'Kitchen cabinets · Guelph'],
+  ['piano-staircase-painting.jpg', 'stair', 'Piano staircase'], ['fireplace-painting.jpg', 'room', 'Fireplace'], ['whitewash-house-painting-exterior.jpg', 'ext', 'Whitewashed exterior'],
+  ['kitchen-painting-project-milton.jpeg', 'kitchen', 'Kitchen · Milton'], ['master-bedroom-painting.jpg', 'room', 'Master bedroom'], ['deck-painting-guelph.jpg', 'ext', 'Deck · Guelph'],
+  ['bathroom-repaint-guelph.jpg', 'bath', 'Bathroom · Guelph'], ['painted-kitchen-cabinets.jpg', 'kitchen', 'Painted cabinets'], ['interior-painting-company-project-guelph.jpg', 'room', 'Interior · Guelph'],
+  ['vinyl-exterior-project-guelph.jpg', 'ext', 'Vinyl exterior · Guelph'], ['house-painting-guelph-project.jpg', 'stair', 'Entry & trim · Guelph'], ['kitchen-cabinet-painting-project-three-guelph.jpg', 'kitchen', 'Kitchen · Guelph'],
+  ['painting-company-milton.jpg', 'room', 'Interior · Milton'], ['Bathroom-painting-kitchener-photo-one.jpg', 'bath', 'Bathroom · Kitchener'], ['exterior-painting-kitchener-waterloo-project.jpg', 'ext', 'Exterior · Kitchener-Waterloo'],
+  ['cabinet-refinishing-guelph-ontario-project.jpg', 'kitchen', 'Cabinet refinishing · Guelph'], ['painting-interior-white.jpg', 'room', 'White interior'], ['house-painting-project.jpg', 'ext', 'House painting'],
+  ['laundry-room-repaint.jpg', 'kitchen', 'Laundry room'], ['interior-painting-guelph.jpeg', 'room', 'Interior · Guelph'], ['exterior-painting-guelph.jpeg', 'ext', 'Exterior · Guelph'],
+  ['custom-kitchen-painting.jpg', 'kitchen', 'Custom kitchen'], ['bathroom-repaint.jpg', 'bath', 'Bathroom repaint'], ['interior-painting-project-two-guelph.jpg', 'room', 'Interior · Guelph'],
+  ['kitchen-cabinet-refinishing-guelph.jpg', 'kitchen', 'Cabinet refinishing · Guelph'], ['deck-painting-boost-painting.jpg', 'ext', 'Deck painting'], ['painting-company-guelph-interior-project.jpg', 'room', 'Open concept · Guelph'],
+  ['interior-painting-project.jpg', 'room', 'Interior repaint'], ['house-painting.jpg', 'room', 'Hallway'], ['kitchen-cabinet-painting-project-guelph.jpg', 'kitchen', 'White kitchen · Guelph']
+];
+const LIMIT = () => isPhone() ? 10 : 16;
+let filter = 'all', expanded = false, visible = [];
+const gal = $('#gallery'), fb = $('#filters'), moreBtn = $('#moreBtn');
+const tiles = WORK.map(([f, cat, cap], i) => {
+  const fig = document.createElement('figure'); fig.className = 'tile'; fig.dataset.cat = cat;
+  fig.innerHTML = `<img src="${A(f)}" alt="${cap} by Boost Painting" loading="lazy"><button type="button" aria-label="Open photo: ${cap}"></button><figcaption><b style="font-weight:600">${cap}</b><span>${CATS[cat].toUpperCase()}</span></figcaption>`;
+  $('button', fig).addEventListener('click', () => openLB(visible.indexOf(i)));
+  gal.appendChild(fig); return fig;
+});
+[['all', 'All work', WORK.length], ...Object.entries(CATS).map(([k, v]) => [k, v, WORK.filter(w => w[1] === k).length])].forEach(([k, label, n]) => {
+  const b = document.createElement('button'); b.type = 'button'; b.innerHTML = `${label}<sup>${n}</sup>`; b.setAttribute('aria-pressed', k === 'all');
+  b.addEventListener('click', () => { filter = k; $$('button', fb).forEach(x => x.setAttribute('aria-pressed', x === b)); applyFilter(true); });
+  fb.appendChild(b);
+});
+function applyFilter(animate) {
+  const match = WORK.map((w, i) => (filter === 'all' || w[1] === filter) ? i : -1).filter(i => i >= 0);
+  visible = expanded ? match : match.slice(0, LIMIT());
+  tiles.forEach((t, i) => t.classList.toggle('is-hidden', !visible.includes(i)));
+  moreBtn.parentElement.style.display = match.length > visible.length ? '' : 'none';
+  $$('span', moreBtn).forEach(s => s.textContent = `Show all ${match.length} projects`);
+  if (animate && !reduced) gsap.fromTo(visible.map(i => tiles[i]), { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: .8, stagger: .03, ease: 'expo.out', overwrite: true });
+  ScrollTrigger.refresh();
+}
+moreBtn.addEventListener('click', () => { expanded = true; applyFilter(true); });
+applyFilter(false);
+
+const lb = $('#lightbox'); let lbi = 0;
+function showLB(k) { lbi = (k + visible.length) % visible.length; const [f, cat, cap] = WORK[visible[lbi]]; $('#lbImg').src = A(f); $('#lbImg').alt = cap; $('#lbCount').textContent = `${String(lbi + 1).padStart(2, '0')} / ${visible.length} · ${cap}`; gsap.fromTo('#lbImg', { opacity: 0, scale: .97 }, { opacity: 1, scale: 1, duration: .6, ease: 'expo.out' }); }
+function openLB(k) { showLB(k); lb.showModal(); lenis.stop(); }
+lb.addEventListener('close', () => lenis.start());
+$('#lbClose').addEventListener('click', () => lb.close());
+$('#lbPrev').addEventListener('click', () => showLB(lbi - 1));
+$('#lbNext').addEventListener('click', () => showLB(lbi + 1));
+lb.addEventListener('keydown', e => { if (e.key === 'ArrowLeft') showLB(lbi - 1); if (e.key === 'ArrowRight') showLB(lbi + 1); });
+let tx0 = null; lb.addEventListener('touchstart', e => tx0 = e.touches[0].clientX, { passive: true });
+lb.addEventListener('touchend', e => { if (tx0 === null) return; const d = e.changedTouches[0].clientX - tx0; if (Math.abs(d) > 50) showLB(lbi + (d < 0 ? 1 : -1)); tx0 = null; }, { passive: true });
+
+/* =========================================================
+   4. Reviews: Google reviews + client testimonials
+   ========================================================= */
+const G = 'google', S = 'site';
+const REVIEWS = [
+  ['Kevin H.', 'Google review', G, 'We had our upstairs rooms painted and Phil and his team did a fantastic job. Phil was quick to respond and the rooms look great.'],
+  ['Adam A.', 'Guelph, ON', S, 'My mother is extremely happy. Phil is trustworthy, kept the house very clean, hit the date he promised, and the price was more than fair.'],
+  ['Max R.', 'Google review · Local Guide', G, 'Phil from Boost did an amazing job painting our baby’s room! Fast responses, communicated well, and on time.'],
+  ['Mike L.', 'Kitchener, ON', S, 'Their customer service and attention to detail was way above any painting company I’ve dealt with in the past.'],
+  ['Danny F.', 'Google review', G, 'They responded within an hour and helped me on a tight deadline, painting my whole house with less than a week’s notice.'],
+  ['Jennifer M.', 'Guelph, ON', S, 'They did such a great job with my doors that we ended up doing the entire interior. Total pros. Total satisfaction.'],
+  ['Sofia W.', 'Milton, ON', S, 'Timely, incredibly efficient, clean, and did a fantastic job painting my space. Cannot recommend them enough!'],
+  ['Google reviewer', 'Google review', G, 'Quality of work was excellent, kept everything nice and neat.'],
+  ['Sherry E.', 'Toronto, ON', S, 'Very professional job and great service. I’m so happy with their work and plan to use them again.'],
+  ['Amir A.', 'Orangeville, ON', S, 'They paint all my commercial properties and have done a great job every time.']
+];
+const GICON = '<svg viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9.1 3.6l6.8-6.8C35.8 2.4 30.3 0 24 0 14.6 0 6.6 5.4 2.7 13.3l7.9 6.1C12.5 13.6 17.8 9.5 24 9.5z"/><path fill="#4285F4" d="M46.5 24.5c0-1.6-.1-3.1-.4-4.5H24v9h12.7c-.6 3-2.3 5.5-4.8 7.2l7.7 6c4.4-4.1 6.9-10.1 6.9-17.7z"/><path fill="#FBBC05" d="M10.5 28.6c-.5-1.4-.8-3-.8-4.6s.3-3.2.8-4.6l-7.9-6.1C1 16.6 0 20.2 0 24s1 7.4 2.7 10.7l7.8-6.1z"/><path fill="#34A853" d="M24 48c6.5 0 11.9-2.1 15.9-5.8l-7.7-6c-2.2 1.5-5 2.3-8.2 2.3-6.2 0-11.5-4.1-13.4-9.8l-7.9 6.1C6.6 42.6 14.6 48 24 48z"/></svg>';
+const card = ([n, where, src, q], hidden) => `<figure class="rv"${hidden ? ' aria-hidden="true"' : ''} style="margin:0"><div class="stars" aria-label="5 out of 5 stars">${STAR.repeat(5)}</div><blockquote>“${q}”</blockquote><footer><i>${n[0]}</i><span><b>${n}</b><small>${where}</small></span><span class="src">${src === G ? GICON + 'Google' : 'Client'}</span></footer></figure>`;
+const rowA = REVIEWS.filter((_, i) => i % 2 === 0), rowB = REVIEWS.filter((_, i) => i % 2 === 1);
+$('#marquee').innerHTML = [[rowA, 70, ''], [rowB, 80, ' marquee__row--rev']].map(([r, dur, cls]) =>
+  `<div class="marquee__row${cls}" style="--dur:${dur}s">${r.map(x => card(x)).join('')}${r.map(x => card(x, true)).join('')}</div>`).join('');
+
+/* =========================================================
+   5. Scroll choreography
+   ========================================================= */
+const mm = gsap.matchMedia();
+function build() {
+  // hero media tucks into a rounded panel as the page arrives
+  gsap.timeline({ scrollTrigger: { trigger: '#hero', start: 'top top', end: 'bottom bottom', scrub: reduced ? true : .5 } })
+    .fromTo('#heroMedia', { clipPath: 'inset(0% 0% 0% 0% round 0px)' }, { clipPath: 'inset(5% 4% 9% 4% round 26px)', ease: 'none' }, 0)
+    .to('.hero__copy', { yPercent: -16, opacity: 0, ease: 'none' }, 0);
+
+  // proof counters
+  gsap.from('.fact', { y: 30, opacity: 0, stagger: .08, duration: 1, ease: 'expo.out', scrollTrigger: { trigger: '.proof', start: 'top 80%' } });
+  $$('[data-count]').forEach(n => { const end = parseFloat(n.dataset.count), dec = +(n.dataset.dec || 0), o = { v: 0 };
+    ScrollTrigger.create({ trigger: n, start: 'top 88%', once: true, onEnter: () => gsap.to(o, { v: end, duration: reduced ? 0 : 1.6, ease: 'power3.out', onUpdate: () => n.textContent = o.v.toFixed(dec) }) }); });
+
+  $$('[data-lines]').forEach(el => { if (el.id === 'heroTitle') return; ScrollTrigger.create({ trigger: el, start: 'top 88%', once: true, onEnter: () => reveal(el) }); });
+  $$('.tape').forEach(el => { if (el.closest('.hero')) return; ScrollTrigger.create({ trigger: el, start: 'top 90%', once: true, onEnter: () => layTape(el) }); });
+
+  // paint chips fan out from a stacked deck
+  mm.add('(min-width: 761px)', () => {
+    const chips = $$('.chip');
+    const tl = gsap.from(chips, { y: 80, rotate: (i) => (i - 1.5) * 5, xPercent: (i) => (1.5 - i) * 30, opacity: 0, duration: 1.3, stagger: .08, ease: 'expo.out', scrollTrigger: { trigger: '#chips', start: 'top 82%' } });
+    return () => { tl.scrollTrigger && tl.scrollTrigger.kill(); tl.kill(); gsap.set(chips, { clearProps: 'all' }); };
+  });
+  mm.add('(max-width: 760px)', () => { $$('.chip').forEach(c => gsap.from(c, { y: 40, opacity: 0, duration: 1, ease: 'expo.out', scrollTrigger: { trigger: c, start: 'top 90%' } })); });
+
+  // services: vertical scroll drives the horizontal track
+  mm.add('(min-width: 761px)', () => {
+    const track = $('#track'), sec = $('#services');
+    const dist = () => Math.max(0, track.scrollWidth - innerWidth);
+    const setH = () => { sec.style.height = (innerHeight + dist()) + 'px'; };
+    setH();
+    const N = $$('.svc').length;
+    const tw = gsap.to(track, { x: () => -dist(), ease: 'none', scrollTrigger: { trigger: sec, start: 'top top', end: () => '+=' + dist(), scrub: reduced ? true : .6, invalidateOnRefresh: true, onRefreshInit: setH,
+      onUpdate: s => { $('#svcBar').style.transform = `scaleX(${s.progress})`; $('#svcCount').textContent = `${String(Math.min(N, 1 + Math.floor(s.progress * N))).padStart(2, '0')} / ${String(N).padStart(2, '0')}`; } } });
+    return () => { tw.scrollTrigger && tw.scrollTrigger.kill(); tw.kill(); sec.style.height = ''; gsap.set(track, { clearProps: 'transform' }); };
+  });
+  mm.add('(max-width: 760px)', () => {
+    const track = $('#track'), N = $$('.svc').length;
+    const onS = () => { const i = Math.round(track.scrollLeft / (track.scrollWidth / N)); $('#svcCount').textContent = `${String(Math.min(N, i + 1)).padStart(2, '0')} / ${String(N).padStart(2, '0')}`; };
+    track.addEventListener('scroll', onS, { passive: true });
+    return () => track.removeEventListener('scroll', onS);
+  });
+
+  $$('.tile').forEach((el, i) => gsap.from(el, { y: 40, opacity: 0, duration: 1.1, ease: 'expo.out', delay: (i % 4) * .05, scrollTrigger: { trigger: el, start: 'top 94%', once: true } }));
+
+  // about: parallax photo + statement words brighten as you read
+  gsap.fromTo('#philImg', { yPercent: -8 }, { yPercent: 0, ease: 'none', scrollTrigger: { trigger: '.about__photo', start: 'top bottom', end: 'bottom top', scrub: true } });
+  const st = $('#statement'); st.setAttribute('aria-label', st.textContent);
+  st.innerHTML = st.textContent.split(' ').map(w => `<span class="w" aria-hidden="true">${w}</span>`).join(' ');
+  if (reduced) gsap.set('.statement .w', { opacity: 1 });
+  else gsap.to('.statement .w', { opacity: 1, stagger: .1, ease: 'none', scrollTrigger: { trigger: st, start: 'top 80%', end: 'bottom 45%', scrub: true } });
+
+  // method: a paint line runs down the steps; the nearest step to centre lights up
+  gsap.to('#paintline', { scaleY: 1, ease: 'none', scrollTrigger: { trigger: '#steps', start: 'top 60%', end: 'bottom 60%', scrub: true } });
+  const steps = $$('.step'); let active = -1;
+  const pick = () => { const mid = innerHeight / 2; let best = 0, bd = Infinity;
+    steps.forEach((s, i) => { const r = s.getBoundingClientRect(); const d = Math.abs(r.top + r.height / 2 - mid); if (d < bd) { bd = d; best = i; } });
+    if (best === active) return; active = best; steps.forEach((s, i) => s.classList.toggle('is-on', i === best)); };
+  ScrollTrigger.create({ trigger: '#steps', start: 'top bottom', end: 'bottom top', onUpdate: pick, onRefresh: pick }); pick();
+
+  gsap.from('.gcard', { y: 30, opacity: 0, rotate: 2, duration: 1.2, ease: 'expo.out', scrollTrigger: { trigger: '.gcard', start: 'top 90%' } });
+
+  // page progress as a paint stripe; header hides on scroll down; mobile call bar after hero
+  let last = 0;
+  lenis.on('scroll', ({ scroll, limit }) => {
+    $('#stripe').style.transform = `scaleY(${limit ? scroll / limit : 0})`;
+    const down = scroll > last && scroll > 200; last = scroll;
+    $('#header').classList.toggle('is-hidden', down && !document.body.classList.contains('is-menu'));
+    $('#callbar').classList.toggle('is-in', scroll > innerHeight * .9 && scroll < limit - innerHeight * .9);
+  });
+}
+
+/* giant wordmark leans toward the pointer */
+const giant = $('#giant'), gl = $$('span', giant); let gx = null; const gy = gl.map(() => 0);
+giant.addEventListener('pointermove', e => gx = e.clientX); giant.addEventListener('pointerleave', () => gx = null);
+gsap.ticker.add(() => { gl.forEach((l, i) => { let t = 0; if (gx !== null) { const r = l.getBoundingClientRect(); t = -Math.max(0, 1 - Math.abs(gx - (r.left + r.width / 2)) / 260) * 14; } gy[i] += (t - gy[i]) * .12; l.style.transform = `translateY(${gy[i]}%)`; }); });
+
+/* =========================================================
+   6. Menu, nav, form
+   ========================================================= */
+const menuBtn = $('#menuBtn');
+function setMenu(open) {
+  document.body.classList.toggle('is-menu', open); menuBtn.setAttribute('aria-expanded', open);
+  open ? lenis.stop() : lenis.start();
+  if (open && !reduced) gsap.fromTo('#menu li', { yPercent: 60, opacity: 0 }, { yPercent: 0, opacity: 1, duration: 1, stagger: .05, ease: 'expo.out', delay: .25 });
+}
+menuBtn.addEventListener('click', () => setMenu(!document.body.classList.contains('is-menu')));
+addEventListener('keydown', e => { if (e.key === 'Escape' && document.body.classList.contains('is-menu')) { setMenu(false); menuBtn.focus(); } });
+$$('[data-nav]').forEach(a => a.addEventListener('click', e => {
+  const id = a.getAttribute('href'); if (!id || !id.startsWith('#')) return;
+  e.preventDefault(); const wasOpen = document.body.classList.contains('is-menu'); setMenu(false);
+  setTimeout(() => lenis.scrollTo(id === '#top' ? 0 : id, { duration: 1.6, offset: id === '#contact' ? -10 : 0 }), wasOpen ? 350 : 0);
+}));
+$('#form').addEventListener('submit', e => {
+  e.preventDefault();
+  const f = e.currentTarget, name = f.name.value.trim(), note = $('#formNote');
+  if (!name) { note.textContent = 'Please add your name so we know who to reply to.'; f.name.focus(); return; }
+  if (!f.phone.value.trim() && !f.email.value.trim()) { note.textContent = 'Add a phone number or email so we can reach you.'; f.phone.focus(); return; }
+  const body = `Name: ${name}\nPhone: ${f.phone.value}\nEmail: ${f.email.value}\nCity: ${f.city.value}\nService: ${f.service.value}\n\n${f.message.value}\n\n(Claiming the 20% off + free accent wall offer)`;
+  location.href = `mailto:phil@boostpainting.ca?subject=${encodeURIComponent('Free quote request: ' + f.service.value)}&body=${encodeURIComponent(body)}`;
+  note.textContent = 'Your email app should open with the request filled in. If it doesn’t, call (519) 362-4422.';
+});
+
+/* =========================================================
+   7. Boot
+   ========================================================= */
+const fontsReady = document.fonts ? document.fonts.ready : Promise.resolve();
+Promise.race([fontsReady, new Promise(r => setTimeout(r, 2500))]).then(() => {
+  reveal($('#heroTitle'), reduced ? 0 : 1.2);
+  if (!reduced) gsap.from('.hero .reveal-fade', { y: 14, opacity: 0, filter: 'blur(6px)', duration: 1.1, stagger: .1, ease: 'expo.out', delay: 1.5 });
+  $$('[data-lines]').forEach(el => { if (el.id !== 'heroTitle' && el.getBoundingClientRect().top > innerHeight && !reduced) gsap.set(splitLines(el), { yPercent: 105, opacity: 0 }); });
+  $$('.tape').forEach(el => { if (!el.closest('.hero') && el.getBoundingClientRect().top > innerHeight && !reduced) gsap.set(el, { clipPath: 'inset(0 100% 0 0)' }); });
+  build();
+});
+let rt, lastW = innerWidth;
+addEventListener('resize', () => {
+  clearTimeout(rt);
+  rt = setTimeout(() => {
+    if (innerWidth === lastW && isPhone()) return;   // ignore mobile URL-bar height changes
+    lastW = innerWidth;
+    layoutRoller(); if (R.done) { R.t0 = -1e9; drawHero(performance.now()); }
+    splitLines($('#heroTitle')); applyFilter(false); ScrollTrigger.refresh();
+  }, 200);
+});
+})();
+</script>
+</body>
+</html>
