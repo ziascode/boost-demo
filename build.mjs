@@ -37,6 +37,7 @@ const css = new CleanCSS({ level: 2 }).minify(await readFile('site.css', 'utf8')
 if (css.errors.length) throw new Error('site.css: ' + css.errors.join('; '));
 await writeFile(`${OUT}/site.css`, css.styles);
 await writeFile(`${OUT}/page.js`, obfuscate(await readFile('page.js', 'utf8')));
+await writeFile(`${OUT}/demo-banner.js`, obfuscate(await readFile('demo-banner.js', 'utf8')));
 
 // pages: obfuscate every inline <script> (no src), then minify the HTML and its inline CSS
 for (const page of PAGES) {
@@ -55,7 +56,7 @@ for (const page of PAGES) {
 }
 
 const kb = n => (n / 1024).toFixed(1) + ' KB';
-for (const f of [...PAGES, 'site.css', 'page.js']) {
+for (const f of [...PAGES, 'site.css', 'page.js', 'demo-banner.js']) {
   const [a, b] = await Promise.all([readFile(f), readFile(`${OUT}/${f}`)]);
   console.log(f.padEnd(16), kb(a.length).padStart(9), '->', kb(b.length).padStart(9));
 }
