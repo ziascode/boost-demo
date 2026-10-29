@@ -1,0 +1,644 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Commercial Painting · Boost Painting · Guelph, Kitchener, Milton &amp; the GTA</title>
+<meta name="description" content="Commercial painting for offices, retail, restaurants and rental properties across Guelph, Kitchener, Milton and the GTA. WSIB certified, $2M liability insured, detailed written quotes.">
+<meta name="theme-color" content="#0d223f">
+<link rel="icon" href="https://images.squarespace-cdn.com/content/v1/60e0f3f0846c2f5189185c51/678bb698-d0ff-4b40-bca4-98bee032133a/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Instrument+Serif:ital@1&family=JetBrains+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="site.css?v=2">
+<style>
+/* Commercial page. Concept: "Stay open while we paint."
+   Through-line: the shop sign. It hangs OPEN in the hero, flips to show the work going on behind it,
+   marks the step where your doors stay open, and reads OPEN FOR QUOTES at the form. */
+.nav a[aria-current="page"]{background:rgba(255,255,255,.18)}
+
+/* ---------- hero ---------- */
+.c-hero{height:170vh}
+.c-hero h1{max-width:min(100%,8.4em)}
+
+/* the shop sign */
+.sign{position:absolute;z-index:3;right:calc(var(--gr) + var(--pad) - 16px);top:calc(88px + env(safe-area-inset-top,0px));width:clamp(150px,15vw,220px);perspective:900px;transform-origin:50% 0;cursor:pointer;background:none;border:0;padding:0;color:inherit}
+.sign>span{display:block}
+.c-hero .hud{right:auto;left:calc(var(--gl) + var(--pad) - 16px);text-align:left}
+.sign__hook{position:relative;height:clamp(40px,7vh,70px)}
+.sign__hook::before,.sign__hook::after{content:"";position:absolute;top:0;bottom:-6px;width:2px;background:linear-gradient(#cfd6de,#8d99a6);transform-origin:top}
+.sign__hook::before{left:22%;transform:rotate(14deg)}
+.sign__hook::after{right:22%;transform:rotate(-14deg)}
+.sign__hook i{position:absolute;left:50%;top:-5px;width:12px;height:12px;margin-left:-6px;border-radius:50%;background:#cfd6de;box-shadow:0 2px 6px rgba(0,0,0,.35)}
+.sign__board{position:relative;aspect-ratio:16/9;transform-style:preserve-3d;transition:transform 1.1s var(--ease)}
+.sign.is-flipped .sign__board{transform:rotateY(180deg)}
+.sign__face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:10px;display:grid;place-content:center;text-align:center;gap:2px;box-shadow:0 24px 40px -18px rgba(0,0,0,.6),inset 0 0 0 4px var(--tape)}
+.sign__face--front{background:var(--white);color:var(--navy)}
+.sign__face--back{background:var(--navy);color:var(--white);transform:rotateY(180deg);box-shadow:0 24px 40px -18px rgba(0,0,0,.6),inset 0 0 0 4px var(--tape-2)}
+.sign__face b{font-family:var(--display);font-weight:800;font-size:clamp(40px,4.4vw,64px);line-height:.85;letter-spacing:.02em}
+.sign__face small{font-family:var(--mono);font-size:clamp(8px,.7vw,10px);letter-spacing:.14em;text-transform:uppercase;opacity:.8}
+.sign__face--back b{font-size:clamp(22px,2.2vw,32px);line-height:.95}
+.sign__hint{display:block;margin-top:10px;text-align:center;font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.75)}
+
+/* ---------- statement (Amir's review) ---------- */
+.said{padding-block:clamp(90px,15vh,170px);background:var(--primer)}
+.said__q{margin:0;font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:clamp(40px,min(7.2vw,12vh),124px);line-height:.9;color:var(--navy);text-wrap:balance}
+.said__q .w{opacity:.14}
+.said__q em{font-family:var(--serif);font-weight:400;text-transform:none;color:var(--tape)}
+.said__by{margin-top:clamp(24px,4vh,40px);display:flex;flex-wrap:wrap;align-items:center;gap:14px 22px}
+.said__by .who{display:flex;align-items:center;gap:12px;font-size:15px}
+.said__by .who i{width:44px;height:44px;border-radius:50%;background:var(--navy);color:#fff;display:grid;place-items:center;font-style:normal;font-weight:700}
+.said__by .who span{display:grid;line-height:1.35}
+.said__by .who small{color:var(--muted)}
+
+/* ---------- property types: hover-reveal list ---------- */
+.types{background:var(--navy);color:var(--primer);padding-block:clamp(84px,13vh,150px);position:relative;overflow:clip}
+.types__head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:20px;margin-bottom:clamp(28px,5vh,56px)}
+.types__head .display{margin-top:16px}
+.types__head .display em{color:var(--tape-2)}
+.types__head .lede{color:rgba(243,242,238,.7)}
+.plist{list-style:none;margin:0;padding:0;border-top:1px solid var(--navy-line)}
+.plist li{border-bottom:1px solid var(--navy-line)}
+.prow{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,26ch) auto;gap:20px 40px;align-items:center;padding:clamp(16px,2.6vh,26px) 0;text-decoration:none;position:relative}
+.prow h3{margin:0;font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:clamp(40px,min(6.4vw,10vh),104px);line-height:.9;transition:color .5s var(--ease),translate .7s var(--ease)}
+.prow p{margin:0;font-size:15px;color:rgba(243,242,238,.62);transition:color .5s}
+.prow .arr{font-family:var(--mono);font-size:14px;color:var(--tape-2);transition:translate .6s var(--ease)}
+.prow img{display:none}
+.plist:hover .prow h3{color:rgba(243,242,238,.28)}
+.plist .prow:hover h3,.plist .prow:focus-visible h3{color:var(--primer);translate:14px 0}
+.prow:hover p{color:rgba(243,242,238,.9)}
+.prow:hover .arr{translate:4px -4px}
+.follow{position:fixed;left:0;top:0;z-index:5;width:clamp(240px,24vw,380px);aspect-ratio:4/5;border-radius:16px;overflow:hidden;pointer-events:none;opacity:0;scale:.86;transition:opacity .45s var(--ease),scale .6s var(--ease);box-shadow:0 40px 80px -30px rgba(0,0,0,.7)}
+.follow.is-on{opacity:1;scale:1}
+.follow img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .4s}
+.follow img.is-on{opacity:1}
+
+/* ---------- scope: sticky stage with paint-edge wipe ---------- */
+.scope{padding-block:clamp(84px,13vh,150px)}
+.scope__head{max-width:900px;margin-bottom:clamp(36px,6vh,72px)}
+.scope__head .display{margin-top:16px}
+.scope__grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(28px,5vw,80px)}
+.stage{position:sticky;top:clamp(90px,13vh,120px);align-self:start;height:min(74vh,720px);border-radius:22px;overflow:hidden;background:var(--primer-2)}
+.stage figure{position:absolute;inset:0;margin:0;clip-path:inset(0 100% 0 0);transition:clip-path 1.1s var(--ease)}
+.stage figure.is-on{clip-path:inset(0 0 0 0)}
+.stage figure.was-on{clip-path:inset(0 0 0 0);z-index:0}
+.stage figure.is-on{z-index:1}
+.stage img{width:100%;height:100%;object-fit:cover}
+.stage figcaption{position:absolute;left:14px;bottom:14px;padding:8px 12px;border-radius:999px;background:rgba(13,34,63,.6);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);color:#fff;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase}
+.stage__edge{position:absolute;top:0;bottom:0;width:22px;z-index:2;left:0;background:linear-gradient(90deg,rgba(255,255,255,0),rgba(255,255,255,.35));pointer-events:none;opacity:0}
+.scope__list{list-style:none;margin:0;padding:0;display:grid;gap:0}
+.scope__item{min-height:min(62vh,560px);display:grid;align-content:center;gap:12px;border-top:1px solid var(--line);opacity:.35;transition:opacity .6s var(--ease)}
+.scope__item:last-child{min-height:min(52vh,480px)}
+.scope__item.is-on{opacity:1}
+.scope__item .k{font-family:var(--mono);font-size:12px;letter-spacing:.14em;color:var(--tape)}
+.scope__item h3{margin:0;font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:clamp(36px,3.8vw,60px);line-height:.92;color:var(--navy)}
+.scope__item p{margin:0;color:var(--muted);max-width:44ch}
+
+/* ---------- process: index rows ---------- */
+.rows{background:var(--white);padding-block:clamp(84px,13vh,150px)}
+.rows__head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:20px;margin-bottom:clamp(28px,5vh,56px)}
+.rows__head .display{margin-top:16px}
+.irow{display:grid;grid-template-columns:clamp(90px,12vw,200px) minmax(0,1fr) minmax(0,1fr);gap:12px clamp(20px,4vw,64px);align-items:baseline;padding:clamp(22px,4vh,40px) 0;position:relative;opacity:.4;transition:opacity .6s var(--ease)}
+.irow.is-on{opacity:1}
+.irow::before{content:"";position:absolute;left:0;right:0;top:0;height:1px;background:var(--line)}
+.irow::after{content:"";position:absolute;left:0;right:0;top:0;height:2px;background:var(--tape);transform:scaleX(var(--draw,0));transform-origin:left}
+.irow__n{font-family:var(--serif);font-style:italic;font-size:clamp(64px,8vw,132px);line-height:.8;color:var(--tape)}
+.irow h3{margin:0;font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:clamp(32px,3.4vw,54px);line-height:.92;color:var(--navy)}
+.irow h3 small{display:block;margin-top:10px;font-family:var(--mono);font-weight:400;font-size:12px;letter-spacing:.12em;color:var(--muted)}
+.irow p{margin:0;color:var(--muted);max-width:46ch}
+.irow .mini-sign{display:inline-flex;align-items:center;gap:6px;margin-top:12px;padding:5px 10px;border-radius:6px;background:var(--navy);color:#fff;font-family:var(--display);font-weight:800;letter-spacing:.08em;font-size:16px;box-shadow:inset 0 0 0 2px var(--tape)}
+
+/* ---------- credentials band ---------- */
+.band{position:relative;min-height:min(100svh,900px);display:grid;align-items:end;color:#fff;overflow:clip}
+.band__img{position:absolute;inset:-8% 0;}
+.band__img img{width:100%;height:100%;object-fit:cover;filter:saturate(.85) contrast(1.05)}
+.band::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,34,63,.25),rgba(13,34,63,.88))}
+.band__copy{position:relative;z-index:2;padding-block:clamp(60px,10vh,110px)}
+.band__big{display:flex;flex-wrap:wrap;gap:0 clamp(20px,4vw,70px);font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:clamp(64px,13vw,230px);line-height:.85;letter-spacing:-.01em}
+.band__big span:nth-child(2){color:var(--tape-2)}
+.band__row{margin-top:clamp(20px,4vh,36px);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;border-top:1px solid rgba(255,255,255,.22);padding-top:18px}
+.band__row b{display:block;font-size:17px}
+.band__row span{color:rgba(255,255,255,.75);font-size:15px}
+
+/* ---------- contact (commercial) ---------- */
+.c-contact .contact__grid{align-items:stretch}
+.c-photo{position:relative;border-radius:24px;overflow:hidden;min-height:520px}
+.c-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.c-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,34,63,.1),rgba(13,34,63,.7))}
+.c-photo .sign{position:absolute;top:0;right:auto;left:50%;margin-left:calc(clamp(150px,15vw,220px) / -2);cursor:default}
+.c-photo__copy{position:absolute;z-index:2;left:20px;right:20px;bottom:20px;display:grid;gap:8px}
+.c-photo__copy ul{list-style:none;margin:0;padding:0;display:grid;gap:4px;font-size:15px}
+.c-photo__copy a{text-decoration:none}
+.credit{font-size:12px;color:rgba(243,242,238,.45);margin:18px 0 0}
+
+@media (max-width:980px){
+  .scope__grid{grid-template-columns:minmax(0,1fr)}
+  .stage{top:calc(76px + env(safe-area-inset-top,0px));height:42svh;z-index:2;overflow:visible;background:none}
+  .stage::before{content:"";position:absolute;left:-20px;right:-20px;bottom:100%;height:120px;background:var(--primer)}
+  .stage figure{border-radius:18px;overflow:hidden}
+  .scope__item{min-height:56svh}
+  .irow{grid-template-columns:minmax(64px,auto) minmax(0,1fr)}
+  .irow p{grid-column:2}
+  .band__row{grid-template-columns:minmax(0,1fr)}
+  .c-photo{min-height:440px}
+}
+@media (max-width:760px){
+  .sign{width:118px;top:calc(76px + env(safe-area-inset-top,0px))}
+  .sign__hook{height:26px}
+  .sign__face b{font-size:34px}
+  .sign__face--back b{font-size:18px}
+  .sign__hint{display:none}
+  .c-hero{height:150vh}
+  .prow{grid-template-columns:72px minmax(0,1fr);gap:4px 16px}
+  .prow img{display:block;grid-row:span 2;width:72px;height:88px;object-fit:cover;border-radius:10px}
+  .prow h3{font-size:clamp(30px,9.4vw,44px)}
+  .prow p{font-size:14px}
+  .prow .arr{display:none}
+  .follow{display:none}
+  .irow h3{font-size:30px}
+  .irow__n{font-size:60px}
+  .band{min-height:640px}
+  .c-photo .sign{width:118px;margin-left:-59px}
+}
+@media (hover:none){ .follow{display:none} }
+</style>
+</head>
+<body>
+
+<header class="header" id="header">
+  <div class="header__bar wrap">
+    <a class="brand" href="index.html" aria-label="Boost Painting home"><img src="assets/boost-painting-horizontal-logo.png" alt="Boost Painting" width="960" height="210"></a>
+    <nav class="nav" aria-label="Main">
+      <a href="interior.html">Interior</a><a href="exterior.html">Exterior</a><a href="commercial.html" aria-current="page">Commercial</a><a href="index.html#work">Portfolio</a><a href="about.html">About</a><a href="contact.html">Contact</a>
+    </nav>
+    <div class="header__actions">
+      <a class="pill" href="tel:+15193624422" aria-label="Call (519) 362-4422"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg><span class="pill--call-text">(519) 362-4422</span></a>
+      <a class="pill pill--tape" href="#quote" data-nav>Commercial quote</a>
+      <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="menu"><span class="bars" aria-hidden="true"><i></i><i></i></span><span class="sr">Menu</span></button>
+    </div>
+  </div>
+</header>
+
+<nav class="menu" id="menu" aria-label="Main">
+  <div class="wrap">
+    <ol>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="#spaces" data-nav>Spaces we paint</a></li>
+      <li><a href="#scope" data-nav>What we do</a></li>
+      <li><a href="#process" data-nav>How we work</a></li>
+      <li><a href="#quote" data-nav>Commercial quote</a></li>
+      <li><a href="interior.html">Interior painting</a></li>
+      <li><a href="exterior.html">Exterior painting</a></li>
+      <li><a href="index.html#work">Portfolio</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ol>
+    <div class="menu__foot"><a href="tel:+15193624422">(519) 362-4422</a><a href="mailto:phil@boostpainting.ca">phil@boostpainting.ca</a><span>Guelph · Kitchener · GTA · Milton · Halton · Erin</span></div>
+  </div>
+</nav>
+
+<main id="top">
+  <!-- HERO: the space is repainted stroke by stroke while the sign stays OPEN -->
+  <section class="hero c-hero" id="hero" aria-label="Commercial painting">
+    <div class="hero__stage">
+      <div class="hero__media" id="heroMedia"><canvas id="roller" role="img" aria-label="Bright commercial office interior"></canvas></div>
+      <button class="sign" id="heroSign" type="button" aria-label="Shop sign: open. Tap to flip.">
+        <span class="sign__hook" aria-hidden="true"><i></i></span>
+        <span class="sign__board" aria-hidden="true">
+          <span class="sign__face sign__face--front"><b>OPEN</b><small>Business as usual</small></span>
+          <span class="sign__face sign__face--back"><b>Painting in progress</b><small>Still open · Boost Painting</small></span>
+        </span>
+        <span class="sign__hint" aria-hidden="true">Tap to flip</span>
+      </button>
+      <div class="hud" id="hud" aria-hidden="true">Coat <span id="coat">01</span> / 02<br>Coverage <span id="cov">000</span>%</div>
+      <div class="hero__copy wrap">
+        <span class="tape tape--dark reveal-fade" style="justify-self:start">Commercial painting</span>
+        <h1 class="display" id="heroTitle" data-lines>Commercial painting that keeps you <em>open</em></h1>
+        <div class="hero__row">
+          <p class="reveal-fade"><b>Offices, retail, restaurants and rental properties</b> across Guelph, Kitchener, Milton and the GTA. WSIB certified, $2M liability insured, and quoted in writing before we start.</p>
+          <div class="hero__ctas reveal-fade">
+            <a class="btn btn--tape" href="#quote" data-nav><span class="roll"><span>Book a site walkthrough</span><span aria-hidden="true">Book a site walkthrough</span></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <a class="btn btn--ghost" href="tel:+15193624422"><span class="roll"><span>(519) 362-4422</span><span aria-hidden="true">(519) 362-4422</span></span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATEMENT: a real client, in their words -->
+  <section class="said" aria-labelledby="saidTitle">
+    <div class="wrap">
+      <h2 class="sr" id="saidTitle">What a commercial client says</h2>
+      <span class="tape" data-tape>From a commercial client</span>
+      <blockquote class="said__q" id="saidQ" style="margin:22px 0 0">“They paint all my commercial properties and have done a great job every time.”</blockquote>
+      <div class="said__by">
+        <div class="who"><i aria-hidden="true">A</i><span><b>Amir A.</b><small>Property owner · Orangeville, ON</small></span></div>
+        <div class="stars" aria-label="5 out of 5 stars"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPACES: hover-reveal list -->
+  <section class="types" id="spaces" aria-labelledby="typesTitle">
+    <div class="wrap">
+      <div class="types__head">
+        <div><span class="tape tape--dark">Spaces we paint</span><h2 class="display h2" id="typesTitle" data-lines>Where your business <em>happens</em></h2></div>
+        <p class="lede">The same careful prep and clean finish we bring to homes, scheduled around the people who use the space every day.</p>
+      </div>
+      <ul class="plist" id="plist">
+        <li><a class="prow" href="#quote" data-nav data-img="0"><img src="https://images.unsplash.com/photo-1564605503978-7650b149b9c0?auto=format&fit=crop&w=300&q=70" alt="" loading="lazy"><h3>Offices</h3><p>Open floors, boardrooms, reception and corridors.</p><span class="arr" aria-hidden="true">↗</span></a></li>
+        <li><a class="prow" href="#quote" data-nav data-img="1"><img src="https://images.unsplash.com/photo-1771033834141-023d630b3965?auto=format&fit=crop&w=300&q=70" alt="" loading="lazy"><h3>Retail &amp; showrooms</h3><p>Sales floors and feature walls that set the tone for your brand.</p><span class="arr" aria-hidden="true">↗</span></a></li>
+        <li><a class="prow" href="#quote" data-nav data-img="2"><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=300&q=70" alt="" loading="lazy"><h3>Restaurants &amp; cafés</h3><p>Dining rooms refreshed with the clean-up done before service.</p><span class="arr" aria-hidden="true">↗</span></a></li>
+        <li><a class="prow" href="#quote" data-nav data-img="3"><img src="https://images.unsplash.com/photo-1635151925996-cf34cc3805d4?auto=format&fit=crop&w=300&q=70" alt="" loading="lazy"><h3>Rental &amp; multi-unit</h3><p>Hallways, common areas and unit turnovers for landlords and property managers.</p><span class="arr" aria-hidden="true">↗</span></a></li>
+        <li><a class="prow" href="#quote" data-nav data-img="4"><img src="https://images.unsplash.com/photo-1528698827591-e19ccd7bc23d?auto=format&fit=crop&w=300&q=70" alt="" loading="lazy"><h3>Storefronts</h3><p>Exterior repaints that make the first impression from the street.</p><span class="arr" aria-hidden="true">↗</span></a></li>
+      </ul>
+    </div>
+    <div class="follow" id="follow" aria-hidden="true">
+      <img src="https://images.unsplash.com/photo-1564605503978-7650b149b9c0?auto=format&fit=crop&w=760&q=75" alt="">
+      <img src="https://images.unsplash.com/photo-1771033834141-023d630b3965?auto=format&fit=crop&w=760&q=75" alt="">
+      <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=760&q=75" alt="">
+      <img src="https://images.unsplash.com/photo-1635151925996-cf34cc3805d4?auto=format&fit=crop&w=760&q=75" alt="">
+      <img src="https://images.unsplash.com/photo-1528698827591-e19ccd7bc23d?auto=format&fit=crop&w=760&q=75" alt="">
+    </div>
+  </section>
+
+  <!-- SCOPE: sticky stage, each item wipes a fresh photo on like a paint edge -->
+  <section class="scope" id="scope" aria-labelledby="scopeTitle">
+    <div class="wrap">
+      <div class="scope__head"><span class="tape" data-tape>What we do</span><h2 class="display h2" id="scopeTitle" data-lines>From the walls to the <em>front door</em></h2></div>
+      <div class="scope__grid">
+        <div class="stage" id="stage" aria-hidden="true">
+          <figure class="is-on"><img src="https://images.unsplash.com/photo-1572521165329-b197f9ea3da6?auto=format&fit=crop&w=1400&q=75" alt=""><figcaption>Walls &amp; ceilings</figcaption></figure>
+          <figure><img src="https://images.unsplash.com/photo-1693985120993-e9b203ce7631?auto=format&fit=crop&w=1400&q=75" alt=""><figcaption>Doors, frames &amp; trim</figcaption></figure>
+          <figure><img src="https://images.unsplash.com/photo-1635151925996-cf34cc3805d4?auto=format&fit=crop&w=1400&q=75" alt=""><figcaption>Unit turnovers</figcaption></figure>
+          <figure><img src="https://images.unsplash.com/photo-1528698827591-e19ccd7bc23d?auto=format&fit=crop&w=1400&q=75" alt=""><figcaption>Exteriors &amp; storefronts</figcaption></figure>
+          <figure><img src="https://images.unsplash.com/photo-1562259949-e8e7689d7828?auto=format&fit=crop&w=1400&q=75" alt=""><figcaption>Prep &amp; pressure washing</figcaption></figure>
+        </div>
+        <ol class="scope__list" id="scopeList">
+          <li class="scope__item is-on"><span class="k">01</span><h3>Walls &amp; ceilings</h3><p>Full repaints or a refresh of high-traffic areas, with drywall patching and proper prep so scuffs don’t telegraph through the new coat.</p></li>
+          <li class="scope__item"><span class="k">02</span><h3>Doors, frames &amp; trim</h3><p>The details people touch every day, cut in cleanly with durable finishes that stand up to traffic.</p></li>
+          <li class="scope__item"><span class="k">03</span><h3>Unit turnovers</h3><p>For landlords and property managers: units repainted between tenants so they’re ready to show.</p></li>
+          <li class="scope__item"><span class="k">04</span><h3>Exteriors &amp; storefronts</h3><p>Siding, trim, doors and signage walls brought back so your building looks open for business.</p></li>
+          <li class="scope__item"><span class="k">05</span><h3>Prep &amp; pressure washing</h3><p>Surfaces cleaned and prepared before any paint goes on, which is what makes a finish last.</p></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS: index rows -->
+  <section class="rows" id="process" aria-labelledby="procTitle">
+    <div class="wrap">
+      <div class="rows__head">
+        <div><span class="tape" data-tape>How we work</span><h2 class="display h2" id="procTitle" data-lines>Planned around your <em>doors</em></h2></div>
+        <p class="lede">No high-pressure sales and no surprise fees. You know the scope, the schedule and the price before we arrive.</p>
+      </div>
+      <div id="irows">
+        <div class="irow"><span class="irow__n">01</span><h3>Site walkthrough<small>15–30 minutes on site</small></h3><p>We walk the space with you, look at surfaces and traffic, and talk through timing, paint types and finishes.</p></div>
+        <div class="irow"><span class="irow__n">02</span><h3>Written quote<small>Usually within 24 hours</small></h3><p>A detailed, transparent quote covering prep, materials and coats, so the number you approve is the number you pay.</p></div>
+        <div class="irow"><span class="irow__n">03</span><h3>A schedule that fits<small>Mon–Fri · 8am–5pm, flexible when needed</small></h3><p>We plan the work area by area with you so staff, tenants and customers can keep using the space. Special situations are always accommodated.</p><span class="mini-sign" style="grid-column:2">OPEN</span></div>
+        <div class="irow"><span class="irow__n">04</span><h3>Clean handover<small>No mess left behind</small></h3><p>Every area is cleaned up as we finish it. The fresh paint is the only sign we were there.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CREDENTIALS: full-bleed band -->
+  <section class="band" aria-labelledby="bandTitle">
+    <div class="band__img" id="bandImg"><img src="https://images.unsplash.com/photo-1562259949-e8e7689d7828?auto=format&fit=crop&w=2400&q=75" alt="" loading="lazy"></div>
+    <div class="band__copy wrap">
+      <h2 class="sr" id="bandTitle">Credentials</h2>
+      <div class="band__big" aria-hidden="true"><span>WSIB</span><span>$2M</span><span>5.0★</span></div>
+      <div class="band__row">
+        <div><b>WSIB certified</b><span>A properly covered crew on your property.</span></div>
+        <div><b>$2M general liability</b><span>Insurance certificate available on request.</span></div>
+        <div><b>5.0 on Google</b><span>From 31 reviews, including commercial property owners.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUOTE -->
+  <section class="contact c-contact" id="quote" aria-labelledby="ctTitle">
+    <div class="wrap">
+      <span class="tape tape--dark">Commercial quote</span>
+      <h2 class="display h2" id="ctTitle" data-lines style="margin:16px 0 clamp(28px,5vh,52px)">Tell us about the <em>space</em></h2>
+      <div class="contact__grid">
+        <div class="c-photo">
+          <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=1400&q=75" alt="" loading="lazy">
+          <div class="sign" id="quoteSign" aria-hidden="true">
+            <span class="sign__hook"><i></i></span>
+            <span class="sign__board"><span class="sign__face sign__face--front"><b>OPEN</b><small>For quotes</small></span><span class="sign__face sign__face--back"><b>Quote on its way</b><small>Usually within 24 hours</small></span></span>
+          </div>
+          <div class="c-photo__copy">
+            <ul>
+              <li><a href="tel:+15193624422">(519) 362-4422</a></li>
+              <li><a href="mailto:phil@boostpainting.ca">phil@boostpainting.ca</a></li>
+              <li>211 Christie Street, Rockwood, ON</li>
+              <li>Guelph · Kitchener · the GTA · Milton · Halton · Erin</li>
+            </ul>
+          </div>
+        </div>
+        <form class="form" id="form" novalidate>
+          <h3>Request a site walkthrough</h3>
+          <p>Fast response, often within 1 hour.</p>
+          <div class="row2">
+            <div class="field"><label for="fName">Name</label><input id="fName" name="name" autocomplete="name" required></div>
+            <div class="field"><label for="fCompany">Business</label><input id="fCompany" name="company" autocomplete="organization"></div>
+          </div>
+          <div class="row2">
+            <div class="field"><label for="fPhone">Phone</label><input id="fPhone" name="phone" type="tel" autocomplete="tel" inputmode="tel"></div>
+            <div class="field"><label for="fEmail">Email</label><input id="fEmail" name="email" type="email" autocomplete="email" inputmode="email"></div>
+          </div>
+          <div class="row2">
+            <div class="field"><label for="fType">Property type</label>
+              <select id="fType" name="ptype"><option>Office</option><option>Retail / showroom</option><option>Restaurant / café</option><option>Rental / multi-unit</option><option>Storefront / exterior</option><option>Other</option></select></div>
+            <div class="field"><label for="fWhen">Timing</label>
+              <select id="fWhen" name="when"><option>As soon as possible</option><option>Within a month</option><option>1–3 months</option><option>Just planning</option></select></div>
+          </div>
+          <div class="field"><label for="fCity">Property location</label><input id="fCity" name="city" autocomplete="address-level2" placeholder="e.g. Guelph"></div>
+          <div class="field"><label for="fMsg">What needs painting?</label><textarea id="fMsg" name="message" placeholder="e.g. 3,000 sq ft office, walls and door frames. We’re open 9–5 and need the boardroom usable."></textarea></div>
+          <button class="btn btn--tape" type="submit"><span class="roll"><span>Send request</span><span aria-hidden="true">Send request</span></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+          <p class="form__note" id="formNote" aria-live="polite">Opens your email app with the details filled in. Prefer to talk? Call (519) 362-4422.</p>
+        </form>
+      </div>
+      <div class="giant" id="giant" aria-hidden="true"><span>B</span><span>o</span><span>o</span><span>s</span><span>t</span></div>
+      <div class="legal">
+        <span>© 2026 Boost Painting. All rights reserved.</span>
+        <span>WSIB Certified · $2M General Liability Insurance</span>
+        <span><a href="index.html">Home</a> · <a href="about.html">About</a> · <a href="contact.html">Contact</a> · <a href="interior.html">Interior</a> · <a href="exterior.html">Exterior</a> · <a href="https://www.instagram.com/boostpainting/" target="_blank" rel="noopener">Instagram ↗</a></span>
+      </div>
+      <p class="credit">Photos on this page are stand-ins from Unsplash, not Boost Painting projects.</p>
+    </div>
+  </section>
+</main>
+
+<div class="stripe" aria-hidden="true"><i id="stripe"></i></div>
+
+<div class="callbar" id="callbar">
+  <a class="btn btn--light" href="tel:+15193624422">Call now</a>
+  <a class="btn btn--tape" href="#quote" data-nav>Get a quote</a>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script>
+(() => {
+'use strict';
+gsap.registerPlugin(ScrollTrigger);
+const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const isPhone = () => innerWidth <= 760;
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const STAR = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>';
+$$('.stars').forEach(s => s.innerHTML = STAR.repeat(5));
+
+const lenis = new Lenis({ duration: 1.15, easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)), smoothWheel: !reduced });
+lenis.on('scroll', ScrollTrigger.update);
+gsap.ticker.add(t => lenis.raf(t * 1000)); gsap.ticker.lagSmoothing(0);
+
+/* =========================================================
+   1. Hero roller reveal (same system as the home page)
+   ========================================================= */
+const R = { cv: $('#roller'), img: new Image(), t0: 0, done: false };
+R.img.crossOrigin = 'anonymous';
+R.img.src = 'https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=' + (isPhone() ? 1400 : 2400) + '&q=75';
+const ease = t => t < .5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
+function layoutRoller() {
+  const c = R.cv, r = c.getBoundingClientRect(), dpr = Math.min(devicePixelRatio, 2);
+  c.width = Math.round(r.width * dpr); c.height = Math.round(r.height * dpr);
+  R.W = c.width; R.H = c.height; R.dpr = dpr; R.ctx = c.getContext('2d');
+  R.n = isPhone() ? 4 : 7; R.cw = R.W / R.n;
+  R.wob = Array.from({ length: R.n }, () => Array.from({ length: 9 }, () => Math.random()));
+  const iw = R.img.naturalWidth, ih = R.img.naturalHeight; if (!iw) return;
+  const ir = iw / ih, cr = R.W / R.H; let sx, sy, sw, sh;
+  if (ir > cr) { sh = ih; sw = sh * cr; sx = (iw - sw) / 2; sy = 0; } else { sw = iw; sh = sw / cr; sx = 0; sy = (ih - sh) / 2; }
+  const mk = () => { const o = document.createElement('canvas'); o.width = R.W; o.height = R.H; const g = o.getContext('2d'); g.imageSmoothingQuality = 'high'; g.drawImage(R.img, sx, sy, sw, sh, 0, 0, R.W, R.H); return [o, g]; };
+  [R.col] = mk();
+  const [gr, g] = mk();
+  g.globalCompositeOperation = 'saturation'; g.fillStyle = '#808080'; g.fillRect(0, 0, R.W, R.H);
+  g.globalCompositeOperation = 'source-over'; g.fillStyle = 'rgba(13,34,63,.55)'; g.fillRect(0, 0, R.W, R.H);
+  R.gray = gr;
+}
+const STROKE = .62, GAP = .5, START = .5;
+function edgePath(ctx, x0, x1, yEdge, down, wob) {
+  const amp = 9 * R.dpr, steps = wob.length - 1;
+  ctx.beginPath();
+  if (down) { ctx.moveTo(x0, 0); ctx.lineTo(x1, 0); } else { ctx.moveTo(x0, R.H); ctx.lineTo(x1, R.H); }
+  for (let k = steps; k >= 0; k--) { const x = x0 + (x1 - x0) * (k / steps); ctx.lineTo(x, yEdge + (wob[k] - .5) * amp * 2 * (down ? 1 : -1)); }
+  ctx.closePath();
+}
+function drawRoller(ctx, cx, y, w, down) {
+  const d = R.dpr, h = 30 * d, dir = down ? -1 : 1;
+  ctx.save();
+  ctx.strokeStyle = '#d9dde2'; ctx.lineWidth = 4 * d; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+  ctx.beginPath(); ctx.moveTo(cx + w / 2, y); ctx.lineTo(cx + w / 2 + 12 * d, y); ctx.lineTo(cx + w / 2 + 12 * d, y + dir * 46 * d); ctx.lineTo(cx, y + dir * 70 * d); ctx.lineTo(cx, y + dir * 96 * d); ctx.stroke();
+  ctx.fillStyle = '#0d223f'; ctx.beginPath(); ctx.roundRect(cx - 9 * d, y + dir * (down ? 170 : 96) * d, 18 * d, 74 * d, 9 * d); ctx.fill();
+  ctx.fillStyle = '#5d8fb2'; ctx.beginPath(); ctx.roundRect(cx - w / 2, y - h / 2, w, h, h / 2.4); ctx.fill();
+  ctx.fillStyle = 'rgba(255,255,255,.22)'; ctx.fillRect(cx - w / 2 + 6 * d, y - h / 2 + 5 * d, w - 12 * d, 4 * d);
+  ctx.fillStyle = 'rgba(0,0,0,.12)';
+  for (let i = 0; i < w; i += 7 * d) ctx.fillRect(cx - w / 2 + i, y - h / 2 + 2 * d, 1.4 * d, h - 4 * d);
+  ctx.restore();
+}
+function drawHero(now) {
+  const { ctx, H, col, gray } = R; if (!ctx || !col) return true;
+  const t = reduced ? 99 : (now - R.t0) / 1000;
+  ctx.drawImage(gray, 0, 0);
+  let covered = 0, active = null;
+  for (let i = 0; i < R.n; i++) {
+    const p = Math.max(0, Math.min(1, (t - START - i * GAP) / STROKE)); if (p <= 0) continue;
+    const e = ease(p), down = i % 2 === 0, pad = R.cw * .1;
+    const x0 = i * R.cw - (i ? pad : 0), x1 = (i + 1) * R.cw + (i < R.n - 1 ? pad : 0);
+    const yEdge = down ? e * (H + 30 * R.dpr) : H - e * (H + 30 * R.dpr);
+    ctx.save(); edgePath(ctx, x0, x1, yEdge, down, R.wob[i]); ctx.clip();
+    ctx.drawImage(col, 0, 0);
+    const wet = Math.max(0, 1 - (t - START - i * GAP - STROKE) / 1.4);
+    if (wet > 0) { ctx.fillStyle = `rgba(255,255,255,${.1 * wet})`; ctx.fillRect(x0, 0, x1 - x0, H); }
+    ctx.restore();
+    covered += e;
+    if (p < 1) active = { cx: (i + .5) * R.cw, y: Math.max(0, Math.min(H, yEdge)), down };
+  }
+  if (active) drawRoller(ctx, active.cx, active.y, R.cw * .86, active.down);
+  const pct = Math.round(covered / R.n * 100);
+  $('#cov').textContent = String(pct).padStart(3, '0');
+  $('#coat').textContent = pct >= 100 ? '02' : '01';
+  return t > START + (R.n - 1) * GAP + STROKE + 1.5;
+}
+function heroLoop(now) { if (!drawHero(now)) requestAnimationFrame(heroLoop); else { R.done = true; gsap.to('#hud', { opacity: 0, duration: .8, delay: .4 }); } }
+R.img.onload = () => { layoutRoller(); R.t0 = performance.now(); requestAnimationFrame(heroLoop); };
+R.img.onerror = () => { R.cv.style.background = '#142d50'; };
+
+/* the sign: swings in on load, flips on tap, sways a little with the pointer */
+const sign = $('#heroSign');
+sign.addEventListener('click', () => {
+  const f = sign.classList.toggle('is-flipped');
+  sign.setAttribute('aria-label', f ? 'Shop sign: painting in progress, still open. Tap to flip.' : 'Shop sign: open. Tap to flip.');
+  if (!reduced) gsap.fromTo(sign, { rotate: f ? -6 : 6 }, { rotate: 0, duration: 1.6, ease: 'elastic.out(1,.3)' });
+});
+let sway = 0;
+addEventListener('pointermove', e => { if (reduced || e.pointerType !== 'mouse') return; sway = (e.clientX / innerWidth - .5) * 4; });
+gsap.ticker.add(() => { if (!sign._ready) return; sign._r = (sign._r || 0) + (sway - (sign._r || 0)) * .04; sign.style.translate = '0 0'; sign.style.rotate = sign._r.toFixed(2) + 'deg'; });
+
+/* =========================================================
+   2. Headings and tape
+   ========================================================= */
+function splitLines(el) {
+  if (!el._html) el._html = el.innerHTML;
+  el.innerHTML = el._html;
+  el.setAttribute('aria-label', el.textContent.replace(/\s+/g, ' ').trim());
+  const words = [];
+  const walk = node => [...node.childNodes].forEach(n => {
+    if (n.nodeType === 3) {
+      const f = document.createDocumentFragment();
+      n.textContent.split(/(\s+)/).forEach(tok => { if (!tok) return; if (/^\s+$/.test(tok)) { f.appendChild(document.createTextNode(' ')); return; } const w = document.createElement('span'); w.textContent = tok; w.style.display = 'inline-block'; f.appendChild(w); words.push(w); });
+      n.replaceWith(f);
+    } else if (n.nodeType === 1) walk(n);
+  });
+  walk(el);
+  const lines = []; let top = null;
+  words.forEach(w => { const t = w.offsetTop; if (top === null || Math.abs(t - top) > 4) { lines.push([]); top = t; } lines[lines.length - 1].push(w); });
+  el.innerHTML = lines.map(ws => `<span class="lm" aria-hidden="true"><span class="ln">${ws.map(w => w.parentElement !== el ? `<${w.parentElement.tagName.toLowerCase()}>${w.textContent}</${w.parentElement.tagName.toLowerCase()}>` : w.textContent).join(' ')}</span></span>`).join('');
+  return $$('.ln', el);
+}
+function reveal(el, delay = 0) {
+  const lines = splitLines(el);
+  if (reduced) return;
+  gsap.fromTo(lines, { yPercent: 105, filter: 'blur(10px)', opacity: 0 }, { yPercent: 0, filter: 'blur(0px)', opacity: 1, duration: 1.25, stagger: .09, ease: 'expo.out', delay });
+}
+function layTape(el) { if (!reduced) gsap.fromTo(el, { clipPath: 'inset(0 100% 0 0)' }, { clipPath: 'inset(0 0% 0 0)', duration: .9, ease: 'power3.inOut' }); }
+
+/* =========================================================
+   3. Spaces: a photo follows the pointer over the list
+   ========================================================= */
+const follow = $('#follow'), fImgs = $$('img', follow), plist = $('#plist');
+let fx = innerWidth / 2, fy = innerHeight / 2, tx = fx, ty = fy, fOn = false;
+$$('.prow').forEach(row => {
+  row.addEventListener('pointerenter', e => { if (e.pointerType !== 'mouse') return; const k = +row.dataset.img; fImgs.forEach((im, i) => im.classList.toggle('is-on', i === k)); if (!fOn) { fx = tx = e.clientX; fy = ty = e.clientY; } fOn = true; follow.classList.add('is-on'); });
+});
+plist.addEventListener('pointerleave', () => { fOn = false; follow.classList.remove('is-on'); });
+addEventListener('pointermove', e => { tx = e.clientX; ty = e.clientY; }, { passive: true });
+gsap.ticker.add(() => {
+  if (!fOn && !follow.classList.contains('is-on')) return;
+  fx += (tx - fx) * .14; fy += (ty - fy) * .14;
+  const w = follow.offsetWidth, h = follow.offsetHeight;
+  follow.style.transform = `translate(${fx + 40}px, ${fy - h / 2}px) rotate(${Math.max(-6, Math.min(6, (tx - fx) * .06))}deg)`;
+});
+
+/* =========================================================
+   4. Scroll choreography
+   ========================================================= */
+function nearest(items, onPick) {
+  let active = -1;
+  return () => { const mid = innerHeight * (isPhone() && items[0].closest('.scope') ? .72 : .5); let best = 0, bd = Infinity;
+    items.forEach((s, i) => { const r = s.getBoundingClientRect(); const d = Math.abs(r.top + r.height / 2 - mid); if (d < bd) { bd = d; best = i; } });
+    if (best !== active) { const prev = active; active = best; onPick(best, prev); } };
+}
+function build() {
+  gsap.timeline({ scrollTrigger: { trigger: '#hero', start: 'top top', end: 'bottom bottom', scrub: reduced ? true : .5 } })
+    .fromTo('#heroMedia', { clipPath: 'inset(0% 0% 0% 0% round 0px)' }, { clipPath: 'inset(5% 4% 9% 4% round 26px)', ease: 'none' }, 0)
+    .to('.hero__copy', { yPercent: -16, opacity: 0, ease: 'none' }, 0)
+    .to('#heroSign', { yPercent: -30, opacity: 0, ease: 'none' }, .2);
+
+  $$('[data-lines]').forEach(el => { if (el.id === 'heroTitle') return; ScrollTrigger.create({ trigger: el, start: 'top 88%', once: true, onEnter: () => reveal(el) }); });
+  $$('.tape').forEach(el => { if (el.closest('.hero')) return; ScrollTrigger.create({ trigger: el, start: 'top 90%', once: true, onEnter: () => layTape(el) }); });
+
+  // statement words brighten as you read
+  const q = $('#saidQ'); q.setAttribute('aria-label', q.textContent);
+  q.innerHTML = q.textContent.split(' ').map(w => `<span class="w" aria-hidden="true">${w.replace('commercial', '<em>commercial</em>')}</span>`).join(' ');
+  if (reduced) gsap.set('#saidQ .w', { opacity: 1 });
+  else gsap.to('#saidQ .w', { opacity: 1, stagger: .1, ease: 'none', scrollTrigger: { trigger: q, start: 'top 78%', end: 'bottom 50%', scrub: true } });
+
+  // rows rise in
+  $$('.prow').forEach((r, i) => gsap.from(r, { opacity: 0, y: 30, duration: 1, ease: 'expo.out', delay: i * .05, scrollTrigger: { trigger: r, start: 'top 92%', once: true } }));
+
+  // scope: the nearest item wipes its photo on over the last one
+  const items = $$('.scope__item'), figs = $$('#stage figure');
+  const pickScope = nearest(items, (k, prev) => {
+    items.forEach((s, i) => s.classList.toggle('is-on', i === k));
+    figs.forEach((f, i) => { f.classList.toggle('was-on', i === prev); f.classList.toggle('is-on', i === k); if (i !== k && i !== prev) f.classList.remove('was-on'); });
+  });
+  ScrollTrigger.create({ trigger: '#scopeList', start: 'top bottom', end: 'bottom top', onUpdate: pickScope, onRefresh: pickScope });
+
+  // process rows: hairline draws across, nearest row lit
+  const irows = $$('.irow');
+  irows.forEach(r => gsap.fromTo(r, { '--draw': 0 }, { '--draw': 1, ease: 'none', scrollTrigger: { trigger: r, start: 'top 85%', end: 'top 45%', scrub: true } }));
+  const pickRow = nearest(irows, k => irows.forEach((r, i) => r.classList.toggle('is-on', i === k)));
+  ScrollTrigger.create({ trigger: '#irows', start: 'top bottom', end: 'bottom top', onUpdate: pickRow, onRefresh: pickRow });
+  gsap.from('.mini-sign', { rotateY: 180, duration: 1.2, ease: 'expo.out', scrollTrigger: { trigger: '.mini-sign', start: 'top 85%' } });
+
+  // credentials band parallax + giant type
+  gsap.fromTo('#bandImg', { yPercent: -6 }, { yPercent: 6, ease: 'none', scrollTrigger: { trigger: '.band', start: 'top bottom', end: 'bottom top', scrub: true } });
+  gsap.from('.band__big span', { yPercent: 40, opacity: 0, stagger: .1, duration: 1.3, ease: 'expo.out', scrollTrigger: { trigger: '.band__big', start: 'top 85%' } });
+
+  // quote sign swings in, then flips once the form is in use
+  const qs = $('#quoteSign');
+  if (!reduced) gsap.from(qs, { rotate: 14, duration: 2.2, ease: 'elastic.out(1,.25)', transformOrigin: '50% 0', scrollTrigger: { trigger: '.c-photo', start: 'top 75%' } });
+  $('#form').addEventListener('input', () => qs.classList.add('is-flipped'), { once: true });
+
+  let last = 0;
+  lenis.on('scroll', ({ scroll, limit }) => {
+    pickScope(); pickRow();
+    $('#stripe').style.transform = `scaleY(${limit ? scroll / limit : 0})`;
+    const down = scroll > last && scroll > 200; last = scroll;
+    $('#header').classList.toggle('is-hidden', down && !document.body.classList.contains('is-menu'));
+    $('#callbar').classList.toggle('is-in', scroll > innerHeight * .9 && scroll < limit - innerHeight * .9);
+  });
+}
+
+/* giant wordmark leans toward the pointer */
+const giant = $('#giant'), gl = $$('span', giant); let gx = null; const gy = gl.map(() => 0);
+giant.addEventListener('pointermove', e => gx = e.clientX); giant.addEventListener('pointerleave', () => gx = null);
+gsap.ticker.add(() => { gl.forEach((l, i) => { let t = 0; if (gx !== null) { const r = l.getBoundingClientRect(); t = -Math.max(0, 1 - Math.abs(gx - (r.left + r.width / 2)) / 260) * 14; } gy[i] += (t - gy[i]) * .12; l.style.transform = `translateY(${gy[i]}%)`; }); });
+
+/* =========================================================
+   5. Menu, nav, form
+   ========================================================= */
+const menuBtn = $('#menuBtn');
+function setMenu(open) {
+  document.body.classList.toggle('is-menu', open); menuBtn.setAttribute('aria-expanded', open);
+  open ? lenis.stop() : lenis.start();
+  if (open && !reduced) gsap.fromTo('#menu li', { yPercent: 60, opacity: 0 }, { yPercent: 0, opacity: 1, duration: 1, stagger: .05, ease: 'expo.out', delay: .25 });
+}
+menuBtn.addEventListener('click', () => setMenu(!document.body.classList.contains('is-menu')));
+addEventListener('keydown', e => { if (e.key === 'Escape' && document.body.classList.contains('is-menu')) { setMenu(false); menuBtn.focus(); } });
+$$('[data-nav]').forEach(a => a.addEventListener('click', e => {
+  const id = a.getAttribute('href'); if (!id || !id.startsWith('#')) return;
+  e.preventDefault(); const wasOpen = document.body.classList.contains('is-menu'); setMenu(false);
+  setTimeout(() => lenis.scrollTo(id === '#top' ? 0 : id, { duration: 1.6, offset: -10 }), wasOpen ? 350 : 0);
+}));
+$('#form').addEventListener('submit', e => {
+  e.preventDefault();
+  const f = e.currentTarget, name = f.name.value.trim(), note = $('#formNote');
+  if (!name) { note.textContent = 'Please add your name so we know who to reply to.'; f.name.focus(); return; }
+  if (!f.phone.value.trim() && !f.email.value.trim()) { note.textContent = 'Add a phone number or email so we can reach you.'; f.phone.focus(); return; }
+  const body = `Name: ${name}\nBusiness: ${f.company.value}\nPhone: ${f.phone.value}\nEmail: ${f.email.value}\nProperty type: ${f.ptype.value}\nLocation: ${f.city.value}\nTiming: ${f.when.value}\n\n${f.message.value}`;
+  location.href = `mailto:phil@boostpainting.ca?subject=${encodeURIComponent('Commercial painting request: ' + f.ptype.value + (f.company.value ? ' · ' + f.company.value : ''))}&body=${encodeURIComponent(body)}`;
+  note.textContent = 'Your email app should open with the request filled in. If it doesn’t, call (519) 362-4422.';
+});
+
+/* =========================================================
+   6. Boot
+   ========================================================= */
+const fontsReady = document.fonts ? document.fonts.ready : Promise.resolve();
+Promise.race([fontsReady, new Promise(r => setTimeout(r, 2500))]).then(() => {
+  reveal($('#heroTitle'), reduced ? 0 : 1.2);
+  if (!reduced) {
+    gsap.from('.hero .reveal-fade', { y: 14, opacity: 0, filter: 'blur(6px)', duration: 1.1, stagger: .1, ease: 'expo.out', delay: 1.5 });
+    gsap.fromTo(sign, { yPercent: -140, rotate: 18 }, { yPercent: 0, rotate: 0, duration: 2.4, ease: 'elastic.out(1,.28)', delay: .4, onComplete: () => sign._ready = true });
+  } else sign._ready = true;
+  $$('[data-lines]').forEach(el => { if (el.id !== 'heroTitle' && el.getBoundingClientRect().top > innerHeight && !reduced) gsap.set(splitLines(el), { yPercent: 105, opacity: 0 }); });
+  $$('.tape').forEach(el => { if (!el.closest('.hero') && el.getBoundingClientRect().top > innerHeight && !reduced) gsap.set(el, { clipPath: 'inset(0 100% 0 0)' }); });
+  build();
+});
+let rt, lastW = innerWidth;
+addEventListener('resize', () => {
+  clearTimeout(rt);
+  rt = setTimeout(() => {
+    if (innerWidth === lastW && isPhone()) return;
+    lastW = innerWidth;
+    layoutRoller(); if (R.done) { R.t0 = -1e9; drawHero(performance.now()); }
+    splitLines($('#heroTitle')); ScrollTrigger.refresh();
+  }, 200);
+});
+})();
+</script>
+</body>
+</html>

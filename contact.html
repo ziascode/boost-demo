@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Contact · Free Quote · Boost Painting · (519) 362-4422</title>
+<meta name="description" content="Get a free, detailed painting quote from Boost Painting. Call (519) 362-4422 or email phil@boostpainting.ca. Serving Guelph, Kitchener, the GTA, Milton, Halton and Erin.">
+<meta name="theme-color" content="#0d223f">
+<link rel="icon" href="https://images.squarespace-cdn.com/content/v1/60e0f3f0846c2f5189185c51/678bb698-d0ff-4b40-bca4-98bee032133a/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Instrument+Serif:ital@1&family=JetBrains+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="site.css?v=2">
+<style>
+/* Contact: one screen that does the job. Ways to reach Phil on the left, the quote card on the right. */
+.nav a[aria-current="page"]{background:rgba(255,255,255,.18)}
+.chero{position:relative;background:var(--navy);color:#fff;padding:calc(120px + env(safe-area-inset-top,0px)) 0 clamp(56px,9vh,100px);overflow:clip}
+.chero__bg{position:absolute;inset:0;opacity:.18}
+.chero__bg img{width:100%;height:100%;object-fit:cover}
+.chero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,34,63,.4),var(--navy) 85%)}
+.chero__grid{position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.95fr);gap:clamp(28px,5vw,80px);align-items:start}
+.chero__copy{display:grid;gap:24px}
+.chero h1{font-size:clamp(54px,min(7vw,12vh),124px)}
+.chero h1 em{color:var(--tape-2)}
+.chero__lede{margin:0;font-size:clamp(17px,1.35vw,20px);color:rgba(255,255,255,.82);max-width:40ch}
+
+/* the phone number is the biggest thing on the page */
+.bigcall{display:inline-grid;gap:6px;text-decoration:none;justify-self:start}
+.bigcall small{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--tape-2)}
+.bigcall .roll{font-family:var(--display);font-weight:800;font-size:clamp(46px,5.6vw,92px);line-height:1;letter-spacing:.01em}
+.bigcall:hover .roll>span:first-child{transform:translateY(-110%)}
+.bigcall:hover .roll>span:last-child{transform:none;color:var(--tape-2)}
+.ways{list-style:none;margin:0;padding:0;display:grid;border-top:1px solid var(--navy-line)}
+.ways li{display:grid;grid-template-columns:100px minmax(0,1fr);gap:14px;padding:14px 0;border-bottom:1px solid var(--navy-line);font-size:16px}
+.ways span{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(243,242,238,.55);padding-top:4px}
+.ways a{text-decoration:none;background:linear-gradient(var(--tape-2),var(--tape-2)) 0 100%/0 1px no-repeat;transition:background-size .5s var(--ease)}
+.ways a:hover{background-size:100% 1px}
+.gline{display:flex;align-items:center;gap:12px;text-decoration:none;font-size:14px;color:rgba(255,255,255,.8)}
+.gline b{font-family:var(--display);font-weight:800;font-size:34px;line-height:.8;color:#fff}
+.gline .stars svg{width:14px;height:14px}
+
+/* areas ticker */
+.areas{background:var(--tape);color:var(--navy);overflow:hidden;padding-block:18px;white-space:nowrap}
+.areas__row{display:inline-flex;gap:0;animation:tick 38s linear infinite}
+.areas__row span{font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:clamp(30px,3.4vw,52px);line-height:1;padding-right:.6em}
+.areas__row span::after{content:"·";margin-left:.6em;color:#fff}
+@keyframes tick{to{transform:translateX(-50%)}}
+
+/* what happens next */
+.next{padding-block:clamp(72px,11vh,120px)}
+.next__head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:18px;margin-bottom:clamp(28px,5vh,48px)}
+.next__head .display{margin-top:16px}
+.next__row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--line)}
+.next__row div{padding:22px clamp(14px,2vw,28px) 0 0;display:grid;gap:8px;align-content:start}
+.next__row div + div{padding-left:clamp(14px,2vw,28px);border-left:1px solid var(--line)}
+.next__row .n{font-family:var(--serif);font-style:italic;font-size:clamp(52px,5vw,80px);line-height:.8;color:var(--tape)}
+.next__row .t{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--tape)}
+.next__row h3{margin:0;font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:clamp(28px,2.6vw,40px);line-height:.92;color:var(--navy)}
+.next__row p{margin:0;color:var(--muted);max-width:34ch}
+.foot{background:var(--navy);color:var(--primer);padding-top:clamp(40px,7vh,70px);overflow:clip}
+.foot .giant{margin-top:0}
+
+@media (max-width:980px){
+  .chero__grid{grid-template-columns:minmax(0,1fr)}
+  .next__row{grid-template-columns:minmax(0,1fr)}
+  .next__row div + div{border-left:0;padding-left:0;border-top:1px solid var(--line);margin-top:22px}
+}
+@media (max-width:760px){
+  .chero{padding-top:calc(92px + env(safe-area-inset-top,0px))}
+  .chero h1{font-size:clamp(46px,13vw,64px)}
+  .ways li{grid-template-columns:minmax(0,1fr);gap:2px}
+  .qrow{grid-template-columns:minmax(0,1fr)}
+}
+@media (prefers-reduced-motion:reduce){ .areas__row{animation:none} }
+</style>
+</head>
+<body>
+
+<header class="header" id="header">
+  <div class="header__bar wrap">
+    <a class="brand" href="index.html" aria-label="Boost Painting home"><img src="assets/boost-painting-horizontal-logo.png" alt="Boost Painting" width="960" height="210"></a>
+    <nav class="nav" aria-label="Main">
+      <a href="interior.html">Interior</a><a href="exterior.html">Exterior</a><a href="commercial.html">Commercial</a><a href="index.html#work">Portfolio</a><a href="about.html">About</a><a href="contact.html" aria-current="page">Contact</a>
+    </nav>
+    <div class="header__actions">
+      <a class="pill" href="tel:+15193624422" aria-label="Call (519) 362-4422"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg><span class="pill--call-text">(519) 362-4422</span></a>
+      <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="menu"><span class="bars" aria-hidden="true"><i></i><i></i></span><span class="sr">Menu</span></button>
+    </div>
+  </div>
+</header>
+
+<nav class="menu" id="menu" aria-label="Site">
+  <div class="wrap">
+    <ol>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="interior.html">Interior painting</a></li>
+      <li><a href="exterior.html">Exterior painting</a></li>
+      <li><a href="commercial.html">Commercial painting</a></li>
+      <li><a href="index.html#work">Portfolio</a></li>
+      <li><a href="about.html">About</a></li>
+    </ol>
+    <div class="menu__foot"><a href="tel:+15193624422">(519) 362-4422</a><a href="mailto:phil@boostpainting.ca">phil@boostpainting.ca</a><span>Guelph · Kitchener · GTA · Milton · Halton · Erin</span></div>
+  </div>
+</nav>
+
+<main id="top">
+  <section class="chero" aria-labelledby="heroTitle">
+    <div class="chero__bg" aria-hidden="true"><img src="assets/hd/interior-painting-company-guelph.jpg" alt=""></div>
+    <div class="chero__grid wrap">
+      <div class="chero__copy">
+        <span class="tape tape--dark reveal-fade" style="justify-self:start">Contact · Free quote</span>
+        <h1 class="display" id="heroTitle" data-lines>Let’s talk about your <em>project</em></h1>
+        <p class="chero__lede reveal-fade">Call, email, or send the quick form. Phil replies fast, often within the hour, and every quote is free, detailed and transparent.</p>
+        <a class="bigcall reveal-fade" href="tel:+15193624422"><small>Call or text Phil</small><span class="roll"><span>(519) 362-4422</span><span aria-hidden="true">(519) 362-4422</span></span></a>
+        <ul class="ways reveal-fade">
+          <li><span>Email</span><a href="mailto:phil@boostpainting.ca">phil@boostpainting.ca</a></li>
+          <li><span>Office</span><address style="font-style:normal">211 Christie Street, Rockwood, ON N0B 2K0</address></li>
+          <li><span>Hours</span><p style="margin:0">Monday to Friday, 8am – 5pm</p></li>
+          <li><span>Instagram</span><a href="https://www.instagram.com/boostpainting/" target="_blank" rel="noopener">@boostpainting ↗</a></li>
+        </ul>
+        <a class="gline reveal-fade" href="https://maps.google.com/?cid=4880038636021249025" target="_blank" rel="noopener"><b>5.0</b><span class="stars" aria-label="5 out of 5 stars"></span><span>31 Google reviews ↗</span></a>
+      </div>
+
+      <div class="qcard" id="qcard">
+        <div class="qcard__top"><h2>Get your free quote</h2><span class="qcard__count" id="qCount">Step 1 of 3</span></div>
+        <div class="stroke" aria-hidden="true"><i id="qStroke"></i></div>
+        <div class="offerchip" id="qOffer"><b>20%</b><span>off interior painting + 1 free accent wall when you book by December 12</span></div>
+        <form class="qform" id="qform" novalidate>
+          <fieldset class="qstep" data-step="0">
+            <legend>What can we help with?</legend>
+            <p class="hint">Pick everything that applies.</p>
+            <div class="qopts" id="svcOpts"></div>
+          </fieldset>
+          <fieldset class="qstep" data-step="1" hidden>
+            <legend>A little about the job</legend>
+            <p class="picked" id="picked"></p>
+            <p class="qsub">Property</p>
+            <div class="qopts" role="radiogroup" aria-label="Type of property">
+              <label class="qopt"><input type="radio" name="prop" value="House"><span>House</span></label>
+              <label class="qopt"><input type="radio" name="prop" value="Townhouse / condo"><span>Townhouse / condo</span></label>
+              <label class="qopt"><input type="radio" name="prop" value="Commercial"><span>Commercial</span></label>
+            </div>
+            <p class="qsub">Timing</p>
+            <div class="qopts" role="radiogroup" aria-label="Timing">
+              <label class="qopt"><input type="radio" name="when" value="As soon as possible"><span>ASAP</span></label>
+              <label class="qopt"><input type="radio" name="when" value="Within a month"><span>Within a month</span></label>
+              <label class="qopt"><input type="radio" name="when" value="1-3 months"><span>1–3 months</span></label>
+              <label class="qopt"><input type="radio" name="when" value="Just getting prices"><span>Just pricing</span></label>
+            </div>
+            <div class="qfield"><label for="qCity">City</label><input id="qCity" name="city" autocomplete="address-level2" placeholder="e.g. Guelph"></div>
+          </fieldset>
+          <fieldset class="qstep" data-step="2" hidden>
+            <legend>Where should Phil reply?</legend>
+            <div class="qfield"><label for="qName">Name</label><input id="qName" name="name" autocomplete="name" required></div>
+            <div class="qrow">
+              <div class="qfield"><label for="qPhone">Phone</label><input id="qPhone" name="phone" type="tel" autocomplete="tel" inputmode="tel"></div>
+              <div class="qfield"><label for="qEmail">Email</label><input id="qEmail" name="email" type="email" autocomplete="email" inputmode="email"></div>
+            </div>
+            <div class="qfield"><label for="qNotes">Anything else? <small>(optional)</small></label><textarea id="qNotes" name="notes" placeholder="e.g. Main floor and the upstairs hallway, plus the front door"></textarea></div>
+          </fieldset>
+          <div class="qstep" data-step="3" hidden>
+            <p style="margin:0;font-weight:700;font-size:19px;color:var(--navy)">Your request is ready to send</p>
+            <ul class="qsum" id="qsum"></ul>
+            <div class="qsend" id="qsend"></div>
+            <p class="qfine" id="doneNote"></p>
+          </div>
+          <p class="qerr" id="qerr" aria-live="polite"></p>
+          <div class="qnav" id="qnav">
+            <button class="btn btn--tape" type="submit" id="qNext"><span class="roll"><span>Continue</span><span aria-hidden="true">Continue</span></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+            <button class="qback" type="button" id="qBack" hidden>Back</button>
+          </div>
+          <p class="qfine"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Free, no obligation. WSIB certified, $2M insured.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <div class="areas" aria-label="Service areas: Guelph, Kitchener, the GTA, Milton, Halton, Erin">
+    <div class="areas__row" aria-hidden="true"><span>Guelph</span><span>Kitchener</span><span>The GTA</span><span>Milton</span><span>Halton</span><span>Erin</span><span>Rockwood</span><span>Guelph</span><span>Kitchener</span><span>The GTA</span><span>Milton</span><span>Halton</span><span>Erin</span><span>Rockwood</span></div>
+  </div>
+
+  <section class="next" aria-labelledby="nextTitle">
+    <div class="wrap">
+      <div class="next__head"><div><span class="tape" data-tape>What happens next</span><h2 class="display h2" id="nextTitle" data-lines>No pressure, <em>no surprises</em></h2></div></div>
+      <div class="next__row">
+        <div><span class="n">01</span><span class="t">Often within the hour</span><h3>Phil replies</h3><p>To book a time that suits you for a quick visit.</p></div>
+        <div><span class="n">02</span><span class="t">15–30 minutes · free</span><h3>On-site consult</h3><p>We look at the job and answer your questions about timing, paint and methods.</p></div>
+        <div><span class="n">03</span><span class="t">Detailed &amp; transparent</span><h3>Your quote</h3><p>Prep, paint type and coats all spelled out, with no surprise fees and no hard sell.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <div class="wrap">
+      <div class="giant" id="giant" aria-hidden="true"><span>B</span><span>o</span><span>o</span><span>s</span><span>t</span></div>
+      <div class="legal">
+        <span>© 2026 Boost Painting · 211 Christie Street, Rockwood, ON</span>
+        <span>WSIB Certified · $2M General Liability Insurance</span>
+        <span><a href="index.html">Home</a> · <a href="about.html">About</a> · <a href="https://www.instagram.com/boostpainting/" target="_blank" rel="noopener">Instagram ↗</a></span>
+      </div>
+    </div>
+  </footer>
+</main>
+
+<div class="callbar" id="callbar">
+  <a class="btn btn--light" href="tel:+15193624422">Call now</a>
+  <a class="btn btn--tape" href="#qcard" id="toForm">Get a quote</a>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="page.js?v=1"></script>
+<script>
+(() => {
+const { $, $$, reduced } = window.BP;
+const ARROW = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
+
+/* the interior offer chip only shows until December 12 */
+const now = new Date(), deadline = new Date(now.getFullYear(), 11, 12, 23, 59, 59);
+const offerOn = now <= deadline && now.getMonth() >= 9;
+if (!offerOn) $('#qOffer').hidden = true;
+
+/* quote card: same 3-step flow as the interior page, with every service */
+const SERVICES = ['Interior painting', 'Exterior painting', 'Cabinet painting', 'Popcorn removal', 'Deck or fence', 'Pressure washing', 'Commercial painting', 'Not sure yet'];
+$('#svcOpts').innerHTML = SERVICES.map(s => `<label class="qopt"><input type="checkbox" name="svc" value="${s}"><span>${s}</span></label>`).join('');
+const form = $('#qform'), steps = $$('.qstep[data-step]', form);
+const val = n => $$(`[name="${n}"]:checked`, form).map(i => i.value);
+let step = 0;
+function showStep(n, focus = true) {
+  step = n;
+  steps.forEach(s => s.hidden = +s.dataset.step !== n);
+  $('#qCount').textContent = n < 3 ? `Step ${n + 1} of 3` : 'Ready';
+  $('#qStroke').style.transform = `scaleX(${[.08, .4, .72, 1][n]})`;
+  $('#qBack').hidden = n === 0; $('#qnav').hidden = n === 3; $('#qerr').textContent = '';
+  if (n === 1) { const s = val('svc'); $('#picked').innerHTML = s.length ? `For: ${s.join(', ')} · <button type="button">change</button>` : ''; s.length && $('#picked button').addEventListener('click', () => showStep(0)); }
+  $('#qNext .roll').innerHTML = n === 2 ? '<span>Review my request</span><span aria-hidden="true">Review my request</span>' : '<span>Continue</span><span aria-hidden="true">Continue</span>';
+  if (!reduced) gsap.fromTo(steps[n], { x: 18, opacity: 0 }, { x: 0, opacity: 1, duration: .6, ease: 'expo.out', clearProps: 'transform' });
+  if (focus) { const f = n === 2 ? $('#qName') : steps[n].querySelector('input'); f && setTimeout(() => f.focus({ preventScroll: true }), 60); }
+}
+function validate(n) {
+  if (n === 0 && !val('svc').length) return 'Pick at least one, or “Not sure yet”.';
+  if (n === 2) {
+    if (!form.name.value.trim()) { form.name.focus(); return 'Please add your name.'; }
+    if (!form.phone.value.trim() && !form.email.value.trim()) { form.phone.focus(); return 'Add a phone number or email so Phil can reach you.'; }
+    if (form.email.value.trim() && !/^\S+@\S+\.\S+$/.test(form.email.value.trim())) { form.email.focus(); return 'That email address doesn’t look complete.'; }
+  }
+  return '';
+}
+const request = () => ({ svc: val('svc').join(', '), prop: val('prop')[0] || 'Not given', when: val('when')[0] || 'Not given', city: form.city.value.trim() || 'Not given', name: form.name.value.trim(), phone: form.phone.value.trim(), email: form.email.value.trim(), notes: form.notes.value.trim() });
+const requestText = r => `Painting quote request\nServices: ${r.svc}\nProperty: ${r.prop}\nTiming: ${r.when}\nCity: ${r.city}\nName: ${r.name}\nPhone: ${r.phone || '-'}\nEmail: ${r.email || '-'}${r.notes ? '\nNotes: ' + r.notes : ''}${offerOn && /Interior/.test(r.svc) ? '\n\nClaiming the 20% off + free accent wall offer.' : ''}`;
+function buildSummary() {
+  const r = request();
+  $('#qsum').innerHTML = [['Services', r.svc], ['Job', `${r.prop} · ${r.when} · ${r.city}`], ['Contact', [r.name, r.phone, r.email].filter(Boolean).join(' · ')]].map(([k, v]) => `<li><span>${k}</span><div>${v.replace(/</g, '&lt;')}</div></li>`).join('');
+  const body = encodeURIComponent(requestText(r)), subject = encodeURIComponent('Painting quote request: ' + r.svc.split(', ').slice(0, 3).join(', '));
+  $('#qsend').innerHTML = `<a class="btn btn--tape" href="mailto:phil@boostpainting.ca?subject=${subject}&body=${body}"><span class="roll"><span>Send by email</span><span aria-hidden="true">Send by email</span></span>${ARROW}</a>
+    <a class="btn btn--line" href="sms:+15193624422?&body=${body}">Text it</a><button class="btn btn--line" type="button" id="qCopy">Copy</button>`;
+  $('#doneNote').textContent = 'Opens your email or messages app with everything filled in. Phil usually replies within the hour.';
+  $('#qCopy').addEventListener('click', async e => { try { await navigator.clipboard.writeText(requestText(request())); e.currentTarget.textContent = 'Copied'; } catch (err) { e.currentTarget.textContent = 'Copy failed'; } });
+}
+form.addEventListener('submit', e => { e.preventDefault(); const err = validate(step); if (err) { $('#qerr').textContent = err; return; } if (step === 2) buildSummary(); showStep(step + 1); });
+$('#qBack').addEventListener('click', () => showStep(Math.max(0, step - 1)));
+// links like contact.html?service=Exterior%20painting arrive with that service ticked
+const pre = new URLSearchParams(location.search).get('service');
+const box = pre && form.querySelector(`[name="svc"][value="${CSS.escape(pre)}"]`);
+if (box) { box.checked = true; showStep(1, false); } else showStep(0, false);
+
+if (!reduced) gsap.from('#qcard', { y: 40, opacity: 0, duration: 1.3, ease: 'expo.out', delay: .45, clearProps: 'all' });
+$('#toForm').addEventListener('click', e => { e.preventDefault(); BP.lenis.scrollTo('#qcard', { offset: -90, duration: 1.2 }); });
+BP.ready(() => {
+  if (!reduced) gsap.from('.next__row > div', { y: 24, opacity: 0, stagger: .1, duration: 1, ease: 'expo.out', scrollTrigger: { trigger: '.next__row', start: 'top 85%' } });
+});
+})();
+</script>
+</body>
+</html>

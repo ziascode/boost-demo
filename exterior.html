@@ -1,0 +1,623 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Exterior Painting · Boost Painting · Guelph, Kitchener, the GTA, Milton &amp; Erin</title>
+<meta name="description" content="Exterior house painting, deck painting and staining, new home and presale painting, and pressure washing in Guelph, Kitchener, the GTA, Milton and Erin. Locally owned, detailed quotes, 5-Year Warranty.">
+<meta name="theme-color" content="#0d223f">
+<link rel="icon" href="https://images.squarespace-cdn.com/content/v1/60e0f3f0846c2f5189185c51/678bb698-d0ff-4b40-bca4-98bee032133a/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Instrument+Serif:ital@1&family=JetBrains+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="site.css?v=2">
+<style>
+/* Exterior page. Concept: "Curb appeal, board by board."
+   Through-line: clapboard siding. The hero is repainted one board at a time, left to right,
+   and every project photo on the page is revealed the same way. Calm, one direction. */
+.nav a[aria-current="page"]{background:rgba(255,255,255,.18)}
+.x-hero{height:170vh}
+.x-hero h1{font-size:clamp(56px,min(11vw,16vh),210px);max-width:min(100%,6em)}
+.x-hero .hud{right:auto;left:calc(var(--gl) + var(--pad) - 16px);text-align:left}
+
+/* board-by-board image reveal (the through-line) */
+.boarded{position:relative;overflow:hidden}
+.boards{position:absolute;inset:0;z-index:2;display:grid;pointer-events:none}
+.boards i{display:block;background:var(--primer);transform-origin:100% 50%;box-shadow:inset 0 -1px 0 rgba(13,34,63,.08)}
+.boards--navy i{background:var(--navy);box-shadow:inset 0 -1px 0 rgba(255,255,255,.06)}
+.is-shown .boards i{transform:scaleX(0);transition:transform 1.1s var(--ease);transition-delay:calc(var(--k) * 70ms)}
+
+/* ---------- statement ---------- */
+.state{padding-block:clamp(90px,15vh,170px)}
+.state__q{margin:20px 0 0;font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:clamp(40px,min(7vw,12vh),120px);line-height:.9;color:var(--navy);text-wrap:balance;max-width:16ch}
+.state__q .w{opacity:.14}
+.state__row{margin-top:clamp(28px,5vh,52px);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px clamp(28px,5vw,80px);max-width:1100px}
+.state__row p{margin:0;color:var(--muted)}
+
+/* ---------- services: alternating split rows ---------- */
+.xsvc{background:var(--white);padding-block:clamp(84px,13vh,150px)}
+.xsvc__head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:20px;margin-bottom:clamp(36px,7vh,80px)}
+.xsvc__head .display{margin-top:16px}
+.split{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(24px,5vw,90px);align-items:center;padding-block:clamp(28px,5vh,56px)}
+.split + .split{border-top:1px solid var(--line)}
+.split:nth-of-type(even) .split__img{order:2}
+.split__img{border-radius:20px;aspect-ratio:4/3}
+.split__img img{width:100%;height:100%;object-fit:cover;transition:scale 1.4s var(--ease)}
+.split:hover .split__img img{scale:1.04}
+.split__copy{display:grid;gap:14px;align-content:start}
+.split__n{font-family:var(--serif);font-style:italic;font-size:clamp(56px,6vw,96px);line-height:.8;color:var(--tape)}
+.split h3{margin:0;font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:clamp(38px,4.4vw,72px);line-height:.9;color:var(--navy)}
+.split p{margin:0;color:var(--muted);max-width:44ch}
+.split ul{list-style:none;margin:4px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.split li{font-size:13px;font-weight:600;padding:7px 12px;border-radius:999px;background:var(--sky);color:var(--navy)}
+
+/* ---------- annotated house ---------- */
+.house{background:var(--navy);color:var(--primer);padding-block:clamp(84px,13vh,150px);overflow:clip}
+.house__grid{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(28px,6vw,96px);align-items:center}
+.house__copy{display:grid;gap:22px}
+.house__copy .display em{color:var(--tape-2)}
+.house__copy .lede{color:rgba(243,242,238,.72)}
+.parts{list-style:none;margin:0;padding:0;border-top:1px solid var(--navy-line)}
+.parts li{border-bottom:1px solid var(--navy-line)}
+.parts button{width:100%;display:grid;grid-template-columns:34px minmax(0,1fr);gap:12px;align-items:baseline;text-align:left;padding:14px 0;color:rgba(243,242,238,.6);transition:color .4s}
+.parts button b{font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:clamp(24px,2.2vw,32px);line-height:1}
+.parts button span{font-family:var(--mono);font-size:12px;color:var(--tape-2)}
+.parts button small{grid-column:2;font-size:14px;line-height:1.5;max-height:0;overflow:hidden;opacity:0;transition:max-height .6s var(--ease),opacity .5s}
+.parts button[aria-pressed="true"]{color:#fff}
+.parts button[aria-pressed="true"] small{max-height:90px;opacity:.8}
+.photo-pins{position:relative;aspect-ratio:3/4;border-radius:22px;max-height:84vh;justify-self:center;width:min(100%,calc(84vh * .75))}
+.photo-pins img{width:100%;height:100%;object-fit:cover}
+.pin{position:absolute;z-index:3;width:44px;height:44px;margin:-22px 0 0 -22px;border-radius:50%;display:grid;place-items:center;color:var(--navy);font-family:var(--mono);font-size:12px;font-weight:500}
+.pin::before{content:"";position:absolute;inset:8px;border-radius:50%;background:var(--white);box-shadow:0 0 0 3px var(--tape),0 8px 20px -6px rgba(0,0,0,.6);transition:transform .5s var(--ease),background .4s}
+.pin::after{content:"";position:absolute;inset:0;border-radius:50%;border:2px solid rgba(255,255,255,.8);opacity:0;transform:scale(.6)}
+.pin span{position:relative}
+.pin[aria-pressed="true"]::before{background:var(--tape);transform:scale(1.15)}
+.pin[aria-pressed="true"]{color:#fff}
+.pin[aria-pressed="true"]::after{animation:ring 1.8s var(--ease) infinite}
+@keyframes ring{0%{opacity:.9;transform:scale(.6)}100%{opacity:0;transform:scale(1.5)}}
+.photo-pins .pin,.photo-pins .pin-label{transition:opacity .6s .9s}
+.photo-pins:not(.is-shown) .pin,.photo-pins:not(.is-shown) .pin-label{opacity:0}
+.pin-label{position:absolute;z-index:4;left:0;top:0;padding:8px 12px;border-radius:10px;background:rgba(251,250,247,.96);color:var(--navy);font-weight:700;font-size:14px;white-space:nowrap;pointer-events:none;box-shadow:0 14px 30px -12px rgba(0,0,0,.6);transition:transform .6s var(--ease),opacity .4s}
+
+/* ---------- process along a board ---------- */
+.steps4{padding-block:clamp(84px,13vh,150px)}
+.steps4__head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:20px;margin-bottom:clamp(40px,8vh,90px)}
+.steps4__head .display{margin-top:16px}
+.track4{position:relative;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(18px,3vw,44px);padding-top:44px}
+.track4::before{content:"";position:absolute;left:0;right:0;top:12px;height:10px;border-radius:2px;background:var(--primer-2);box-shadow:inset 0 -2px 0 rgba(13,34,63,.08)}
+.track4__fill{position:absolute;left:0;right:0;top:12px;height:10px;border-radius:2px;background:var(--tape);transform-origin:left;transform:scaleX(0)}
+.st4{position:relative;display:grid;gap:10px;align-content:start}
+.st4::before{content:"";position:absolute;left:0;top:-38px;width:14px;height:14px;border-radius:50%;background:var(--white);box-shadow:inset 0 0 0 3px var(--tape)}
+.st4 .k{font-family:var(--mono);font-size:12px;letter-spacing:.14em;color:var(--tape)}
+.st4 h3{margin:0;font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:clamp(28px,2.6vw,40px);line-height:.92;color:var(--navy)}
+.st4 p{margin:0;color:var(--muted);font-size:16px}
+
+/* ---------- work rail ---------- */
+.rail-wrap{background:var(--white);padding-block:clamp(84px,13vh,150px);overflow:clip}
+.rail-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:20px;margin-bottom:clamp(28px,5vh,52px)}
+.rail-head .display{margin-top:16px}
+.rail-btns{display:flex;gap:8px}
+.rail-btns button{width:52px;height:52px;border-radius:50%;box-shadow:inset 0 0 0 1.5px var(--line);display:grid;place-items:center;color:var(--navy);transition:background .3s,box-shadow .3s}
+.rail-btns button:hover{background:var(--navy);color:#fff;box-shadow:none}
+.rail{display:flex;gap:clamp(10px,1.2vw,18px);overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding-inline:calc(var(--gl) + var(--pad) - 16px);scroll-padding-inline:calc(var(--gl) + var(--pad) - 16px);cursor:grab}
+.rail::-webkit-scrollbar{display:none}
+.rail.is-drag{cursor:grabbing;scroll-snap-type:none}
+.rail figure{margin:0;flex:none;height:clamp(360px,62vh,620px);aspect-ratio:3/4;border-radius:16px;scroll-snap-align:start;position:relative}
+.rail figure.wide{aspect-ratio:4/3}
+.rail img{width:100%;height:100%;object-fit:cover;pointer-events:none;user-select:none}
+.rail figcaption{position:absolute;z-index:3;left:12px;bottom:12px;padding:8px 12px;border-radius:999px;background:rgba(13,34,63,.6);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);color:#fff;font-size:13px;font-weight:600}
+
+/* ---------- review ---------- */
+.xrev{background:var(--tape);color:#fff;padding-block:clamp(84px,13vh,150px)}
+.xrev__grid{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr);gap:clamp(28px,5vw,80px);align-items:end}
+.xrev blockquote{margin:16px 0 0;font-family:var(--serif);font-style:italic;font-size:clamp(32px,3.6vw,58px);line-height:1.1;color:var(--navy)}
+.xrev .who{margin-top:24px;display:flex;align-items:center;gap:12px}
+.xrev .who i{width:44px;height:44px;border-radius:50%;background:var(--navy);color:#fff;display:grid;place-items:center;font-style:normal;font-weight:700}
+.xrev .who span{display:grid;line-height:1.35}
+.xrev .who small{color:rgba(13,34,63,.75)}
+
+/* ---------- quote form extras ---------- */
+.chipset{border:0;margin:0;padding:0;display:grid;gap:8px}
+.chipset legend{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(243,242,238,.6);margin-bottom:8px;padding:0}
+.chipset div{display:flex;flex-wrap:wrap;gap:8px}
+.chipset label{position:relative}
+.chipset input{position:absolute;opacity:0;inset:0;cursor:pointer}
+.chipset span{display:inline-block;padding:9px 14px;border-radius:999px;border:1px solid var(--navy-line);background:rgba(243,242,238,.06);font-size:14px;font-weight:600;transition:background .3s,border-color .3s,color .3s}
+.chipset input:checked + span{background:var(--tape);border-color:var(--tape);color:#fff}
+.chipset input:focus-visible + span{outline:2px solid var(--tape-2);outline-offset:2px}
+.siding-rule{height:42px;margin:clamp(40px,7vh,72px) 0 0;background:repeating-linear-gradient(180deg,rgba(143,182,211,.18) 0 13px,rgba(13,34,63,0) 13px 14px);border-radius:4px}
+
+@media (max-width:980px){
+  .split,.house__grid,.xrev__grid{grid-template-columns:minmax(0,1fr)}
+  .split:nth-of-type(even) .split__img{order:0}
+  .state__row{grid-template-columns:minmax(0,1fr)}
+  .track4{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:44px}
+  .track4::before,.track4__fill{display:none}
+  .st4::before{display:none}
+  .st4{border-top:3px solid var(--tape);padding-top:16px}
+  .photo-pins{width:100%;max-height:none}
+}
+@media (max-width:760px){
+  .x-hero{height:150vh}
+  .x-hero h1{font-size:clamp(52px,17vw,84px)}
+  .track4{grid-template-columns:minmax(0,1fr);row-gap:28px}
+  .rail figure{height:56vh}
+  .rail-btns{display:none}
+  .pin{width:40px;height:40px;margin:-20px 0 0 -20px}
+}
+@media (prefers-reduced-motion:reduce){ .boards{display:none} }
+</style>
+</head>
+<body>
+
+<header class="header" id="header">
+  <div class="header__bar wrap">
+    <a class="brand" href="index.html" aria-label="Boost Painting home"><img src="assets/boost-painting-horizontal-logo.png" alt="Boost Painting" width="960" height="210"></a>
+    <nav class="nav" aria-label="Main">
+      <a href="interior.html">Interior</a><a href="exterior.html" aria-current="page">Exterior</a><a href="commercial.html">Commercial</a><a href="index.html#work">Portfolio</a><a href="about.html">About</a><a href="contact.html">Contact</a>
+    </nav>
+    <div class="header__actions">
+      <a class="pill" href="tel:+15193624422" aria-label="Call (519) 362-4422"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg><span class="pill--call-text">(519) 362-4422</span></a>
+      <a class="pill pill--tape" href="#quote" data-nav>Exterior quote</a>
+      <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="menu"><span class="bars" aria-hidden="true"><i></i><i></i></span><span class="sr">Menu</span></button>
+    </div>
+  </div>
+</header>
+
+<nav class="menu" id="menu" aria-label="Main">
+  <div class="wrap">
+    <ol>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="#services" data-nav>Exterior services</a></li>
+      <li><a href="#house" data-nav>What we paint</a></li>
+      <li><a href="#work" data-nav>Exterior work</a></li>
+      <li><a href="#quote" data-nav>Exterior quote</a></li>
+      <li><a href="interior.html">Interior painting</a></li>
+      <li><a href="commercial.html">Commercial painting</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ol>
+    <div class="menu__foot"><a href="tel:+15193624422">(519) 362-4422</a><a href="mailto:phil@boostpainting.ca">phil@boostpainting.ca</a><span>Guelph · Kitchener · GTA · Milton · Halton · Erin</span></div>
+  </div>
+</nav>
+
+<main id="top">
+  <!-- HERO: a faded house is repainted one clapboard at a time -->
+  <section class="hero x-hero" id="hero" aria-label="Exterior painting">
+    <div class="hero__stage">
+      <div class="hero__media" id="heroMedia"><canvas id="siding" role="img" aria-label="House exterior with crisp black trim and white panels, painted by Boost Painting"></canvas></div>
+      <div class="hud" id="hud" aria-hidden="true">Board <span id="board">00</span> / <span id="boards">00</span><br><span id="state">Faded</span></div>
+      <div class="hero__copy wrap">
+        <span class="tape tape--dark reveal-fade" style="justify-self:start">Exterior painting · Guelph · Kitchener · GTA · Milton · Erin</span>
+        <h1 class="display" id="heroTitle" data-lines>Curb appeal that <em>lasts</em></h1>
+        <div class="hero__row">
+          <p class="reveal-fade"><b>Faded, flaking, or ready for something different?</b> We repaint and restain siding, trim, doors and decks, with the prep that makes it last and our 5-Year Warranty behind it.</p>
+          <div class="hero__ctas reveal-fade">
+            <a class="btn btn--tape" href="#quote" data-nav><span class="roll"><span>Book an on-site quote</span><span aria-hidden="true">Book an on-site quote</span></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <a class="btn btn--ghost" href="#work" data-nav><span class="roll"><span>See exterior work</span><span aria-hidden="true">See exterior work</span></span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATEMENT -->
+  <section class="state" aria-labelledby="stTitle">
+    <div class="wrap">
+      <h2 class="sr" id="stTitle">Why hire a professional for exterior painting</h2>
+      <span class="tape" data-tape>Not a chain. Locally owned.</span>
+      <p class="state__q" id="stateQ">Exterior painting is best left to qualified professionals.</p>
+      <div class="state__row">
+        <p>Taking on an exterior yourself, or handing it to an unprofessional painter, can be a costly mistake. Weather, height, prep and product choice all decide whether a finish lasts one season or many.</p>
+        <p>We’re a locally owned company with the tools, knowledge and experience to do it right. No high-pressure sales: we come out to your house, understand exactly what you’re after, and quote it in detail.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES: alternating split rows, each photo revealed board by board -->
+  <section class="xsvc" id="services" aria-labelledby="svcTitle">
+    <div class="wrap">
+      <div class="xsvc__head">
+        <div><span class="tape" data-tape>Exterior services</span><h2 class="display h2" id="svcTitle" data-lines>Four ways to <em>refresh</em> your home</h2></div>
+        <p class="lede">Every photo on this page is a real Boost Painting exterior.</p>
+      </div>
+      <article class="split">
+        <div class="split__img boarded"><img src="assets/vinyl-exterior-project-guelph.jpg" alt="Two-storey home with repainted siding, shutters and porch columns in Guelph" loading="lazy"><div class="boards" aria-hidden="true"></div></div>
+        <div class="split__copy"><span class="split__n">01</span><h3>Exterior repainting</h3><p>Faded or flaking siding, trim, soffits, shutters and doors brought back to life, with real curb appeal when it’s done.</p><ul><li>Siding</li><li>Trim &amp; fascia</li><li>Shutters</li><li>Front doors</li><li>Garage doors</li></ul></div>
+      </article>
+      <article class="split">
+        <div class="split__img boarded"><img src="assets/deck-painting-boost-painting.jpg" alt="Freshly painted covered deck and railings above a stone patio" loading="lazy"><div class="boards" aria-hidden="true"></div></div>
+        <div class="split__copy"><span class="split__n">02</span><h3>Deck painting &amp; staining</h3><p>A fresh coat of paint or stain protects the wood and brings the colour back to decks, railings and porches.</p><ul><li>Decks</li><li>Railings</li><li>Porches</li><li>Fences</li></ul></div>
+      </article>
+      <article class="split">
+        <div class="split__img boarded"><img src="assets/exterior-residential-painting-kitchener.jpeg" alt="New two-storey home exterior painted in Kitchener" loading="lazy"><div class="boards" aria-hidden="true"></div></div>
+        <div class="split__copy"><span class="split__n">03</span><h3>New home &amp; presale</h3><p>Finish a new build properly, or give a listing the street appeal that brings buyers through the door.</p><ul><li>New builds</li><li>Presale refresh</li><li>Colour changes</li></ul></div>
+      </article>
+      <article class="split">
+        <div class="split__img boarded"><img src="assets/hd/whitewash-house-painting-exterior.jpg" alt="Whitewashed porch and freshly painted deck boards" loading="lazy" style="object-position:50% 70%"><div class="boards" aria-hidden="true"></div></div>
+        <div class="split__copy"><span class="split__n">04</span><h3>Pressure washing</h3><p>Surfaces cleaned before any paint goes on, which is what makes an exterior finish hold. Also available on its own.</p><ul><li>Siding</li><li>Decks</li><li>Walkways</li></ul></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- WHAT WE PAINT: annotated real house -->
+  <section class="house" id="house" aria-labelledby="houseTitle">
+    <div class="house__grid wrap">
+      <div class="house__copy">
+        <span class="tape tape--dark">What we paint</span>
+        <h2 class="display h2" id="houseTitle" data-lines>Every surface, <em>one crew</em></h2>
+        <p class="lede">A finished exterior is a lot of separate surfaces done well. Here is one of ours, part by part.</p>
+        <ul class="parts" id="parts">
+          <li><button type="button" data-p="0" aria-pressed="true"><span>01</span><b>Gables &amp; fascia</b><small>High work done safely, with the edges cut sharp against the roofline.</small></button></li>
+          <li><button type="button" data-p="1" aria-pressed="false"><span>02</span><b>Shutters</b><small>Cleaned, prepped and recoated so they read crisp from the street.</small></button></li>
+          <li><button type="button" data-p="2" aria-pressed="false"><span>03</span><b>Window trim</b><small>Caulked where needed and finished cleanly against the brick.</small></button></li>
+          <li><button type="button" data-p="3" aria-pressed="false"><span>04</span><b>Front door</b><small>The first thing guests touch, finished to stand up to daily use.</small></button></li>
+        </ul>
+      </div>
+      <div class="photo-pins boarded boarded--navy" id="pins">
+        <img src="assets/hd/house-painting-exterior.jpg" alt="Brick two-storey home with white shutters, trim and front door painted by Boost Painting" loading="lazy">
+        <div class="boards boards--navy" aria-hidden="true"></div>
+        <button class="pin" type="button" style="left:46%;top:11%" data-p="0" aria-label="Gables and fascia" aria-pressed="true"><span>01</span></button>
+        <button class="pin" type="button" style="left:34%;top:25%" data-p="1" aria-label="Shutters" aria-pressed="false"><span>02</span></button>
+        <button class="pin" type="button" style="left:83%;top:44%" data-p="2" aria-label="Window trim" aria-pressed="false"><span>03</span></button>
+        <button class="pin" type="button" style="left:47%;top:48%" data-p="3" aria-label="Front door" aria-pressed="false"><span>04</span></button>
+        <div class="pin-label" id="pinLabel" aria-hidden="true">Gables &amp; fascia</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS along a board -->
+  <section class="steps4" id="process" aria-labelledby="procTitle">
+    <div class="wrap">
+      <div class="steps4__head">
+        <div><span class="tape" data-tape>How it works</span><h2 class="display h2" id="procTitle" data-lines>Stress-free, from <em>quote to clean-up</em></h2></div>
+        <p class="lede">A detailed, transparent quoting process and an industry-leading painting experience.</p>
+      </div>
+      <div class="track4" id="track4">
+        <i class="track4__fill" id="track4Fill" aria-hidden="true"></i>
+        <div class="st4"><span class="k">01</span><h3>We come to you</h3><p>We visit your home to talk through the job and understand exactly what you’re after.</p></div>
+        <div class="st4"><span class="k">02</span><h3>Detailed quote</h3><p>Prep, paint or stain, and number of coats, all spelled out. No surprise fees, no pressure.</p></div>
+        <div class="st4"><span class="k">03</span><h3>Prep &amp; paint</h3><p>Washing, scraping and priming where needed, then a thorough, precise finish.</p></div>
+        <div class="st4"><span class="k">04</span><h3>Clean-up &amp; warranty</h3><p>We leave no mess behind, and the 5-Year Warranty covers the work.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORK RAIL: real exteriors -->
+  <section class="rail-wrap" id="work" aria-labelledby="workTitle">
+    <div class="wrap rail-head">
+      <div><span class="tape" data-tape>Exterior work</span><h2 class="display h2" id="workTitle" data-lines>Seen from the <em>street</em></h2></div>
+      <div class="rail-btns"><button type="button" id="railPrev" aria-label="Previous photos"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15 6l-6 6 6 6"/></svg></button><button type="button" id="railNext" aria-label="Next photos"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></button></div>
+    </div>
+    <div class="rail" id="rail" tabindex="0" aria-label="Exterior projects, scroll sideways">
+      <figure class="boarded"><img src="assets/hd/house-painting-project.jpg" alt="Tudor-style trim painted black and white" loading="lazy"><div class="boards" aria-hidden="true"></div><figcaption>Tudor trim &amp; panels</figcaption></figure>
+      <figure class="boarded wide"><img src="assets/exterior-painting-guelph.jpeg" alt="Two-storey home with grey siding and navy shutters in Guelph" loading="lazy"><div class="boards" aria-hidden="true"></div><figcaption>Siding &amp; shutters · Guelph</figcaption></figure>
+      <figure class="boarded"><img src="assets/hd/house-painting-exterior.jpg" alt="Brick home with white trim and shutters" loading="lazy"><div class="boards" aria-hidden="true"></div><figcaption>Trim &amp; shutters</figcaption></figure>
+      <figure class="boarded wide"><img src="assets/deck-painting-guelph.jpg" alt="Painted deck in Guelph" loading="lazy"><div class="boards" aria-hidden="true"></div><figcaption>Deck · Guelph</figcaption></figure>
+      <figure class="boarded"><img src="assets/hd/exterior-painting-kitchener-waterloo-project.jpg" alt="Repainted board-and-batten siding in Kitchener-Waterloo" loading="lazy"><div class="boards" aria-hidden="true"></div><figcaption>Board &amp; batten · Kitchener-Waterloo</figcaption></figure>
+      <figure class="boarded wide"><img src="assets/vinyl-exterior-project-guelph.jpg" alt="Vinyl siding home in Guelph" loading="lazy"><div class="boards" aria-hidden="true"></div><figcaption>Vinyl exterior · Guelph</figcaption></figure>
+      <figure class="boarded"><img src="assets/hd/whitewash-house-painting-exterior.jpg" alt="Whitewashed porch exterior" loading="lazy"><div class="boards" aria-hidden="true"></div><figcaption>Whitewashed porch</figcaption></figure>
+      <figure class="boarded wide"><img src="assets/exterior-residential-painting-kitchener.jpeg" alt="Home exterior in Kitchener" loading="lazy"><div class="boards" aria-hidden="true"></div><figcaption>Exterior · Kitchener</figcaption></figure>
+      <figure class="boarded wide"><img src="assets/deck-painting-boost-painting.jpg" alt="Covered deck painted by Boost Painting" loading="lazy"><div class="boards" aria-hidden="true"></div><figcaption>Covered deck</figcaption></figure>
+    </div>
+  </section>
+
+  <!-- REVIEW -->
+  <section class="xrev" aria-labelledby="revTitle">
+    <div class="wrap xrev__grid">
+      <div>
+        <span class="tape" data-tape>From a homeowner</span>
+        <h2 class="sr" id="revTitle">Review</h2>
+        <blockquote>“My mother is extremely happy. Phil is trustworthy, kept the house very clean, hit the date he promised, and the price was more than fair.”</blockquote>
+        <div class="who"><i aria-hidden="true">A</i><span><b>Adam A.</b><small>Guelph, ON</small></span></div>
+      </div>
+      <a class="gcard" href="https://maps.google.com/?cid=4880038636021249025" target="_blank" rel="noopener" style="justify-self:end">
+        <span class="gcard__score">5.0</span>
+        <span class="gcard__g">Google reviews</span>
+        <span class="stars" aria-label="5 out of 5 stars"></span>
+        <small>31 reviews · Read them on Google ↗</small>
+      </a>
+    </div>
+  </section>
+
+  <!-- QUOTE -->
+  <section class="contact" id="quote" aria-labelledby="ctTitle">
+    <div class="wrap">
+      <div class="contact__grid">
+        <div>
+          <span class="tape tape--dark">Free exterior quote</span>
+          <h2 class="display h2" id="ctTitle" data-lines>Let’s look at your <em>house</em></h2>
+          <p class="lede" style="color:rgba(243,242,238,.72);margin-top:22px">We’ll come out, walk the exterior with you and send a detailed, transparent quote. Fast response, often within 1 hour.</p>
+          <ul class="contact__list">
+            <li><span>Call</span><a href="tel:+15193624422">(519) 362-4422</a></li>
+            <li><span>Email</span><a href="mailto:phil@boostpainting.ca">phil@boostpainting.ca</a></li>
+            <li><span>Office</span><address style="font-style:normal">211 Christie Street<br>Rockwood, ON N0B 2K0</address></li>
+            <li><span>Areas</span><p style="margin:0">Guelph · Kitchener · the GTA · Milton · Halton · Erin</p></li>
+          </ul>
+          <div class="siding-rule" aria-hidden="true"></div>
+        </div>
+        <form class="form" id="form" novalidate>
+          <h3>Tell us about your exterior</h3>
+          <p>Pick everything that needs work.</p>
+          <fieldset class="chipset" id="surfaces">
+            <legend>Surfaces</legend>
+            <div>
+              <label><input type="checkbox" name="s" value="Siding"><span>Siding</span></label>
+              <label><input type="checkbox" name="s" value="Trim & fascia"><span>Trim &amp; fascia</span></label>
+              <label><input type="checkbox" name="s" value="Shutters"><span>Shutters</span></label>
+              <label><input type="checkbox" name="s" value="Front door"><span>Front door</span></label>
+              <label><input type="checkbox" name="s" value="Garage door"><span>Garage door</span></label>
+              <label><input type="checkbox" name="s" value="Deck"><span>Deck</span></label>
+              <label><input type="checkbox" name="s" value="Fence"><span>Fence</span></label>
+              <label><input type="checkbox" name="s" value="Pressure washing"><span>Pressure washing</span></label>
+            </div>
+          </fieldset>
+          <div class="row2">
+            <div class="field"><label for="fName">Name</label><input id="fName" name="name" autocomplete="name" required></div>
+            <div class="field"><label for="fPhone">Phone</label><input id="fPhone" name="phone" type="tel" autocomplete="tel" inputmode="tel"></div>
+          </div>
+          <div class="row2">
+            <div class="field"><label for="fEmail">Email</label><input id="fEmail" name="email" type="email" autocomplete="email" inputmode="email"></div>
+            <div class="field"><label for="fCity">City</label><input id="fCity" name="city" autocomplete="address-level2" placeholder="e.g. Kitchener"></div>
+          </div>
+          <div class="field"><label for="fMsg">Anything else?</label><textarea id="fMsg" name="message" placeholder="e.g. Two-storey, paint is peeling on the south side trim. Thinking about a darker colour for the shutters."></textarea></div>
+          <button class="btn btn--tape" type="submit"><span class="roll"><span>Request my quote</span><span aria-hidden="true">Request my quote</span></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+          <p class="form__note" id="formNote" aria-live="polite">Opens your email app with the details filled in. Prefer to talk? Call (519) 362-4422.</p>
+        </form>
+      </div>
+      <div class="giant" id="giant" aria-hidden="true"><span>B</span><span>o</span><span>o</span><span>s</span><span>t</span></div>
+      <div class="legal">
+        <span>© 2026 Boost Painting. All rights reserved.</span>
+        <span>WSIB Certified · $2M General Liability Insurance</span>
+        <span><a href="index.html">Home</a> · <a href="about.html">About</a> · <a href="contact.html">Contact</a> · <a href="interior.html">Interior</a> · <a href="commercial.html">Commercial</a> · <a href="https://www.instagram.com/boostpainting/" target="_blank" rel="noopener">Instagram ↗</a></span>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div class="stripe" aria-hidden="true"><i id="stripe"></i></div>
+
+<div class="callbar" id="callbar">
+  <a class="btn btn--light" href="tel:+15193624422">Call now</a>
+  <a class="btn btn--tape" href="#quote" data-nav>Get a quote</a>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script>
+(() => {
+'use strict';
+gsap.registerPlugin(ScrollTrigger);
+const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const isPhone = () => innerWidth <= 760;
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const STAR = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>';
+$$('.stars').forEach(s => s.innerHTML = STAR.repeat(5));
+
+const lenis = new Lenis({ duration: 1.15, easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)), smoothWheel: !reduced });
+lenis.on('scroll', ScrollTrigger.update);
+gsap.ticker.add(t => lenis.raf(t * 1000)); gsap.ticker.lagSmoothing(0);
+
+/* =========================================================
+   1. Hero: the faded house is repainted one clapboard at a time,
+      every board brushed left to right, top to bottom. One direction, no randomness.
+   ========================================================= */
+const S = { cv: $('#siding'), img: new Image(), t0: 0, done: false };
+S.img.src = 'assets/hd/house-painting-project.jpg';
+const easeIO = t => t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+function layoutSiding() {
+  const c = S.cv, r = c.getBoundingClientRect(), dpr = Math.min(devicePixelRatio, 2);
+  c.width = Math.round(r.width * dpr); c.height = Math.round(r.height * dpr);
+  S.W = c.width; S.H = c.height; S.dpr = dpr; S.ctx = c.getContext('2d');
+  S.n = Math.max(9, Math.round(r.height / (isPhone() ? 54 : 66)));   // board count from real board height
+  S.bh = S.H / S.n;
+  $('#boards').textContent = String(S.n).padStart(2, '0');
+  const iw = S.img.naturalWidth, ih = S.img.naturalHeight; if (!iw) return;
+  // cover-fit, framed on the upper house (the trim), not the lawn
+  const ir = iw / ih, cr = S.W / S.H; let sx, sy, sw, sh;
+  if (ir > cr) { sh = ih; sw = sh * cr; sx = (iw - sw) / 2; sy = 0; } else { sw = iw; sh = sw / cr; sx = 0; sy = (ih - sh) * .38; }
+  const mk = () => { const o = document.createElement('canvas'); o.width = S.W; o.height = S.H; const g = o.getContext('2d'); g.imageSmoothingQuality = 'high'; g.drawImage(S.img, sx, sy, sw, sh, 0, 0, S.W, S.H); return [o, g]; };
+  [S.fresh] = mk();
+  // "faded": sun-bleached, chalky, low contrast
+  const [fd, g] = mk();
+  g.globalCompositeOperation = 'saturation'; g.globalAlpha = .75; g.fillStyle = '#808080'; g.fillRect(0, 0, S.W, S.H);
+  g.globalAlpha = 1; g.globalCompositeOperation = 'source-over'; g.fillStyle = 'rgba(226,221,210,.42)'; g.fillRect(0, 0, S.W, S.H);
+  S.faded = fd;
+}
+const DUR = 1.05, STEP = .11, START = .45;
+function drawSiding(now) {
+  const { ctx, W, H, fresh, faded, n, bh, dpr } = S; if (!ctx || !fresh) return true;
+  const t = reduced ? 99 : (now - S.t0) / 1000;
+  ctx.drawImage(faded, 0, 0);
+  let doneBoards = 0;
+  for (let i = 0; i < n; i++) {
+    const p = Math.max(0, Math.min(1, (t - START - i * STEP) / DUR));
+    const y = Math.floor(i * bh), h = Math.ceil(bh) + 1;
+    if (p > 0) {
+      const x = easeIO(p) * W;
+      ctx.drawImage(fresh, 0, y, x, h, 0, y, x, h);
+      if (p < 1) {   // soft wet edge leading the brush
+        const g = ctx.createLinearGradient(x - 60 * dpr, 0, x, 0);
+        g.addColorStop(0, 'rgba(255,255,255,0)'); g.addColorStop(1, 'rgba(255,255,255,.22)');
+        ctx.fillStyle = g; ctx.fillRect(x - 60 * dpr, y, 60 * dpr, h);
+      } else doneBoards++;
+    }
+  }
+  // clapboard lap lines, which fade once the whole wall is fresh
+  const lapA = Math.max(0, 1 - Math.max(0, t - (START + (n - 1) * STEP + DUR)) / 1.2) * .28;
+  if (lapA > 0) {
+    for (let i = 1; i < n; i++) {
+      const y = Math.floor(i * bh);
+      ctx.fillStyle = `rgba(13,34,63,${lapA})`; ctx.fillRect(0, y - dpr, W, 2 * dpr);
+      ctx.fillStyle = `rgba(255,255,255,${lapA * .5})`; ctx.fillRect(0, y + dpr, W, dpr);
+    }
+  }
+  $('#board').textContent = String(doneBoards).padStart(2, '0');
+  $('#state').textContent = doneBoards >= n ? 'Fresh' : doneBoards ? 'Repainting' : 'Faded';
+  return lapA <= 0;
+}
+function sidingLoop(now) { if (!drawSiding(now)) requestAnimationFrame(sidingLoop); else { S.done = true; gsap.to('#hud', { opacity: 0, duration: .8, delay: .4 }); } }
+S.img.onload = () => { layoutSiding(); S.t0 = performance.now(); requestAnimationFrame(sidingLoop); };
+
+/* board-by-board reveals for every project photo (the through-line) */
+$$('.boarded .boards').forEach(b => {
+  const n = isPhone() ? 6 : 8;
+  b.style.gridTemplateRows = `repeat(${n}, 1fr)`;
+  b.innerHTML = Array.from({ length: n }, (_, k) => `<i style="--k:${k}"></i>`).join('');
+});
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting || e.boundingClientRect.bottom < 0) { e.target.classList.add('is-shown'); io.unobserve(e.target); } }), { threshold: .25 });
+$$('.boarded').forEach(el => reduced ? el.classList.add('is-shown') : io.observe(el));
+
+/* =========================================================
+   2. Headings and tape
+   ========================================================= */
+function splitLines(el) {
+  if (!el._html) el._html = el.innerHTML;
+  el.innerHTML = el._html;
+  el.setAttribute('aria-label', el.textContent.replace(/\s+/g, ' ').trim());
+  const words = [];
+  const walk = node => [...node.childNodes].forEach(n => {
+    if (n.nodeType === 3) {
+      const f = document.createDocumentFragment();
+      n.textContent.split(/(\s+)/).forEach(tok => { if (!tok) return; if (/^\s+$/.test(tok)) { f.appendChild(document.createTextNode(' ')); return; } const w = document.createElement('span'); w.textContent = tok; w.style.display = 'inline-block'; f.appendChild(w); words.push(w); });
+      n.replaceWith(f);
+    } else if (n.nodeType === 1) walk(n);
+  });
+  walk(el);
+  const lines = []; let top = null;
+  words.forEach(w => { const t = w.offsetTop; if (top === null || Math.abs(t - top) > 4) { lines.push([]); top = t; } lines[lines.length - 1].push(w); });
+  el.innerHTML = lines.map(ws => `<span class="lm" aria-hidden="true"><span class="ln">${ws.map(w => w.parentElement !== el ? `<${w.parentElement.tagName.toLowerCase()}>${w.textContent}</${w.parentElement.tagName.toLowerCase()}>` : w.textContent).join(' ')}</span></span>`).join('');
+  return $$('.ln', el);
+}
+function reveal(el, delay = 0) {
+  const lines = splitLines(el);
+  if (reduced) return;
+  gsap.fromTo(lines, { yPercent: 105, filter: 'blur(10px)', opacity: 0 }, { yPercent: 0, filter: 'blur(0px)', opacity: 1, duration: 1.25, stagger: .09, ease: 'expo.out', delay });
+}
+function layTape(el) { if (!reduced) gsap.fromTo(el, { clipPath: 'inset(0 100% 0 0)' }, { clipPath: 'inset(0 0% 0 0)', duration: .9, ease: 'power3.inOut' }); }
+
+/* =========================================================
+   3. Annotated house: list and pins stay in sync
+   ========================================================= */
+const pins = $$('.pin'), partBtns = $$('#parts button'), label = $('#pinLabel'), pinBox = $('#pins');
+const NAMES = partBtns.map(b => $('b', b).textContent);
+let auto = null, cur = 0;
+function setPart(k, user) {
+  cur = k;
+  pins.forEach((p, i) => p.setAttribute('aria-pressed', i === k));
+  partBtns.forEach((b, i) => b.setAttribute('aria-pressed', i === k));
+  const p = pins[k], bw = pinBox.offsetWidth;
+  label.textContent = NAMES[k];
+  const lx = p.offsetLeft + 28, flip = lx + label.offsetWidth > bw - 8;
+  label.style.transform = `translate(${flip ? p.offsetLeft - 28 - label.offsetWidth : lx}px, ${p.offsetTop - label.offsetHeight / 2}px)`;
+  if (user && auto) { clearInterval(auto); auto = null; }
+}
+[...pins, ...partBtns].forEach(el => el.addEventListener('click', () => setPart(+el.dataset.p, true)));
+ScrollTrigger.create({ trigger: '#house', start: 'top 60%', end: 'bottom 20%',
+  onEnter: () => { setPart(cur); if (!reduced && !auto) auto = setInterval(() => setPart((cur + 1) % pins.length), 3200); },
+  onLeave: () => { clearInterval(auto); auto = null; }, onLeaveBack: () => { clearInterval(auto); auto = null; } });
+
+/* =========================================================
+   4. Work rail: drag with the mouse, swipe natively, arrow buttons
+   ========================================================= */
+const rail = $('#rail');
+let down = false, sx0 = 0, sl0 = 0, moved = 0;
+rail.addEventListener('pointerdown', e => { if (e.pointerType !== 'mouse') return; down = true; moved = 0; sx0 = e.clientX; sl0 = rail.scrollLeft; rail.classList.add('is-drag'); });
+addEventListener('pointermove', e => { if (!down) return; moved = Math.abs(e.clientX - sx0); rail.scrollLeft = sl0 - (e.clientX - sx0); });
+addEventListener('pointerup', () => { if (!down) return; down = false; rail.classList.remove('is-drag'); });
+const step = () => rail.querySelector('figure').offsetWidth + 16;
+$('#railPrev').addEventListener('click', () => rail.scrollBy({ left: -step(), behavior: 'smooth' }));
+$('#railNext').addEventListener('click', () => rail.scrollBy({ left: step(), behavior: 'smooth' }));
+rail.addEventListener('keydown', e => { if (e.key === 'ArrowRight') rail.scrollBy({ left: step(), behavior: 'smooth' }); if (e.key === 'ArrowLeft') rail.scrollBy({ left: -step(), behavior: 'smooth' }); });
+
+/* =========================================================
+   5. Scroll choreography
+   ========================================================= */
+function build() {
+  gsap.timeline({ scrollTrigger: { trigger: '#hero', start: 'top top', end: 'bottom bottom', scrub: reduced ? true : .5 } })
+    .fromTo('#heroMedia', { clipPath: 'inset(0% 0% 0% 0% round 0px)' }, { clipPath: 'inset(5% 4% 9% 4% round 26px)', ease: 'none' }, 0)
+    .to('.hero__copy', { yPercent: -16, opacity: 0, ease: 'none' }, 0);
+
+  $$('[data-lines]').forEach(el => { if (el.id === 'heroTitle') return; ScrollTrigger.create({ trigger: el, start: 'top 88%', once: true, onEnter: () => reveal(el) }); });
+  $$('.tape').forEach(el => { if (el.closest('.hero')) return; ScrollTrigger.create({ trigger: el, start: 'top 90%', once: true, onEnter: () => layTape(el) }); });
+
+  const q = $('#stateQ'); q.setAttribute('aria-label', q.textContent);
+  q.innerHTML = q.textContent.split(' ').map(w => `<span class="w" aria-hidden="true">${w}</span>`).join(' ');
+  if (reduced) gsap.set('#stateQ .w', { opacity: 1 });
+  else gsap.to('#stateQ .w', { opacity: 1, stagger: .1, ease: 'none', scrollTrigger: { trigger: q, start: 'top 78%', end: 'bottom 50%', scrub: true } });
+
+  gsap.from('.split__copy', { y: 30, opacity: 0, duration: 1.1, ease: 'expo.out', stagger: 0, scrollTrigger: { trigger: '.split', start: 'top 80%' } });
+  $$('.split__copy').forEach(c => gsap.from(c.children, { y: 18, opacity: 0, duration: 1, stagger: .07, ease: 'expo.out', scrollTrigger: { trigger: c, start: 'top 82%' } }));
+
+  // process: the board fills as you scroll past
+  gsap.to('#track4Fill', { scaleX: 1, ease: 'none', scrollTrigger: { trigger: '#track4', start: 'top 75%', end: 'bottom 55%', scrub: true } });
+  gsap.from('.st4', { y: 24, opacity: 0, duration: 1, stagger: .12, ease: 'expo.out', scrollTrigger: { trigger: '#track4', start: 'top 80%' } });
+
+  let last = 0;
+  lenis.on('scroll', ({ scroll, limit }) => {
+    $('#stripe').style.transform = `scaleY(${limit ? scroll / limit : 0})`;
+    const dn = scroll > last && scroll > 200; last = scroll;
+    $('#header').classList.toggle('is-hidden', dn && !document.body.classList.contains('is-menu'));
+    $('#callbar').classList.toggle('is-in', scroll > innerHeight * .9 && scroll < limit - innerHeight * .9);
+  });
+}
+
+/* giant wordmark leans toward the pointer */
+const giant = $('#giant'), gl = $$('span', giant); let gx = null; const gy = gl.map(() => 0);
+giant.addEventListener('pointermove', e => gx = e.clientX); giant.addEventListener('pointerleave', () => gx = null);
+gsap.ticker.add(() => { gl.forEach((l, i) => { let t = 0; if (gx !== null) { const r = l.getBoundingClientRect(); t = -Math.max(0, 1 - Math.abs(gx - (r.left + r.width / 2)) / 260) * 14; } gy[i] += (t - gy[i]) * .12; l.style.transform = `translateY(${gy[i]}%)`; }); });
+
+/* =========================================================
+   6. Menu, nav, form
+   ========================================================= */
+const menuBtn = $('#menuBtn');
+function setMenu(open) {
+  document.body.classList.toggle('is-menu', open); menuBtn.setAttribute('aria-expanded', open);
+  open ? lenis.stop() : lenis.start();
+  if (open && !reduced) gsap.fromTo('#menu li', { yPercent: 60, opacity: 0 }, { yPercent: 0, opacity: 1, duration: 1, stagger: .05, ease: 'expo.out', delay: .25 });
+}
+menuBtn.addEventListener('click', () => setMenu(!document.body.classList.contains('is-menu')));
+addEventListener('keydown', e => { if (e.key === 'Escape' && document.body.classList.contains('is-menu')) { setMenu(false); menuBtn.focus(); } });
+$$('[data-nav]').forEach(a => a.addEventListener('click', e => {
+  const id = a.getAttribute('href'); if (!id || !id.startsWith('#')) return;
+  e.preventDefault(); const wasOpen = document.body.classList.contains('is-menu'); setMenu(false);
+  setTimeout(() => lenis.scrollTo(id === '#top' ? 0 : id, { duration: 1.6, offset: -10 }), wasOpen ? 350 : 0);
+}));
+$('#form').addEventListener('submit', e => {
+  e.preventDefault();
+  const f = e.currentTarget, name = f.name.value.trim(), note = $('#formNote');
+  const surfaces = $$('input[name="s"]:checked', f).map(i => i.value);
+  if (!name) { note.textContent = 'Please add your name so we know who to reply to.'; f.name.focus(); return; }
+  if (!f.phone.value.trim() && !f.email.value.trim()) { note.textContent = 'Add a phone number or email so we can reach you.'; f.phone.focus(); return; }
+  const body = `Name: ${name}\nPhone: ${f.phone.value}\nEmail: ${f.email.value}\nCity: ${f.city.value}\nSurfaces: ${surfaces.join(', ') || 'Not sure yet'}\n\n${f.message.value}`;
+  location.href = `mailto:phil@boostpainting.ca?subject=${encodeURIComponent('Exterior painting quote' + (surfaces.length ? ': ' + surfaces.slice(0, 3).join(', ') : ''))}&body=${encodeURIComponent(body)}`;
+  note.textContent = 'Your email app should open with the request filled in. If it doesn’t, call (519) 362-4422.';
+});
+
+/* =========================================================
+   7. Boot
+   ========================================================= */
+const fontsReady = document.fonts ? document.fonts.ready : Promise.resolve();
+Promise.race([fontsReady, new Promise(r => setTimeout(r, 2500))]).then(() => {
+  reveal($('#heroTitle'), reduced ? 0 : 1.4);
+  if (!reduced) gsap.from('.hero .reveal-fade', { y: 14, opacity: 0, filter: 'blur(6px)', duration: 1.1, stagger: .1, ease: 'expo.out', delay: 1.7 });
+  $$('[data-lines]').forEach(el => { if (el.id !== 'heroTitle' && el.getBoundingClientRect().top > innerHeight && !reduced) gsap.set(splitLines(el), { yPercent: 105, opacity: 0 }); });
+  $$('.tape').forEach(el => { if (!el.closest('.hero') && el.getBoundingClientRect().top > innerHeight && !reduced) gsap.set(el, { clipPath: 'inset(0 100% 0 0)' }); });
+  build();
+});
+let rt, lastW = innerWidth;
+addEventListener('resize', () => {
+  clearTimeout(rt);
+  rt = setTimeout(() => {
+    if (innerWidth === lastW && isPhone()) return;
+    lastW = innerWidth;
+    layoutSiding(); if (S.done) { S.t0 = -1e9; drawSiding(performance.now()); }
+    splitLines($('#heroTitle')); setPart(cur); ScrollTrigger.refresh();
+  }, 200);
+});
+})();
+</script>
+</body>
+</html>
