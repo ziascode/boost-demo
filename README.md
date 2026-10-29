@@ -26,3 +26,17 @@ Check before going live:
 - Quote timing: the interior page says "within 2–5 hours" (from their interior page); the about page says "within 24 hours". Confirm which to use.
 - The 20% offer band and chip hide themselves after December 12.
 - Primary nav on every page: Interior · Exterior · Commercial · Portfolio · About. Portfolio stays a section of index.html by choice.
+
+## Deploying (Netlify)
+
+`netlify.toml` runs `npm run build`, which writes a production copy to `dist/` and publishes that:
+- HTML and CSS minified (`html-minifier-terser`, `clean-css`)
+- every script (inline and `page.js`) obfuscated (`javascript-obfuscator`, moderate settings so animations stay fast)
+
+The readable source in the repo root is never changed. To build and preview locally:
+
+    npm install
+    npm run build
+    cd dist && python3 -m http.server 8011
+
+Obfuscation makes the code hard to read and reuse; it cannot stop someone saving the page, and images and text are always downloadable. Keep the GitHub repo private, since it holds the readable source.
