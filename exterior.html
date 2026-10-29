@@ -10,15 +10,24 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Instrument+Serif:ital@1&family=JetBrains+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&display=swap">
-<link rel="stylesheet" href="site.css?v=2">
+<link rel="stylesheet" href="site.css?v=3">
 <style>
 /* Exterior page. Concept: "Curb appeal, board by board."
    Through-line: clapboard siding. The hero is repainted one board at a time, left to right,
    and every project photo on the page is revealed the same way. Calm, one direction. */
 .nav a[aria-current="page"]{background:rgba(255,255,255,.18)}
-.x-hero{height:170vh}
-.x-hero h1{font-size:clamp(56px,min(11vw,16vh),210px);max-width:min(100%,6em)}
-.x-hero .hud{right:auto;left:calc(var(--gl) + var(--pad) - 16px);text-align:left}
+.x-hero{height:auto}
+.x-hero .hero__stage{position:relative;height:auto;min-height:100vh;min-height:100svh;display:grid;align-items:center;padding:calc(118px + env(safe-area-inset-top,0px)) 0 clamp(40px,7vh,72px)}
+.x-hero .hero__media::after{background:linear-gradient(90deg,rgba(13,34,63,.86) 0%,rgba(13,34,63,.55) 40%,rgba(13,34,63,.12) 68%,rgba(13,34,63,.3) 100%),linear-gradient(180deg,rgba(13,34,63,.45),rgba(13,34,63,0) 24%,rgba(13,34,63,0) 70%,rgba(13,34,63,.6))}
+.xh{position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(28px,5vw,80px);align-items:center}
+.xh__copy{display:grid;gap:22px}
+.x-hero h1{font-size:clamp(56px,min(8.6vw,14vh),168px);max-width:min(100%,6em)}
+.xh__copy p{margin:0;max-width:42ch;color:rgba(255,255,255,.88);font-size:clamp(16px,1.3vw,19px)}
+.xh__copy p b{color:#fff}
+.xh__links{display:flex;flex-wrap:wrap;align-items:center;gap:12px 22px}
+.xh__links a{color:#fff;font-weight:700;text-decoration:none;background:linear-gradient(var(--tape-2),var(--tape-2)) 0 100%/100% 2px no-repeat;padding-bottom:2px}
+.xh__links span{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.72)}
+.x-hero .hud{top:auto;bottom:18px;right:calc(var(--gr) + var(--pad) - 16px);left:auto}
 
 /* board-by-board image reveal (the through-line) */
 .boarded{position:relative;overflow:hidden}
@@ -128,6 +137,7 @@
 .siding-rule{height:42px;margin:clamp(40px,7vh,72px) 0 0;background:repeating-linear-gradient(180deg,rgba(143,182,211,.18) 0 13px,rgba(13,34,63,0) 13px 14px);border-radius:4px}
 
 @media (max-width:980px){
+  .xh{grid-template-columns:minmax(0,1fr)}
   .split,.house__grid,.xrev__grid{grid-template-columns:minmax(0,1fr)}
   .split:nth-of-type(even) .split__img{order:0}
   .state__row{grid-template-columns:minmax(0,1fr)}
@@ -138,8 +148,10 @@
   .photo-pins{width:100%;max-height:none}
 }
 @media (max-width:760px){
-  .x-hero{height:150vh}
-  .x-hero h1{font-size:clamp(52px,17vw,84px)}
+  .x-hero .hero__stage{padding-top:calc(96px + env(safe-area-inset-top,0px));align-items:start}
+  .x-hero h1{font-size:clamp(52px,16vw,80px)}
+  .x-hero .hero__media::after{background:linear-gradient(180deg,rgba(13,34,63,.5) 0%,rgba(13,34,63,.55) 40%,rgba(13,34,63,.92) 72%)}
+  .xh__copy p{display:none}
   .track4{grid-template-columns:minmax(0,1fr);row-gap:28px}
   .rail figure{height:56vh}
   .rail-btns{display:none}
@@ -154,7 +166,7 @@
   <div class="header__bar wrap">
     <a class="brand" href="index.html" aria-label="Boost Painting home"><img src="assets/boost-painting-horizontal-logo.png" alt="Boost Painting" width="960" height="210"></a>
     <nav class="nav" aria-label="Main">
-      <a href="interior.html">Interior</a><a href="exterior.html" aria-current="page">Exterior</a><a href="commercial.html">Commercial</a><a href="index.html#work">Portfolio</a><a href="about.html">About</a><a href="contact.html">Contact</a>
+      <a href="index.html">Home</a><a href="interior.html">Interior</a><a href="exterior.html" aria-current="page">Exterior</a><a href="commercial.html">Commercial</a><a href="index.html#work">Portfolio</a><a href="about.html">About</a><a href="contact.html">Contact</a>
     </nav>
     <div class="header__actions">
       <a class="pill" href="tel:+15193624422" aria-label="Call (519) 362-4422"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg><span class="pill--call-text">(519) 362-4422</span></a>
@@ -187,15 +199,62 @@
     <div class="hero__stage">
       <div class="hero__media" id="heroMedia"><canvas id="siding" role="img" aria-label="House exterior with crisp black trim and white panels, painted by Boost Painting"></canvas></div>
       <div class="hud" id="hud" aria-hidden="true">Board <span id="board">00</span> / <span id="boards">00</span><br><span id="state">Faded</span></div>
-      <div class="hero__copy wrap">
-        <span class="tape tape--dark reveal-fade" style="justify-self:start">Exterior painting · Guelph · Kitchener · GTA · Milton · Erin</span>
-        <h1 class="display" id="heroTitle" data-lines>Curb appeal that <em>lasts</em></h1>
-        <div class="hero__row">
+      <div class="xh wrap">
+        <div class="xh__copy">
+          <span class="tape tape--dark reveal-fade" style="justify-self:start">Exterior painting · Guelph · Kitchener · GTA · Milton · Erin</span>
+          <h1 class="display" id="heroTitle" data-lines>Curb appeal that <em>lasts</em></h1>
           <p class="reveal-fade"><b>Faded, flaking, or ready for something different?</b> We repaint and restain siding, trim, doors and decks, with the prep that makes it last and our 5-Year Warranty behind it.</p>
-          <div class="hero__ctas reveal-fade">
-            <a class="btn btn--tape" href="#quote" data-nav><span class="roll"><span>Book an on-site quote</span><span aria-hidden="true">Book an on-site quote</span></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-            <a class="btn btn--ghost" href="#work" data-nav><span class="roll"><span>See exterior work</span><span aria-hidden="true">See exterior work</span></span></a>
-          </div>
+          <div class="xh__links reveal-fade"><a href="#work" data-nav>See exterior work</a><span>5.0 on Google · WSIB · $2M insured</span></div>
+        </div>
+        <div class="qcard" id="qcard">
+          <div class="qcard__top"><h2>Free exterior quote</h2><span class="qcard__count" id="qCount">Step 1 of 3</span></div>
+          <div class="stroke" aria-hidden="true"><i id="qStroke"></i></div>
+          <form class="qform" id="qform" novalidate>
+            <fieldset class="qstep" data-step="0">
+              <legend>What needs painting?</legend>
+              <p class="hint">Pick everything that applies.</p>
+              <div class="qopts" id="surfOpts"></div>
+            </fieldset>
+            <fieldset class="qstep" data-step="1" hidden>
+              <legend>A little about the house</legend>
+              <p class="picked" id="picked"></p>
+              <p class="qsub">Home</p>
+              <div class="qopts" role="radiogroup" aria-label="Type of home">
+                <label class="qopt"><input type="radio" name="home" value="Bungalow"><span>Bungalow</span></label>
+                <label class="qopt"><input type="radio" name="home" value="Two-storey"><span>Two-storey</span></label>
+                <label class="qopt"><input type="radio" name="home" value="Townhouse"><span>Townhouse</span></label>
+              </div>
+              <p class="qsub">Timing</p>
+              <div class="qopts" role="radiogroup" aria-label="Timing">
+                <label class="qopt"><input type="radio" name="when" value="As soon as possible"><span>ASAP</span></label>
+                <label class="qopt"><input type="radio" name="when" value="This season"><span>This season</span></label>
+                <label class="qopt"><input type="radio" name="when" value="Next season"><span>Next season</span></label>
+                <label class="qopt"><input type="radio" name="when" value="Just getting prices"><span>Just pricing</span></label>
+              </div>
+              <div class="qfield"><label for="qCity">City</label><input id="qCity" name="city" autocomplete="address-level2" placeholder="e.g. Kitchener"></div>
+            </fieldset>
+            <fieldset class="qstep" data-step="2" hidden>
+              <legend>Where should Phil send it?</legend>
+              <div class="qfield"><label for="qName">Name</label><input id="qName" name="name" autocomplete="name" required></div>
+              <div class="qrow">
+                <div class="qfield"><label for="qPhone">Phone</label><input id="qPhone" name="phone" type="tel" autocomplete="tel" inputmode="tel"></div>
+                <div class="qfield"><label for="qEmail">Email</label><input id="qEmail" name="email" type="email" autocomplete="email" inputmode="email"></div>
+              </div>
+              <div class="qfield"><label for="qNotes">Anything else? <small>(optional)</small></label><textarea id="qNotes" name="notes" placeholder="e.g. Peeling trim on the south side, thinking of darker shutters"></textarea></div>
+            </fieldset>
+            <div class="qstep" data-step="3" hidden>
+              <p style="margin:0;font-weight:700;font-size:19px;color:var(--navy)">Your request is ready to send</p>
+              <ul class="qsum" id="qsum"></ul>
+              <div class="qsend" id="qsend"></div>
+              <p class="qfine" id="doneNote"></p>
+            </div>
+            <p class="qerr" id="qerr" aria-live="polite"></p>
+            <div class="qnav" id="qnav">
+              <button class="btn btn--tape" type="submit" id="qNext"><span class="roll"><span>Continue</span><span aria-hidden="true">Continue</span></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+              <button class="qback" type="button" id="qBack" hidden>Back</button>
+            </div>
+            <p class="qfine"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Free, no obligation. Fast response, often within 1 hour.</p>
+          </form>
         </div>
       </div>
     </div>
@@ -520,6 +579,53 @@ ScrollTrigger.create({ trigger: '#house', start: 'top 60%', end: 'bottom 20%',
   onLeave: () => { clearInterval(auto); auto = null; }, onLeaveBack: () => { clearInterval(auto); auto = null; } });
 
 /* =========================================================
+   3b. Hero quick quote: 3 steps + review, hands off to email or text
+   ========================================================= */
+(() => {
+  const ARROW = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
+  const SURF = ['Siding', 'Trim & fascia', 'Shutters', 'Front door', 'Garage door', 'Deck', 'Fence', 'Pressure washing', 'Not sure yet'];
+  $('#surfOpts').innerHTML = SURF.map(v => `<label class="qopt"><input type="checkbox" name="surf" value="${v}"><span>${v.replace('&', '&amp;')}</span></label>`).join('');
+  const form = $('#qform'), steps = $$('.qstep[data-step]', form);
+  const val = n => $$(`[name="${n}"]:checked`, form).map(i => i.value);
+  let step = 0;
+  function showStep(n, focus = true) {
+    step = n;
+    steps.forEach(s => s.hidden = +s.dataset.step !== n);
+    $('#qCount').textContent = n < 3 ? `Step ${n + 1} of 3` : 'Ready';
+    $('#qStroke').style.transform = `scaleX(${[.08, .4, .72, 1][n]})`;
+    $('#qBack').hidden = n === 0; $('#qnav').hidden = n === 3; $('#qerr').textContent = '';
+    if (n === 1) { const s = val('surf'); $('#picked').innerHTML = s.length ? `For: ${s.join(', ').replace(/&/g, '&amp;')} · <button type="button">change</button>` : ''; s.length && $('#picked button').addEventListener('click', () => showStep(0)); }
+    $('#qNext .roll').innerHTML = n === 2 ? '<span>Review my request</span><span aria-hidden="true">Review my request</span>' : '<span>Continue</span><span aria-hidden="true">Continue</span>';
+    if (!reduced) gsap.fromTo(steps[n], { x: 18, opacity: 0 }, { x: 0, opacity: 1, duration: .6, ease: 'expo.out', clearProps: 'transform' });
+    if (focus) { const f = n === 2 ? $('#qName') : steps[n].querySelector('input'); f && setTimeout(() => f.focus({ preventScroll: true }), 60); }
+  }
+  function validate(n) {
+    if (n === 0 && !val('surf').length) return 'Pick at least one, or “Not sure yet”.';
+    if (n === 2) {
+      if (!form.name.value.trim()) { form.name.focus(); return 'Please add your name.'; }
+      if (!form.phone.value.trim() && !form.email.value.trim()) { form.phone.focus(); return 'Add a phone number or email so Phil can reach you.'; }
+      if (form.email.value.trim() && !/^\S+@\S+\.\S+$/.test(form.email.value.trim())) { form.email.focus(); return 'That email address doesn’t look complete.'; }
+    }
+    return '';
+  }
+  const request = () => ({ surf: val('surf').join(', '), home: val('home')[0] || 'Not given', when: val('when')[0] || 'Not given', city: form.city.value.trim() || 'Not given', name: form.name.value.trim(), phone: form.phone.value.trim(), email: form.email.value.trim(), notes: form.notes.value.trim() });
+  const requestText = r => `Exterior painting quote request\nSurfaces: ${r.surf}\nHome: ${r.home}\nTiming: ${r.when}\nCity: ${r.city}\nName: ${r.name}\nPhone: ${r.phone || '-'}\nEmail: ${r.email || '-'}${r.notes ? '\nNotes: ' + r.notes : ''}`;
+  function buildSummary() {
+    const r = request();
+    $('#qsum').innerHTML = [['Surfaces', r.surf], ['House', `${r.home} · ${r.when} · ${r.city}`], ['Contact', [r.name, r.phone, r.email].filter(Boolean).join(' · ')]].map(([k, v]) => `<li><span>${k}</span><div>${v.replace(/</g, '&lt;')}</div></li>`).join('');
+    const body = encodeURIComponent(requestText(r)), subject = encodeURIComponent('Exterior painting quote: ' + r.surf.split(', ').slice(0, 3).join(', '));
+    $('#qsend').innerHTML = `<a class="btn btn--tape" href="mailto:phil@boostpainting.ca?subject=${subject}&body=${body}"><span class="roll"><span>Send by email</span><span aria-hidden="true">Send by email</span></span>${ARROW}</a>
+      <a class="btn btn--line" href="sms:+15193624422?&body=${body}">Text it</a><button class="btn btn--line" type="button" id="qCopy">Copy</button>`;
+    $('#doneNote').textContent = 'Opens your email or messages app with everything filled in. Phil usually replies within the hour.';
+    $('#qCopy').addEventListener('click', async e => { try { await navigator.clipboard.writeText(requestText(request())); e.currentTarget.textContent = 'Copied'; } catch (err) { e.currentTarget.textContent = 'Copy failed'; } });
+  }
+  form.addEventListener('submit', e => { e.preventDefault(); const err = validate(step); if (err) { $('#qerr').textContent = err; return; } if (step === 2) buildSummary(); showStep(step + 1); });
+  $('#qBack').addEventListener('click', () => showStep(Math.max(0, step - 1)));
+  showStep(0, false);
+  if (!reduced) gsap.from('#qcard', { y: 40, opacity: 0, duration: 1.3, ease: 'expo.out', delay: .8, clearProps: 'all' });
+})();
+
+/* =========================================================
    4. Work rail: drag with the mouse, swipe natively, arrow buttons
    ========================================================= */
 const rail = $('#rail');
@@ -536,9 +642,6 @@ rail.addEventListener('keydown', e => { if (e.key === 'ArrowRight') rail.scrollB
    5. Scroll choreography
    ========================================================= */
 function build() {
-  gsap.timeline({ scrollTrigger: { trigger: '#hero', start: 'top top', end: 'bottom bottom', scrub: reduced ? true : .5 } })
-    .fromTo('#heroMedia', { clipPath: 'inset(0% 0% 0% 0% round 0px)' }, { clipPath: 'inset(5% 4% 9% 4% round 26px)', ease: 'none' }, 0)
-    .to('.hero__copy', { yPercent: -16, opacity: 0, ease: 'none' }, 0);
 
   $$('[data-lines]').forEach(el => { if (el.id === 'heroTitle') return; ScrollTrigger.create({ trigger: el, start: 'top 88%', once: true, onEnter: () => reveal(el) }); });
   $$('.tape').forEach(el => { if (el.closest('.hero')) return; ScrollTrigger.create({ trigger: el, start: 'top 90%', once: true, onEnter: () => layTape(el) }); });
